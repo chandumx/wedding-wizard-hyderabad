@@ -5,6 +5,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Index from "./pages/Index";
 import LocationPage from "./pages/LocationPage";
+import Locations from "./pages/Locations";
 
 const queryClient = new QueryClient();
 
@@ -16,6 +17,7 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/locations" element={<Locations />} />
           <Route path="/location/:location" element={<LocationPage />} />
         </Routes>
       </BrowserRouter>
