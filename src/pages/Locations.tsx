@@ -20,6 +20,10 @@ const Locations = () => {
           Wedding Venues & Services by Location
         </h1>
         
+        <p className="text-center text-gray-600 max-w-2xl mx-auto mb-12">
+          Discover wedding venues and services across Hyderabad's most popular areas. From the historic charm of Old City to the modern luxury of Jubilee Hills, find the perfect location for your celebration.
+        </p>
+        
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {locations.map((location) => (
             <LocationCard
