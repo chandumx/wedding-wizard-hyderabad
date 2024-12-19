@@ -22,11 +22,142 @@ export const locations: Location[] = [
     areas: [
       { name: "Charminar Area", slug: "charminar" },
       { name: "Gowlipura", slug: "gowlipura" },
+      { name: "Chatrinaka", slug: "chatrinaka" },
       { name: "Pathergatti", slug: "pathergatti" },
       { name: "Shalibanda", slug: "shalibanda" },
+      { name: "Khilwat", slug: "khilwat" },
       { name: "Moghalpura", slug: "moghalpura" },
       { name: "Hussaini Alam", slug: "hussaini-alam" },
-      { name: "Falaknuma", slug: "falaknuma" }
+      { name: "Engine Bowli", slug: "engine-bowli" },
+      { name: "Jahanuma", slug: "jahanuma" },
+      { name: "Aliabad", slug: "aliabad" },
+      { name: "Vattepally", slug: "vattepally" },
+      { name: "Kala Pathar", slug: "kala-pathar" }
+    ]
+  },
+  {
+    name: "Bahadurpura",
+    slug: "bahadurpura",
+    image: "/placeholder.svg",
+    vendorCount: 120,
+    description: "Traditional wedding venues and services in the historic Bahadurpura area, known for its cultural heritage and authentic experiences.",
+    areas: [
+      { name: "Kishan Bagh", slug: "kishan-bagh" },
+      { name: "Zoo Park", slug: "zoo-park" },
+      { name: "Rajendranagar", slug: "rajendranagar" },
+      { name: "Tadbun", slug: "tadbun" }
+    ]
+  },
+  {
+    name: "Santosh Nagar",
+    slug: "santosh-nagar",
+    image: "/placeholder.svg",
+    vendorCount: 100,
+    description: "Discover affordable wedding venues and services in Santosh Nagar area, perfect for traditional celebrations.",
+    areas: [
+      { name: "Saidabad", slug: "saidabad" },
+      { name: "Champapet", slug: "champapet" },
+      { name: "IS Sadan", slug: "is-sadan" },
+      { name: "Kurmaguda", slug: "kurmaguda" },
+      { name: "Madannapet", slug: "madannapet" }
+    ]
+  },
+  {
+    name: "Barkas",
+    slug: "barkas",
+    image: "/placeholder.svg",
+    vendorCount: 80,
+    description: "Experience unique wedding venues in Barkas area, known for its distinctive cultural heritage and traditional celebration spaces.",
+    areas: [
+      { name: "Chandrayangutta", slug: "chandrayangutta" },
+      { name: "Hafiz Baba Nagar", slug: "hafiz-baba-nagar" },
+      { name: "Bandlaguda", slug: "bandlaguda" },
+      { name: "Owaisi Nagar", slug: "owaisi-nagar" }
+    ]
+  },
+  {
+    name: "Central Hyderabad",
+    slug: "central-hyderabad",
+    image: "/placeholder.svg",
+    vendorCount: 300,
+    description: "Premium wedding venues in the heart of Hyderabad, featuring a mix of historic and modern celebration spaces.",
+    areas: [
+      { name: "Nampally", slug: "nampally" },
+      { name: "Abids", slug: "abids" },
+      { name: "Troop Bazaar", slug: "troop-bazaar" },
+      { name: "Gunfoundry", slug: "gunfoundry" },
+      { name: "Mozamjahi Market", slug: "mozamjahi-market" },
+      { name: "Malakunta", slug: "malakunta" }
+    ]
+  },
+  {
+    name: "Hyderguda",
+    slug: "hyderguda",
+    image: "/placeholder.svg",
+    vendorCount: 150,
+    description: "Modern wedding venues and services in Hyderguda area, offering contemporary spaces for celebrations.",
+    areas: [
+      { name: "Basheerbagh", slug: "basheerbagh" },
+      { name: "King Koti", slug: "king-koti" },
+      { name: "Himayatnagar", slug: "himayatnagar" },
+      { name: "Domalguda", slug: "domalguda" }
+    ]
+  },
+  {
+    name: "Masab Tank",
+    slug: "masab-tank",
+    image: "/placeholder.svg",
+    vendorCount: 220,
+    description: "Explore a variety of wedding venues in Masab Tank, known for its accessibility and vibrant atmosphere.",
+    areas: [
+      { name: "Shah Ali Banda", slug: "shah-ali-banda" },
+      { name: "Kachiguda", slug: "kachiguda" },
+      { name: "Mahatma Gandhi Road", slug: "mahatma-gandhi-road" },
+      { name: "Shahpura", slug: "shahpura" }
+    ]
+  },
+  {
+    name: "Mehdipatnam",
+    slug: "mehdipatnam",
+    image: "/placeholder.svg",
+    vendorCount: 140,
+    description: "Central Hyderabad's popular wedding destination with a mix of traditional and modern venues.",
+    areas: [
+      { name: "NMDC", slug: "nmdc" },
+      { name: "Humayun Nagar", slug: "humayun-nagar" },
+      { name: "Rethi Bowli", slug: "rethi-bowli" },
+      { name: "Gudimalkapur", slug: "gudimalkapur" }
+    ]
+  },
+  {
+    name: "Secunderabad",
+    slug: "secunderabad",
+    image: "/placeholder.svg",
+    vendorCount: 200,
+    description: "Explore traditional and modern wedding venues in Secunderabad, featuring heritage buildings and contemporary event spaces.",
+    areas: [
+      { name: "Mettuguda", slug: "mettuguda" },
+      { name: "Marredpally (East & West)", slug: "marredpally" },
+      { name: "Trimulgherry", slug: "trimulgherry" },
+      { name: "Bowenpally", slug: "bowenpally" },
+      { name: "Bolarum", slug: "bolarum" },
+      { name: "Old Alwal", slug: "old-alwal" },
+      { name: "Venkatapuram", slug: "venkatapuram" },
+      { name: "Lothkunta", slug: "lothkunta" },
+      { name: "Bapuji Nagar", slug: "bapuji-nagar" }
+    ]
+  },
+  {
+    name: "Kompally",
+    slug: "kompally",
+    image: "/placeholder.svg",
+    vendorCount: 170,
+    description: "Discover wedding venues in Kompally, known for its spacious halls and beautiful surroundings.",
+    areas: [
+      { name: "Bachupally", slug: "bachupally" },
+      { name: "Kompally Main Road", slug: "kompally-main-road" },
+      { name: "Kompally Village", slug: "kompally-village" },
+      { name: "Kompally Cross Roads", slug: "kompally-cross-roads" }
     ]
   },
   {
@@ -53,20 +184,6 @@ export const locations: Location[] = [
       { name: "Road No. 45", slug: "road-45" },
       { name: "Film Nagar", slug: "film-nagar" },
       { name: "Journalist Colony", slug: "journalist-colony" }
-    ]
-  },
-  {
-    name: "Secunderabad",
-    slug: "secunderabad",
-    image: "/placeholder.svg",
-    vendorCount: 200,
-    description: "Explore traditional and modern wedding venues in Secunderabad, featuring heritage buildings and contemporary event spaces.",
-    areas: [
-      { name: "Mettuguda", slug: "mettuguda" },
-      { name: "Marredpally", slug: "marredpally" },
-      { name: "Trimulgherry", slug: "trimulgherry" },
-      { name: "Bowenpally", slug: "bowenpally" },
-      { name: "Bolarum", slug: "bolarum" }
     ]
   },
   {
@@ -132,19 +249,6 @@ export const locations: Location[] = [
       { name: "Nizampet", slug: "nizampet" },
       { name: "Bachupally", slug: "bachupally" },
       { name: "Balaji Nagar", slug: "balaji-nagar" }
-    ]
-  },
-  {
-    name: "Mehdipatnam",
-    slug: "mehdipatnam",
-    image: "/placeholder.svg",
-    vendorCount: 140,
-    description: "Central Hyderabad's popular wedding destination with a mix of traditional and modern venues.",
-    areas: [
-      { name: "NMDC", slug: "nmdc" },
-      { name: "Humayun Nagar", slug: "humayun-nagar" },
-      { name: "Rethi Bowli", slug: "rethi-bowli" },
-      { name: "Gudimalkapur", slug: "gudimalkapur" }
     ]
   }
 ];
