@@ -5,6 +5,7 @@ import Categories from "./pages/Categories";
 import LocationPage from "./pages/LocationPage";
 import SubLocationPage from "./pages/SubLocationPage";
 import CategoryLocationPage from "./pages/CategoryLocationPage";
+import SubCategoryPage from "./pages/SubCategoryPage";
 import "./App.css";
 
 function App() {
@@ -13,8 +14,10 @@ function App() {
       <Route path="/" element={<Index />} />
       <Route path="/locations" element={<Locations />} />
       <Route path="/categories" element={<Categories />} />
+      <Route path="/categories/:category" element={<SubCategoryPage />} />
       <Route path="/location/:location" element={<LocationPage />} />
       <Route path="/location/:location/:subLocation" element={<SubLocationPage />} />
+      <Route path="/location/:location/:category" element={<CategoryLocationPage />} />
       <Route path="/location/:location/:subLocation/:category" element={<CategoryLocationPage />} />
     </Routes>
   );
