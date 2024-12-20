@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { SEOHead } from "../components/SEOHead";
 import { Navbar } from "../components/Navbar";
 import { CategoryCard } from "../components/CategoryCard";
+import { locations } from "../data/locations";
 import { 
   Building2,
   Hotel,
@@ -23,7 +24,7 @@ import {
   Music2,
   PartyPopper,
   Drum,
-  Sparkle, // Replacing Firework with Sparkle
+  Sparkle,
   Users,
   PartyPopper as EventIcon,
   Briefcase,
@@ -35,7 +36,7 @@ import {
   Paintbrush,
   Flower,
   Scissors as SalonIcon,
-  Heart, // Replacing Spa with Heart
+  Heart,
   Mail,
   Gift,
   GiftIcon,
@@ -45,7 +46,7 @@ import {
   Building as AccommodationIcon,
   Hotel as HotelIcon,
   Home,
-  Church, // Replacing HandsPraying with Church
+  Church,
   Calculator,
   ShoppingCart,
   Baby
