@@ -53,6 +53,20 @@ const categoryDescriptions = {
     content: `Connect with experienced wedding planners who can help organize your perfect day. 
     From full-service planning to day-of coordination, find the right support for your needs.`,
   },
+  "rental-services": {
+    title: "Rental Services",
+    description: "Professional rental services for weddings",
+    content: `Find reliable rental services for your wedding needs including furniture, 
+    crockery, tableware, and other equipment. Our verified vendors provide high-quality 
+    rental items with professional delivery and setup services.
+    
+    Common rental items include:
+    - Tables, chairs, and furniture
+    - Tableware and crockery
+    - Tents and temporary structures
+    - Audio-visual equipment
+    - Decorative items and props`,
+  },
 };
 
 const CategoryLocationPage = () => {
@@ -63,7 +77,17 @@ const CategoryLocationPage = () => {
   const categoryInfo = categoryDescriptions[category as keyof typeof categoryDescriptions];
 
   if (!mainLocation || !area || !categoryInfo) {
-    return <div>Page not found</div>;
+    return (
+      <>
+        <Navbar />
+        <div className="container mx-auto px-4 py-16">
+          <h1 className="text-2xl font-semibold text-center">Page not found</h1>
+          <p className="text-center mt-4">
+            The requested category or location could not be found.
+          </p>
+        </div>
+      </>
+    );
   }
 
   const title = `${categoryInfo.title} in ${area.name}, ${mainLocation.name} | Best Wedding Services`;
