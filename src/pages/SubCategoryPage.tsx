@@ -26,7 +26,12 @@ const SubCategoryPage = () => {
       <SEOHead
         title={`${categoryInfo.title} Venues & Services in Hyderabad | Find Local Vendors`}
         description={`Discover ${categoryInfo.title.toLowerCase()} across different areas of Hyderabad. Compare prices and book trusted vendors for your celebration.`}
-        keywords={`${category} hyderabad, wedding ${category} hyderabad locations, ${category} services hyderabad areas`}
+        keywords={[
+          `${category} hyderabad`,
+          `wedding ${category} hyderabad locations`,
+          `${category} services hyderabad areas`,
+          `best ${category} hyderabad`
+        ]}
         canonicalUrl={`https://yourwebsite.com/categories/${category}`}
       />
       

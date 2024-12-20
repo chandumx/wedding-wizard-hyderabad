@@ -59,7 +59,13 @@ const Index = () => {
       <SEOHead
         title="Wedding Venues & Services in Hyderabad | Find Top Wedding Vendors"
         description="Discover the best wedding venues, caterers, photographers, and more in Hyderabad. Compare prices, read reviews, and book trusted vendors for your special day."
-        keywords="wedding venues hyderabad, wedding halls hyderabad, wedding caterers hyderabad, wedding photographers hyderabad"
+        keywords={[
+          "wedding venues hyderabad",
+          "wedding halls hyderabad",
+          "wedding caterers hyderabad",
+          "wedding photographers hyderabad",
+          "wedding services hyderabad"
+        ]}
         canonicalUrl="https://yourwebsite.com"
       />
       

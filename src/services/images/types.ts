@@ -16,3 +16,7 @@ export interface ImageProvider {
   search: (query: string) => Promise<ImageResult[]>;
   name: string;
 }
+
+export interface FallbackImages {
+  [key: string]: string;
+}

@@ -375,7 +375,14 @@ const SubLocationPage = () => {
       <SEOHead
         title={`Wedding Services in ${area.name}, ${mainLocation.name} | Find Local Vendors`}
         description={`Discover wedding venues and services in ${area.name}, ${mainLocation.name}. Compare prices and book trusted vendors for your wedding celebration.`}
-        keywords={`wedding services ${area.name}, wedding vendors ${area.name}, ${mainLocation.name} wedding services`}
+        keywords={[
+          `wedding services ${area.name}`,
+          `wedding vendors ${area.name}`,
+          `${mainLocation.name} wedding services`,
+          `wedding venues ${area.name}`,
+          `wedding halls ${area.name}`,
+          `marriage halls ${mainLocation.name}`
+        ]}
         canonicalUrl={`https://yourwebsite.com/location/${location}/${subLocation}`}
       />
       

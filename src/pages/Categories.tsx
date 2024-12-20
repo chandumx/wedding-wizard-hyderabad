@@ -10,7 +10,7 @@ const Categories = () => {
       <SEOHead
         title="Wedding Categories | Find Local Vendors"
         description="Explore our comprehensive list of wedding service categories. Find and book trusted vendors for your special day."
-        keywords="wedding categories, wedding services, wedding vendors"
+        keywords={["wedding categories", "wedding services", "wedding vendors", "wedding planning"]}
         canonicalUrl="https://yourwebsite.com/categories"
       />
       

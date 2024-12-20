@@ -12,7 +12,12 @@ const Locations = () => {
       <SEOHead
         title="Wedding Venues by Location in Hyderabad | Find Local Wedding Services"
         description="Explore wedding venues and services across different areas of Hyderabad. Find the perfect location for your wedding celebration."
-        keywords="wedding venues hyderabad, wedding halls hyderabad locations, wedding services hyderabad areas"
+        keywords={[
+          "wedding venues hyderabad",
+          "wedding halls hyderabad locations",
+          "wedding services hyderabad areas",
+          "hyderabad wedding locations"
+        ]}
         canonicalUrl="https://yourwebsite.com/locations"
       />
       

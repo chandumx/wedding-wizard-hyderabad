@@ -23,7 +23,12 @@ const locationContent = {
       - Premium catering services
       - Elegant decor options
     `,
-    keywords: "wedding halls jubilee hills, marriage halls jubilee hills, banquet halls jubilee hills, wedding venues jubilee hills hyderabad",
+    keywords: [
+      "wedding halls jubilee hills",
+      "marriage halls jubilee hills",
+      "banquet halls jubilee hills",
+      "wedding venues jubilee hills hyderabad"
+    ],
   },
   // Add more locations as needed
 };
