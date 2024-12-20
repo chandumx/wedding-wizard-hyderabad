@@ -1,13 +1,18 @@
 import { Location } from './types';
 import { oldCityLocations } from './old-city';
 import { centralLocations } from './central';
-
-// Import all other location files here...
+import { westLocations } from './west';
+import { northLocations } from './north';
+import { eastLocations } from './east';
+import { southLocations } from './south';
 
 export const locations: Location[] = [
   oldCityLocations,
   centralLocations,
-  // Add other locations here...
+  westLocations,
+  northLocations,
+  eastLocations,
+  southLocations
 ];
 
 export * from './types';
