@@ -10,6 +10,10 @@ export interface Location {
 export interface SubLocation {
   name: string;
   slug: string;
-  vendorCount: number;  // Making vendorCount required instead of optional
+  vendorCount: number;
   description?: string;
+  location?: {
+    lat: number;
+    lng: number;
+  };
 }

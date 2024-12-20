@@ -28,6 +28,10 @@ const CategoryLocationPage = () => {
   const title = `${categoryInfo.title} in ${area.name}, ${mainLocation.name}`;
   const description = `Discover ${categoryInfo.description.toLowerCase()} in ${area.name}, ${mainLocation.name}. Compare prices and book trusted vendors for your wedding celebration.`;
 
+  // Default coordinates for Hyderabad if location is not specified
+  const defaultLocation = { lat: 17.3850, lng: 78.4867 };
+  const areaLocation = area.location || defaultLocation;
+
   return (
     <>
       <SEOHead
@@ -48,7 +52,7 @@ const CategoryLocationPage = () => {
         <div className="mt-8">
           <PlacesList 
             query={`${categoryInfo.title} in ${area.name}, ${mainLocation.name}`}
-            location={{ lat: area.location?.lat || 17.3850, lng: area.location?.lng || 78.4867 }}
+            location={areaLocation}
           />
         </div>
       </main>
