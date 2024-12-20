@@ -4,7 +4,6 @@ import { Navbar } from "../components/Navbar";
 import { CategoryContent } from "../components/categories/CategoryContent";
 import { categoryDescriptions } from "../data/categoryDescriptions";
 import { locations } from "../data/locations";
-import { ApiKeyInput } from "../components/ApiKeyInput";
 import { PlacesList } from "../components/PlacesList";
 
 const CategoryLocationPage = () => {
@@ -46,8 +45,6 @@ const CategoryLocationPage = () => {
       <main className="container mx-auto px-4 py-16">
         <h1 className="text-4xl font-display font-bold mb-6">{title}</h1>
         <p className="text-lg text-gray-600 mb-8">{description}</p>
-        
-        <ApiKeyInput />
         
         <div className="mt-8">
           <PlacesList 

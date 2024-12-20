@@ -15,19 +15,14 @@ export const searchPlaces = async (
   query: string,
   location: { lat: number; lng: number }
 ): Promise<PlaceResult[]> => {
-  const apiKey = localStorage.getItem('GOOGLE_PLACES_API_KEY');
+  const API_KEY = 'AIzaSyA5ct4MJsei6Y5EyyakNATfhTWz0uwVTDI';
   
-  if (!apiKey) {
-    toast.error("Please enter your Google Places API key first");
-    return [];
-  }
-
   try {
     const response = await fetch('https://places.googleapis.com/v1/places:searchText', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'X-Goog-Api-Key': apiKey,
+        'X-Goog-Api-Key': API_KEY,
         'X-Goog-FieldMask': 'places.displayName,places.formattedAddress,places.rating,places.userRatingCount,places.websiteUri'
       },
       body: JSON.stringify({
@@ -60,4 +55,4 @@ export const searchPlaces = async (
     }
     return [];
   }
-}
+};
