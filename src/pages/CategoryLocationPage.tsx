@@ -4,25 +4,116 @@ import { Navbar } from "../components/Navbar";
 import { locations } from "../data/locations";
 
 const categoryDescriptions = {
-  venues: {
-    title: "Wedding Venues",
-    description: "Find the perfect wedding venue for your special day",
-    content: `Our curated selection of wedding venues offers spaces for every style and budget. 
-    Each venue is carefully vetted to ensure quality service and memorable experiences. 
-    Compare prices, check availability, and book your perfect wedding venue.`,
+  // Venues
+  "banquet-halls": {
+    title: "Banquet Halls",
+    description: "Elegant banquet halls for your celebrations",
+    content: `Discover premium banquet halls perfect for your wedding celebrations. Our curated venues 
+    offer elegant spaces with modern amenities and professional services.`,
   },
-  photography: {
-    title: "Wedding Photography",
-    description: "Professional wedding photographers to capture your moments",
-    content: `Discover talented photographers who specialize in wedding photography. 
-    Browse through portfolios, compare packages, and find the perfect photographer to capture your special day.`,
+  "open-venues": {
+    title: "Open Lawns & Gardens",
+    description: "Beautiful outdoor venues for ceremonies",
+    content: `Host your wedding in beautiful outdoor settings. Our collection of open lawns and gardens 
+    provides the perfect backdrop for memorable celebrations.`,
   },
-  catering: {
-    title: "Wedding Catering",
-    description: "Expert catering services for your wedding",
-    content: `Choose from a wide selection of wedding caterers offering diverse cuisine options. 
-    From traditional delicacies to modern fusion dishes, find the perfect menu for your wedding.`,
+  "hotels-resorts": {
+    title: "Hotels & Resorts",
+    description: "Luxury hotels and resorts for weddings",
+    content: `Choose from premium hotels and resorts that offer complete wedding packages with 
+    accommodation, catering, and event management services.`,
   },
+  "farmhouses": {
+    title: "Farmhouses",
+    description: "Spacious farmhouses for private celebrations",
+    content: `Book spacious farmhouses for private wedding celebrations. Perfect for both intimate 
+    gatherings and grand celebrations with ample parking and amenities.`,
+  },
+  "convention-centers": {
+    title: "Convention Centers",
+    description: "Large convention centers for grand events",
+    content: `Plan your grand wedding at our spacious convention centers. Ideal for large gatherings 
+    with state-of-the-art facilities and professional management.`,
+  },
+
+  // Catering
+  "traditional-cuisine": {
+    title: "Traditional Indian Cuisine",
+    description: "Authentic Indian wedding cuisine",
+    content: `Experience authentic Indian wedding cuisine prepared by expert chefs. Choose from a 
+    variety of regional specialties and traditional favorites.`,
+  },
+  "multi-cuisine": {
+    title: "Multi-Cuisine Catering",
+    description: "Diverse menu options for all tastes",
+    content: `Offer your guests a diverse culinary experience with our multi-cuisine catering services. 
+    From Indian to International cuisines, we have it all.`,
+  },
+  "sweets-desserts": {
+    title: "Sweets & Desserts",
+    description: "Wedding sweets and dessert specialists",
+    content: `Add sweetness to your celebrations with our premium dessert services. Choose from 
+    traditional Indian sweets to modern desserts and custom cakes.`,
+  },
+  "live-counters": {
+    title: "Live Food Counters",
+    description: "Interactive food stations and counters",
+    content: `Enhance your wedding menu with interactive live counters. From chaat to international 
+    cuisines, create memorable dining experiences.`,
+  },
+
+  // Decoration
+  "floral-decor": {
+    title: "Floral Decor",
+    description: "Elegant floral arrangements and designs",
+    content: `Transform your venue with stunning floral decorations. Our florists create beautiful 
+    arrangements using fresh flowers and innovative designs.`,
+  },
+  "lighting": {
+    title: "Lighting & Ambience",
+    description: "Professional lighting and ambiance setup",
+    content: `Create the perfect ambiance with professional lighting solutions. From LED walls to 
+    mood lighting, we offer complete lighting packages.`,
+  },
+  "theme-decor": {
+    title: "Theme-Based Decor",
+    description: "Customized themed decorations",
+    content: `Make your wedding unique with custom theme-based decorations. Our designers create 
+    immersive experiences based on your chosen theme.`,
+  },
+  "stage-design": {
+    title: "Stage & Mandap Design",
+    description: "Beautiful stage and mandap setups",
+    content: `Choose from elegant stage and mandap designs for your wedding ceremonies. We offer 
+    both traditional and contemporary designs.`,
+  },
+
+  // Photography
+  "traditional-photography": {
+    title: "Traditional Photography",
+    description: "Classic wedding photography services",
+    content: `Capture your wedding moments with traditional photography. Our photographers specialize 
+    in formal portraits and ceremony coverage.`,
+  },
+  "candid-photography": {
+    title: "Candid Photography",
+    description: "Natural and candid moment capture",
+    content: `Document genuine moments with our candid photography services. Our photographers 
+    capture the real emotions and spontaneous moments.`,
+  },
+  "wedding-films": {
+    title: "Wedding Films",
+    description: "Cinematic wedding video production",
+    content: `Create cinematic wedding films that tell your story. Our videographers use 
+    professional equipment and creative techniques.`,
+  },
+  "drone-coverage": {
+    title: "Drone Coverage",
+    description: "Aerial photography and videography",
+    content: `Add a unique perspective to your wedding coverage with drone photography and 
+    videography services.`,
+  },
+
   entertainment: {
     title: "Wedding Entertainment",
     description: "Music and entertainment services for weddings",
@@ -53,6 +144,7 @@ const categoryDescriptions = {
     content: `Connect with experienced wedding planners who can help organize your perfect day. 
     From full-service planning to day-of coordination, find the right support for your needs.`,
   },
+
   "rental-services": {
     title: "Rental Services",
     description: "Professional rental services for weddings",
