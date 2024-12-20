@@ -23,7 +23,7 @@ import {
   Music2,
   PartyPopper,
   Drum,
-  Firework,
+  Sparkle, // Replacing Firework with Sparkle
   Users,
   PartyPopper as EventIcon,
   Briefcase,
@@ -35,7 +35,7 @@ import {
   Paintbrush,
   Flower,
   Scissors as SalonIcon,
-  Spa,
+  Heart, // Replacing Spa with Heart
   Mail,
   Gift,
   GiftIcon,
@@ -45,7 +45,7 @@ import {
   Building as AccommodationIcon,
   Hotel as HotelIcon,
   Home,
-  HandsPraying,
+  Church, // Replacing HandsPraying with Church
   Calculator,
   ShoppingCart,
   Baby
@@ -184,7 +184,7 @@ const categories = [
   },
   {
     title: "Fireworks",
-    icon: Firework,
+    icon: Sparkle, // Updated icon
     description: "Professional fireworks displays",
     link: "fireworks"
   },
@@ -262,7 +262,7 @@ const categories = [
   },
   {
     title: "Spa & Pre-Wedding Packages",
-    icon: Spa,
+    icon: Heart, // Updated icon
     description: "Relaxing spa treatments",
     link: "spa"
   },
@@ -336,7 +336,7 @@ const categories = [
   // Others
   {
     title: "Pandits & Religious Services",
-    icon: HandsPraying,
+    icon: Church, // Updated icon
     description: "Traditional ceremony services",
     link: "religious-services"
   },
