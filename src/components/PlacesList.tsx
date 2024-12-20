@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { searchPlaces } from "../services/placesService";
 import { Card } from "./ui/card";
-import { Star } from "lucide-react";
+import { Star, MapPin, Globe } from "lucide-react";
 
 interface Place {
   displayName: {
@@ -37,35 +37,56 @@ export const PlacesList = ({ query, location }: PlacesListProps) => {
   }, [query, location]);
 
   if (loading) {
-    return <div className="text-center py-8">Loading places...</div>;
+    return (
+      <div className="flex items-center justify-center py-12">
+        <div className="text-lg text-gray-600">Loading places...</div>
+      </div>
+    );
   }
 
   if (places.length === 0) {
-    return <div className="text-center py-8">No places found</div>;
+    return (
+      <div className="flex items-center justify-center py-12">
+        <div className="text-lg text-gray-600">No places found</div>
+      </div>
+    );
   }
 
   return (
-    <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+    <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
       {places.map((place, index) => (
-        <Card key={index} className="p-4">
-          <h3 className="font-semibold mb-2">{place.displayName.text}</h3>
-          <p className="text-sm text-gray-600 mb-2">{place.formattedAddress}</p>
-          {place.rating && (
-            <div className="flex items-center gap-1 text-sm text-gray-600">
-              <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-              <span>{place.rating}</span>
-              {place.userRatingCount && (
-                <span className="text-gray-400">({place.userRatingCount} reviews)</span>
-              )}
+        <Card 
+          key={index} 
+          className="p-6 hover:shadow-lg transition-shadow duration-300 flex flex-col justify-between"
+        >
+          <div>
+            <h3 className="text-xl font-display font-semibold mb-3 text-left">
+              {place.displayName.text}
+            </h3>
+            <div className="flex items-start gap-2 mb-3 text-gray-600">
+              <MapPin className="w-4 h-4 mt-1 flex-shrink-0" />
+              <p className="text-sm text-left">{place.formattedAddress}</p>
             </div>
-          )}
+            {place.rating && (
+              <div className="flex items-center gap-2 mb-3">
+                <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                <span className="font-medium">{place.rating}</span>
+                {place.userRatingCount && (
+                  <span className="text-sm text-gray-500">
+                    ({place.userRatingCount} reviews)
+                  </span>
+                )}
+              </div>
+            )}
+          </div>
           {place.websiteUri && (
             <a
               href={place.websiteUri}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm text-primary hover:underline mt-2 block"
+              className="inline-flex items-center gap-2 text-primary hover:underline mt-4 text-sm"
             >
+              <Globe className="w-4 h-4" />
               Visit Website
             </a>
           )}
