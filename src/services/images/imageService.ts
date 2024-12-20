@@ -1,54 +1,51 @@
-import { ImageResult, ImageCache } from './types';
-import { searchUnsplash } from './unsplashProvider';
-import { searchPexels } from './pexelsProvider';
-import { searchPixabay } from './pixabayProvider';
-import { searchGooglePlaces } from './googlePlacesProvider';
-import { getFallbackImage } from './fallbackImages';
+import { ImageResult } from './types';
+import { imageCache } from './cache';
+import { LOCATION_FALLBACKS } from './config';
+import { 
+  unsplashProvider,
+  pexelsProvider,
+  pixabayProvider,
+  googlePlacesProvider
+} from './providers';
 
-const CACHE_DURATION = 1000 * 60 * 60; // 1 hour
-const cache: ImageCache = {};
+const providers = [
+  unsplashProvider,
+  pexelsProvider,
+  pixabayProvider,
+  googlePlacesProvider
+];
+
+const getFallbackImage = (query: string): string => {
+  const locationKey = Object.keys(LOCATION_FALLBACKS).find(key => 
+    query.toLowerCase().includes(key)
+  );
+  return LOCATION_FALLBACKS[locationKey || 'default'];
+};
 
 export const searchImages = async (query: string): Promise<ImageResult[]> => {
   try {
     const cacheKey = query.toLowerCase();
-    const now = Date.now();
-    const cachedData = cache[cacheKey];
+    const cachedResults = imageCache.get(cacheKey);
     
-    if (cachedData && (now - cachedData.timestamp) < CACHE_DURATION) {
+    if (cachedResults) {
       console.log('Returning cached results');
-      return cachedData.images;
+      return cachedResults;
     }
 
-    let results: ImageResult[] = [];
-    
-    // Try each API in sequence
-    const apis = [
-      { fn: searchUnsplash, name: 'Unsplash' },
-      { fn: searchPexels, name: 'Pexels' },
-      { fn: searchPixabay, name: 'Pixabay' },
-      { fn: searchGooglePlaces, name: 'Google Places' }
-    ];
-
-    for (const api of apis) {
-      if (results.length === 0) {
-        try {
-          results = await api.fn(query);
-          console.log(`${api.name} results:`, results.length);
-        } catch (error) {
-          console.log(`${api.name} failed, trying next API`);
+    for (const provider of providers) {
+      try {
+        const results = await provider.search(query);
+        if (results.length > 0) {
+          console.log(`${provider.name} results:`, results.length);
+          imageCache.set(cacheKey, results);
+          return results;
         }
+      } catch (error) {
+        console.log(`${provider.name} failed, trying next provider`);
       }
     }
 
-    if (results.length > 0) {
-      cache[cacheKey] = {
-        images: results,
-        timestamp: now
-      };
-      return results;
-    }
-
-    // If all APIs fail, return a fallback image
+    // If all providers fail, return a fallback image
     return [{ url: getFallbackImage(query), alt: query }];
   } catch (error) {
     console.error('Error fetching images:', error);

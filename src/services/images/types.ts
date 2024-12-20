@@ -12,6 +12,7 @@ export interface ImageCache {
   [key: string]: CacheEntry;
 }
 
-export interface FallbackImages {
-  [key: string]: string;
+export interface ImageProvider {
+  search: (query: string) => Promise<ImageResult[]>;
+  name: string;
 }
