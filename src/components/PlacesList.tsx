@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { searchPlaces } from "../services/placesService";
 import { Card } from "./ui/card";
-import { Star, MapPin, Globe } from "lucide-react";
+import { Star, MapPin, Globe, Navigation } from "lucide-react";
+import { Button } from "./ui/button";
 
 interface Place {
   displayName: {
@@ -35,6 +36,10 @@ export const PlacesList = ({ query, location }: PlacesListProps) => {
       fetchPlaces();
     }
   }, [query, location]);
+
+  const getGoogleMapsUrl = (address: string) => {
+    return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
+  };
 
   if (loading) {
     return (
@@ -79,17 +84,28 @@ export const PlacesList = ({ query, location }: PlacesListProps) => {
               </div>
             )}
           </div>
-          {place.websiteUri && (
+          <div className="flex items-center gap-3 mt-4">
+            {place.websiteUri && (
+              <a
+                href={place.websiteUri}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-primary hover:underline text-sm"
+              >
+                <Globe className="w-4 h-4" />
+                Visit Website
+              </a>
+            )}
             <a
-              href={place.websiteUri}
+              href={getGoogleMapsUrl(place.formattedAddress)}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-primary hover:underline mt-4 text-sm"
+              className="inline-flex items-center gap-2 text-primary hover:underline text-sm"
             >
-              <Globe className="w-4 h-4" />
-              Visit Website
+              <Navigation className="w-4 h-4" />
+              View on Maps
             </a>
-          )}
+          </div>
         </Card>
       ))}
     </div>
