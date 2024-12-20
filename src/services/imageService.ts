@@ -3,6 +3,8 @@ import { toast } from "sonner";
 const UNSPLASH_ACCESS_KEY = 'DNH7NdnkE5bHSFWaNL9lsnw-iGRPl7SAoBI9ssLqk2M';
 const PEXELS_API_KEY = 'LHnYgHDxPvPMktxIKCwBcgXTEelbTyEPMH8a3D2LxdRo8aDqhIEEMUh9';
 const PIXABAY_API_KEY = '21764229-f2bda4677445f1ed3fee62bb4';
+const GOOGLE_API_KEY = 'AIzaSyA5ct4MJsei6Y5EyyakNATfhTWz0uwVTDI';
+const GOOGLE_SEARCH_ENGINE_ID = '99f2770f414134e60';
 
 interface ImageResult {
   url: string;
@@ -126,6 +128,30 @@ const searchPixabay = async (query: string): Promise<ImageResult[]> => {
   }
 };
 
+const searchGoogleImages = async (query: string): Promise<ImageResult[]> => {
+  try {
+    const response = await fetch(
+      `https://customsearch.googleapis.com/customsearch/v1?key=${GOOGLE_API_KEY}&cx=${GOOGLE_SEARCH_ENGINE_ID}&q=${encodeURIComponent(query)}&searchType=image&num=1`
+    );
+
+    if (!response.ok) {
+      throw new Error(`Google API error: ${response.status}`);
+    }
+
+    const data = await response.json();
+    if (data.items && data.items.length > 0) {
+      return data.items.map((item: any) => ({
+        url: item.link,
+        alt: item.title
+      }));
+    }
+    return [];
+  } catch (error) {
+    console.log('Google Search API error:', error);
+    return [];
+  }
+};
+
 export const searchImages = async (query: string): Promise<ImageResult[]> => {
   try {
     const cacheKey = query.toLowerCase();
@@ -137,35 +163,43 @@ export const searchImages = async (query: string): Promise<ImageResult[]> => {
       return cachedData.images;
     }
 
-    // Try each API in sequence with proper error handling
     let results: ImageResult[] = [];
     
-    // Try Unsplash first
+    // Try each API in sequence with proper error handling
     try {
       results = await searchUnsplash(query);
+      console.log('Unsplash results:', results.length);
     } catch (error) {
       console.log('Unsplash failed, trying Pexels');
     }
 
-    // If Unsplash fails or returns no results, try Pexels
     if (results.length === 0) {
       try {
         results = await searchPexels(query);
+        console.log('Pexels results:', results.length);
       } catch (error) {
         console.log('Pexels failed, trying Pixabay');
       }
     }
 
-    // If both Unsplash and Pexels fail, try Pixabay
     if (results.length === 0) {
       try {
         results = await searchPixabay(query);
+        console.log('Pixabay results:', results.length);
       } catch (error) {
-        console.log('Pixabay failed, using fallback image');
+        console.log('Pixabay failed, trying Google Images');
       }
     }
 
-    // If we got results from any API, cache them
+    if (results.length === 0) {
+      try {
+        results = await searchGoogleImages(query);
+        console.log('Google Images results:', results.length);
+      } catch (error) {
+        console.log('Google Images failed, using fallback image');
+      }
+    }
+
     if (results.length > 0) {
       cache[cacheKey] = {
         images: results,
