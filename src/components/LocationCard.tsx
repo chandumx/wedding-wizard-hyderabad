@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getRandomImage } from "../services/imageService";
+import { Skeleton } from "./ui/skeleton";
 
 interface LocationCardProps {
   name: string;
@@ -11,17 +12,35 @@ interface LocationCardProps {
 
 export const LocationCard = ({ name, image, vendorCount, link }: LocationCardProps) => {
   const [imageUrl, setImageUrl] = useState(image);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     const loadImage = async () => {
       if (image === '/placeholder.svg') {
-        const newImage = await getRandomImage(`${name} location hyderabad india`);
-        setImageUrl(newImage);
+        try {
+          setIsLoading(true);
+          const newImage = await getRandomImage(`${name} location hyderabad india`);
+          setImageUrl(newImage);
+          setError(false);
+        } catch (err) {
+          console.error('Error loading image:', err);
+          setImageUrl('/placeholder.svg');
+          setError(true);
+        } finally {
+          setIsLoading(false);
+        }
+      } else {
+        setIsLoading(false);
       }
     };
 
     loadImage();
   }, [name, image]);
+
+  if (isLoading) {
+    return <Skeleton className="h-48 w-full rounded-lg" />;
+  }
 
   return (
     <Link to={link} className="block">
@@ -29,8 +48,11 @@ export const LocationCard = ({ name, image, vendorCount, link }: LocationCardPro
         <img 
           src={imageUrl} 
           alt={name} 
-          className="w-full h-48 object-cover"
-          onError={() => setImageUrl('/placeholder.svg')}
+          className={`w-full h-48 object-cover ${error ? 'opacity-80' : ''}`}
+          onError={() => {
+            setImageUrl('/placeholder.svg');
+            setError(true);
+          }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent">
           <div className="absolute bottom-0 p-4 text-white">

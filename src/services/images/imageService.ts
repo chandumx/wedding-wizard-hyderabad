@@ -1,12 +1,13 @@
 import { ImageResult } from './types';
 import { imageCache } from './cache';
-import { LOCATION_FALLBACKS } from './config';
+import { getFallbackImage } from './fallbackImages';
 import { 
   unsplashProvider,
   pexelsProvider,
   pixabayProvider,
   googlePlacesProvider
 } from './providers';
+import { toast } from 'sonner';
 
 const providers = [
   unsplashProvider,
@@ -14,13 +15,6 @@ const providers = [
   pixabayProvider,
   googlePlacesProvider
 ];
-
-const getFallbackImage = (query: string): string => {
-  const locationKey = Object.keys(LOCATION_FALLBACKS).find(key => 
-    query.toLowerCase().includes(key)
-  );
-  return LOCATION_FALLBACKS[locationKey || 'default'];
-};
 
 export const searchImages = async (query: string): Promise<ImageResult[]> => {
   try {
@@ -32,6 +26,8 @@ export const searchImages = async (query: string): Promise<ImageResult[]> => {
       return cachedResults;
     }
 
+    let lastError: Error | null = null;
+
     for (const provider of providers) {
       try {
         const results = await provider.search(query);
@@ -41,15 +37,24 @@ export const searchImages = async (query: string): Promise<ImageResult[]> => {
           return results;
         }
       } catch (error) {
-        console.log(`${provider.name} failed, trying next provider`);
+        lastError = error as Error;
+        console.warn(`${provider.name} failed:`, error);
       }
     }
 
-    // If all providers fail, return a fallback image
-    return [{ url: getFallbackImage(query), alt: query }];
+    // If all providers fail, use fallback image
+    const fallbackUrl = getFallbackImage(query);
+    const fallbackResult = [{ url: fallbackUrl, alt: query }];
+    
+    if (lastError) {
+      toast.error('Unable to load image from providers, using fallback image');
+    }
+    
+    return fallbackResult;
   } catch (error) {
     console.error('Error fetching images:', error);
-    return [{ url: getFallbackImage(query), alt: query }];
+    const fallbackUrl = getFallbackImage(query);
+    return [{ url: fallbackUrl, alt: query }];
   }
 };
 
