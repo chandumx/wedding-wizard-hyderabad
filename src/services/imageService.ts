@@ -89,10 +89,13 @@ const searchPexels = async (query: string): Promise<ImageResult[]> => {
     }
 
     const data = await response.json();
-    return data.photos.map((photo: any) => ({
-      url: photo.src.large,
-      alt: photo.alt
-    }));
+    if (data.photos && data.photos.length > 0) {
+      return data.photos.map((photo: any) => ({
+        url: photo.src.large,
+        alt: photo.alt
+      }));
+    }
+    return [];
   } catch (error) {
     console.log('Pexels API error:', error);
     return [];
@@ -110,10 +113,13 @@ const searchPixabay = async (query: string): Promise<ImageResult[]> => {
     }
 
     const data = await response.json();
-    return data.hits.map((img: any) => ({
-      url: img.webformatURL,
-      alt: img.tags
-    }));
+    if (data.hits && data.hits.length > 0) {
+      return data.hits.map((img: any) => ({
+        url: img.webformatURL,
+        alt: img.tags
+      }));
+    }
+    return [];
   } catch (error) {
     console.log('Pixabay API error:', error);
     return [];
@@ -131,17 +137,35 @@ export const searchImages = async (query: string): Promise<ImageResult[]> => {
       return cachedData.images;
     }
 
+    // Try each API in sequence with proper error handling
     let results: ImageResult[] = [];
     
-    // Try each API in sequence
-    results = await searchUnsplash(query);
-    if (results.length === 0) {
-      results = await searchPexels(query);
-    }
-    if (results.length === 0) {
-      results = await searchPixabay(query);
+    // Try Unsplash first
+    try {
+      results = await searchUnsplash(query);
+    } catch (error) {
+      console.log('Unsplash failed, trying Pexels');
     }
 
+    // If Unsplash fails or returns no results, try Pexels
+    if (results.length === 0) {
+      try {
+        results = await searchPexels(query);
+      } catch (error) {
+        console.log('Pexels failed, trying Pixabay');
+      }
+    }
+
+    // If both Unsplash and Pexels fail, try Pixabay
+    if (results.length === 0) {
+      try {
+        results = await searchPixabay(query);
+      } catch (error) {
+        console.log('Pixabay failed, using fallback image');
+      }
+    }
+
+    // If we got results from any API, cache them
     if (results.length > 0) {
       cache[cacheKey] = {
         images: results,
