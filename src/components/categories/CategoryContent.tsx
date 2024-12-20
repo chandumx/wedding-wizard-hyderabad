@@ -1,4 +1,5 @@
 import React from 'react';
+import { CheckCircle, DollarSign, MapPin, Calendar, Star } from 'lucide-react';
 
 interface CategoryContentProps {
   title: string;
@@ -7,6 +8,29 @@ interface CategoryContentProps {
 }
 
 export const CategoryContent = ({ title, description, content }: CategoryContentProps) => {
+  const benefits = [
+    {
+      icon: CheckCircle,
+      text: "Carefully vetted and trusted vendors"
+    },
+    {
+      icon: DollarSign,
+      text: "Competitive prices and special packages"
+    },
+    {
+      icon: MapPin,
+      text: "Local expertise and knowledge"
+    },
+    {
+      icon: Calendar,
+      text: "Easy booking and scheduling"
+    },
+    {
+      icon: Star,
+      text: "Verified customer reviews"
+    }
+  ];
+
   return (
     <div className="max-w-4xl mx-auto">
       <h1 className="text-4xl font-display font-bold mb-6">
@@ -31,13 +55,17 @@ export const CategoryContent = ({ title, description, content }: CategoryContent
           <h2 className="text-2xl font-display font-semibold">
             Why Choose Our Services?
           </h2>
-          <ul className="list-disc pl-6 space-y-2">
-            <li>Carefully vetted and trusted vendors</li>
-            <li>Competitive prices and special packages</li>
-            <li>Local expertise and knowledge</li>
-            <li>Easy booking and scheduling</li>
-            <li>Verified customer reviews</li>
-          </ul>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {benefits.map((benefit, index) => (
+              <div 
+                key={index}
+                className="flex items-start gap-3 p-4 bg-secondary rounded-lg transition-all duration-300 hover:shadow-md"
+              >
+                <benefit.icon className="w-6 h-6 text-primary flex-shrink-0" />
+                <span className="text-gray-700">{benefit.text}</span>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>
