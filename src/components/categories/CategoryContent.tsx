@@ -56,15 +56,21 @@ export const CategoryContent = ({ title, description, content }: CategoryContent
             Why Choose Our Services?
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {benefits.map((benefit, index) => (
+            {benefits.slice(0, 4).map((benefit, index) => (
               <div 
                 key={index}
-                className="flex items-start gap-3 p-4 bg-secondary rounded-lg transition-all duration-300 hover:shadow-md"
+                className="flex items-start gap-3 p-4 bg-secondary rounded-lg transition-all duration-300 hover:shadow-md hover:-translate-y-1 card-hover"
               >
                 <benefit.icon className="w-6 h-6 text-primary flex-shrink-0" />
                 <span className="text-gray-700">{benefit.text}</span>
               </div>
             ))}
+            <div 
+              className="flex items-start gap-3 p-4 bg-secondary rounded-lg transition-all duration-300 hover:shadow-md hover:-translate-y-1 card-hover md:col-span-2 mx-auto max-w-md"
+            >
+              <Star className="w-6 h-6 text-primary flex-shrink-0" />
+              <span className="text-gray-700">Verified customer reviews</span>
+            </div>
           </div>
         </div>
       </div>
