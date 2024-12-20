@@ -42,15 +42,23 @@ const SubCategoryPage = () => {
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="space-y-12">
           {locations.map((location) => (
-            <LocationCard
-              key={location.slug}
-              name={location.name}
-              image={location.image}
-              vendorCount={location.vendorCount}
-              link={`/location/${location.slug}/${category}`}
-            />
+            <div key={location.slug} className="space-y-6">
+              <h2 className="text-2xl font-display font-semibold border-b pb-2">{location.name}</h2>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {location.areas.map((area) => (
+                  <LocationCard
+                    key={area.slug}
+                    name={area.name}
+                    image="/placeholder.svg"
+                    vendorCount={area.vendorCount}
+                    link={`/location/${location.slug}/${area.slug}/${category}`}
+                  />
+                ))}
+              </div>
+            </div>
           ))}
         </div>
       </main>
