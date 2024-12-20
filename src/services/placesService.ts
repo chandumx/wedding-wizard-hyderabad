@@ -1,4 +1,5 @@
 import { toast } from "sonner";
+import { connectToMongo } from "./mongoService";
 
 interface PlaceResult {
   displayName: {
@@ -18,6 +19,21 @@ export const searchPlaces = async (
   const API_KEY = 'AIzaSyA5ct4MJsei6Y5EyyakNATfhTWz0uwVTDI';
   
   try {
+    // Connect to MongoDB
+    const db = await connectToMongo();
+    const cache = db.collection('places_cache');
+
+    // Create a cache key based on query and location
+    const cacheKey = `${query}_${location.lat}_${location.lng}`;
+
+    // Check cache first
+    const cachedResult = await cache.findOne({ key: cacheKey });
+    if (cachedResult) {
+      console.log('Returning cached results');
+      return cachedResult.places;
+    }
+
+    // If not in cache, fetch from Google Places API
     const response = await fetch('https://places.googleapis.com/v1/places:searchText', {
       method: 'POST',
       headers: {
@@ -46,7 +62,16 @@ export const searchPlaces = async (
     }
 
     const data = await response.json();
-    return data.places || [];
+    const places = data.places || [];
+
+    // Store in cache
+    await cache.updateOne(
+      { key: cacheKey },
+      { $set: { key: cacheKey, places, timestamp: new Date() } },
+      { upsert: true }
+    );
+
+    return places;
   } catch (error) {
     if (error instanceof Error) {
       toast.error(error.message);
