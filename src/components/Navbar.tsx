@@ -4,10 +4,14 @@ import { Search } from "lucide-react";
 export const Navbar = () => {
   return (
     <nav className="bg-white shadow-sm">
-      <div className="container mx-auto px-4 py-4">
+      <div className="container mx-auto px-4 py-2">
         <div className="flex items-center justify-between">
-          <Link to="/" className="text-2xl font-display text-primary">
-            Hyderabad Weddings
+          <Link to="/" className="flex items-center">
+            <img 
+              src="/get-married-logo.png" 
+              alt="Get Married in Hyderabad" 
+              className="h-12 w-auto"
+            />
           </Link>
           
           <div className="hidden md:flex items-center space-x-6">
