@@ -13,6 +13,32 @@ interface ImageResult {
 const cache: { [key: string]: { images: ImageResult[]; timestamp: number } } = {};
 const CACHE_DURATION = 1000 * 60 * 60; // 1 hour in milliseconds
 
+// Category-specific fallback images
+const fallbackImages: { [key: string]: string } = {
+  'venue': 'https://images.unsplash.com/photo-1649972904349-6e44c42644a7',
+  'decor': 'https://images.unsplash.com/photo-1518770660439-4636190af475',
+  'catering': 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e',
+  'entertainment': 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5',
+  'photography': 'https://images.unsplash.com/photo-1531297484001-80022131f5a1',
+  'default': 'https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7'
+};
+
+const getFallbackImage = (query: string): string => {
+  const categoryMatches = {
+    venue: ['hall', 'garden', 'hotel', 'resort', 'farmhouse', 'convention'],
+    decor: ['decor', 'flower', 'light', 'stage', 'mandap'],
+    catering: ['food', 'cuisine', 'catering', 'sweet', 'dessert'],
+    entertainment: ['dj', 'dance', 'music', 'band', 'performer'],
+    photography: ['photo', 'video', 'film', 'camera'],
+  };
+
+  const category = Object.entries(categoryMatches).find(([_, keywords]) =>
+    keywords.some(keyword => query.toLowerCase().includes(keyword))
+  )?.[0];
+
+  return fallbackImages[category || 'default'];
+};
+
 const searchUnsplash = async (query: string): Promise<ImageResult[]> => {
   try {
     const response = await fetch(
@@ -86,25 +112,10 @@ const searchPixabay = async (query: string): Promise<ImageResult[]> => {
   }
 };
 
-// Predefined fallback images for different categories
-const fallbackImages: { [key: string]: string } = {
-  venue: '/venue-placeholder.jpg',
-  catering: '/catering-placeholder.jpg',
-  photography: '/photography-placeholder.jpg',
-  default: '/placeholder.svg'
-};
-
-const getFallbackImage = (query: string): string => {
-  const category = Object.keys(fallbackImages).find(key => 
-    query.toLowerCase().includes(key)
-  );
-  return fallbackImages[category || 'default'];
-};
-
 export const searchImages = async (query: string): Promise<ImageResult[]> => {
   try {
     // Create a cache key
-    const cacheKey = query;
+    const cacheKey = query.toLowerCase();
 
     // Check cache first
     const now = Date.now();
@@ -131,23 +142,25 @@ export const searchImages = async (query: string): Promise<ImageResult[]> => {
         images: results,
         timestamp: now
       };
+      return results;
     }
 
-    return results;
+    // If all APIs fail, return a fallback image
+    const fallbackUrl = getFallbackImage(query);
+    return [{ url: fallbackUrl, alt: query }];
   } catch (error) {
     console.error('Error fetching images:', error);
-    return [];
+    const fallbackUrl = getFallbackImage(query);
+    return [{ url: fallbackUrl, alt: query }];
   }
 };
 
 export const getRandomImage = async (query: string): Promise<string> => {
-  const images = await searchImages(query);
-  if (images.length > 0) {
-    return images[0].url;
+  try {
+    const images = await searchImages(query);
+    return images[0]?.url || getFallbackImage(query);
+  } catch (error) {
+    console.error('Error getting random image:', error);
+    return getFallbackImage(query);
   }
-  
-  // If all APIs fail, return a category-specific fallback
-  const fallback = getFallbackImage(query);
-  console.log(`Using fallback image for query "${query}":`, fallback);
-  return fallback;
 };
