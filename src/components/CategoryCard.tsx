@@ -12,11 +12,19 @@ interface CategoryCardProps {
 
 export const CategoryCard = ({ title, icon: Icon, description, link }: CategoryCardProps) => {
   const [backgroundImage, setBackgroundImage] = useState('');
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const loadImage = async () => {
-      const image = await getRandomImage(`${title} wedding service`);
-      setBackgroundImage(image);
+      try {
+        setIsLoading(true);
+        const image = await getRandomImage(`${title} wedding service`);
+        setBackgroundImage(image);
+      } catch (error) {
+        console.error('Error loading image:', error);
+      } finally {
+        setIsLoading(false);
+      }
     };
 
     loadImage();
@@ -25,7 +33,9 @@ export const CategoryCard = ({ title, icon: Icon, description, link }: CategoryC
   return (
     <Link to={link} className="block">
       <div 
-        className="p-6 rounded-lg shadow-sm card-hover relative overflow-hidden"
+        className={`p-6 rounded-lg shadow-sm card-hover relative overflow-hidden transition-opacity duration-300 ${
+          isLoading ? 'opacity-50' : 'opacity-100'
+        }`}
         style={{
           backgroundImage: backgroundImage ? `linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url(${backgroundImage})` : undefined,
           backgroundSize: 'cover',
