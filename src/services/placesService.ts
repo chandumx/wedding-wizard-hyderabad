@@ -11,15 +11,9 @@ interface PlaceResult {
   websiteUri?: string;
 }
 
-interface PlacesResponse {
-  places: PlaceResult[];
-  nextPageToken?: string;
-}
-
 export const searchPlaces = async (
   query: string,
-  location: { lat: number; lng: number },
-  radius: number = 5000
+  location: { lat: number; lng: number }
 ): Promise<PlaceResult[]> => {
   const apiKey = localStorage.getItem('GOOGLE_PLACES_API_KEY');
   
@@ -44,7 +38,7 @@ export const searchPlaces = async (
               latitude: location.lat,
               longitude: location.lng
             },
-            radius: radius
+            radius: 5000
           }
         },
         maxResultCount: 20
@@ -56,7 +50,7 @@ export const searchPlaces = async (
       throw new Error(errorData.error?.message || 'Failed to fetch places');
     }
 
-    const data: PlacesResponse = await response.json();
+    const data = await response.json();
     return data.places || [];
   } catch (error) {
     if (error instanceof Error) {
