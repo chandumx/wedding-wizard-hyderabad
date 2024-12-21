@@ -1,4 +1,4 @@
-import { Building2, Utensils, Camera, Palette } from "lucide-react";
+import { Building2, Utensils, Camera, Palette, Users, Music, Gift, Ring } from "lucide-react";
 import { SEOHead } from "../components/SEOHead";
 import { Hero } from "../components/Hero";
 import { Navbar } from "../components/Navbar";
@@ -7,7 +7,7 @@ import { LocationCard } from "../components/LocationCard";
 
 const categories = [
   {
-    title: "Wedding Halls",
+    title: "Wedding Venues",
     icon: Building2,
     description: "Find the perfect venue for your special day",
     link: "/category/wedding-halls",
@@ -15,13 +15,13 @@ const categories = [
   {
     title: "Catering",
     icon: Utensils,
-    description: "Top-rated wedding caterers in Hyderabad",
+    description: "Authentic Hyderabadi cuisine for your guests",
     link: "/category/catering",
   },
   {
     title: "Photography",
     icon: Camera,
-    description: "Capture your precious moments",
+    description: "Capture your precious moments forever",
     link: "/category/photography",
   },
   {
@@ -29,6 +29,30 @@ const categories = [
     icon: Palette,
     description: "Transform your venue beautifully",
     link: "/category/decoration",
+  },
+  {
+    title: "Mehendi Artists",
+    icon: Ring,
+    description: "Traditional & modern mehendi designs",
+    link: "/category/mehendi",
+  },
+  {
+    title: "Entertainment",
+    icon: Music,
+    description: "Live music, DJs & wedding entertainment",
+    link: "/category/entertainment",
+  },
+  {
+    title: "Wedding Gifts",
+    icon: Gift,
+    description: "Unique gift ideas for the couple",
+    link: "/category/gifts",
+  },
+  {
+    title: "Event Planning",
+    icon: Users,
+    description: "Professional wedding planners & coordinators",
+    link: "/category/planning",
   },
 ];
 
@@ -51,6 +75,12 @@ const locations = [
     vendorCount: 80,
     link: "/location/hitech-city",
   },
+  {
+    name: "Old City",
+    image: "/placeholder.svg",
+    vendorCount: 95,
+    link: "/location/old-city",
+  },
 ];
 
 const Index = () => {
@@ -58,13 +88,15 @@ const Index = () => {
     <>
       <SEOHead
         title="Wedding Venues & Services in Hyderabad | Find Top Wedding Vendors"
-        description="Discover the best wedding venues, caterers, photographers, and more in Hyderabad. Compare prices, read reviews, and book trusted vendors for your special day."
+        description="Plan your dream wedding in Hyderabad with our curated selection of venues, caterers, photographers, and more. Compare prices, read reviews, and book trusted vendors."
         keywords={[
           "wedding venues hyderabad",
           "wedding halls hyderabad",
           "wedding caterers hyderabad",
           "wedding photographers hyderabad",
-          "wedding services hyderabad"
+          "wedding services hyderabad",
+          "marriage halls hyderabad",
+          "wedding planners hyderabad"
         ]}
         canonicalUrl="https://yourwebsite.com"
       />
@@ -73,10 +105,14 @@ const Index = () => {
       <Hero />
       
       <main className="container mx-auto px-4 py-16">
-        <section className="mb-16">
-          <h2 className="text-3xl font-display font-bold mb-8 text-center">
-            Browse by Category
+        <section className="mb-20">
+          <h2 className="text-3xl font-display font-bold mb-4 text-center">
+            Wedding Services in Hyderabad
           </h2>
+          <p className="text-gray-600 text-center mb-12 max-w-2xl mx-auto">
+            From traditional ceremonies to modern celebrations, find everything you need
+            to make your wedding day perfect
+          </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {categories.map((category) => (
               <CategoryCard key={category.title} {...category} />
@@ -85,10 +121,13 @@ const Index = () => {
         </section>
 
         <section>
-          <h2 className="text-3xl font-display font-bold mb-8 text-center">
-            Popular Locations
+          <h2 className="text-3xl font-display font-bold mb-4 text-center">
+            Popular Wedding Locations
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <p className="text-gray-600 text-center mb-12 max-w-2xl mx-auto">
+            Discover the most sought-after wedding venues across Hyderabad
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {locations.map((location) => (
               <LocationCard key={location.name} {...location} />
             ))}
