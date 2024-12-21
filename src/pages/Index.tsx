@@ -1,4 +1,4 @@
-import { Building2, Utensils, Camera, Palette, Users, Music, Gift, Ring } from "lucide-react";
+import { Building2, Utensils, Camera, Palette, Users, Music, Gift, Flower } from "lucide-react";
 import { SEOHead } from "../components/SEOHead";
 import { Hero } from "../components/Hero";
 import { Navbar } from "../components/Navbar";
@@ -32,7 +32,7 @@ const categories = [
   },
   {
     title: "Mehendi Artists",
-    icon: Ring,
+    icon: Flower,
     description: "Traditional & modern mehendi designs",
     link: "/category/mehendi",
   },
