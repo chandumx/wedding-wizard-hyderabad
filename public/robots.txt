@@ -7,4 +7,4 @@ Disallow: /private/
 Disallow: /api/
 
 # Sitemap location
-Sitemap: https://yourwebsite.com/sitemap.xml
+Sitemap: https://getmarriedinhyderabad.in/sitemap.xml
