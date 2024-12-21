@@ -87,8 +87,8 @@ const Index = () => {
   return (
     <>
       <SEOHead
-        title="Wedding Venues & Services in Hyderabad | Find Top Wedding Vendors"
-        description="Plan your dream wedding in Hyderabad with our curated selection of venues, caterers, photographers, and more. Compare prices, read reviews, and book trusted vendors."
+        title="Plan Your Dream Wedding in Hyderabad | Top Wedding Venues & Services"
+        description="Create your perfect wedding in Hyderabad with our curated selection of venues, caterers, photographers, and more. Compare prices, read reviews, and book trusted vendors."
         keywords={[
           "wedding venues hyderabad",
           "wedding halls hyderabad",
@@ -96,7 +96,8 @@ const Index = () => {
           "wedding photographers hyderabad",
           "wedding services hyderabad",
           "marriage halls hyderabad",
-          "wedding planners hyderabad"
+          "wedding planners hyderabad",
+          "mehendi artists hyderabad"
         ]}
         canonicalUrl="https://yourwebsite.com"
       />
@@ -105,13 +106,13 @@ const Index = () => {
       <Hero />
       
       <main className="container mx-auto px-4 py-16">
-        <section className="mb-20">
+        <section className="mb-20 animate-fade-up" style={{ animationDelay: "0.3s" }}>
           <h2 className="text-3xl font-display font-bold mb-4 text-center">
-            Wedding Services in Hyderabad
+            Plan Your Dream Wedding
           </h2>
           <p className="text-gray-600 text-center mb-12 max-w-2xl mx-auto">
             From traditional ceremonies to modern celebrations, find everything you need
-            to make your wedding day perfect
+            to make your wedding day perfect in Hyderabad
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {categories.map((category) => (
@@ -120,7 +121,7 @@ const Index = () => {
           </div>
         </section>
 
-        <section>
+        <section className="animate-fade-up" style={{ animationDelay: "0.4s" }}>
           <h2 className="text-3xl font-display font-bold mb-4 text-center">
             Popular Wedding Locations
           </h2>
