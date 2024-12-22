@@ -50,7 +50,7 @@ const CategoryLocationPage = () => {
     "@type": "LocalBusiness",
     name: `${categoryInfo.title} in ${area.name}`,
     description: pageDescription,
-    image: "https://getmarriedinhyderabad.in/og-image.png",
+    image: "/og-image.png",
     address: {
       "@type": "PostalAddress",
       streetAddress: area.name,
@@ -80,7 +80,7 @@ const CategoryLocationPage = () => {
         description={pageDescription}
         keywords={keywords}
         canonicalUrl={`https://getmarriedinhyderabad.in/location/${location}/${subLocation}/${category}`}
-        ogImage="https://getmarriedinhyderabad.in/og-image.png"
+        ogImage="/og-image.png"
         ogType="business.business"
         schema={localBusinessSchema}
       />
@@ -100,26 +100,12 @@ const CategoryLocationPage = () => {
           </ol>
         </nav>
 
-        <div className="mb-12">
-          <h1 className="text-4xl font-display font-bold mb-4">
-            {pageTitle}
-          </h1>
-          <p className="text-lg text-gray-600 mb-8 max-w-3xl">
-            {pageDescription}
-          </p>
-          
-          <div className="prose max-w-none mb-8">
-            <h2 className="text-2xl font-display font-semibold mb-4">
-              Why Choose {categoryInfo.title} Services in {area.name}?
-            </h2>
-            <p>
-              {area.name}, situated in the heart of {mainLocation.name}, is renowned for its exceptional wedding services and venues. 
-              With its rich cultural heritage and modern amenities, this area offers the perfect setting for your wedding celebrations. 
-              Our carefully selected vendors combine traditional expertise with contemporary style to create unforgettable wedding experiences.
-            </p>
-          </div>
-        </div>
-        
+        <CategoryContent 
+          title={categoryInfo.title}
+          description={categoryInfo.description}
+          content={categoryInfo.content}
+        />
+
         <div className="mt-8">
           <h2 className="text-2xl font-display font-semibold mb-6">
             Available {categoryInfo.title} in {area.name}
