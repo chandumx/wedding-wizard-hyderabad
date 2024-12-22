@@ -8,7 +8,7 @@ export default defineConfig(({ mode }) => ({
     react(),
     mode === 'development' && componentTagger(),
   ].filter(Boolean),
-  base: '/wedding-wizard-hyderabad/',
+  base: '/',
   build: {
     outDir: 'dist',
     sourcemap: true,
@@ -18,4 +18,8 @@ export default defineConfig(({ mode }) => ({
       '@': path.resolve(__dirname, './src'),
     },
   },
+  server: {
+    host: true,
+    port: 8080,
+  }
 }));
