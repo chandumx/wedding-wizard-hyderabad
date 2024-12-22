@@ -1,6 +1,19 @@
 import { Search } from "lucide-react";
+import { useState } from "react";
+import { categories } from "@/data/categories";
+import { locations } from "@/data/locations";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 export const Hero = () => {
+  const [selectedCategory, setSelectedCategory] = useState("");
+  const [selectedLocation, setSelectedLocation] = useState("");
+
   return (
     <div className="relative min-h-[600px] bg-gradient-to-r from-primary/10 via-accent/5 to-primary/10 overflow-hidden">
       {/* Decorative elements */}
@@ -24,12 +37,38 @@ export const Hero = () => {
           </p>
         </div>
         
-        <div className="max-w-2xl mx-auto animate-fade-up" style={{ animationDelay: "0.2s" }}>
-          <div className="flex items-center bg-white rounded-lg shadow-lg p-2">
+        <div className="max-w-3xl mx-auto animate-fade-up" style={{ animationDelay: "0.2s" }}>
+          <div className="flex flex-col md:flex-row items-center gap-2 bg-white rounded-lg shadow-lg p-2">
+            <Select value={selectedCategory} onValueChange={setSelectedCategory}>
+              <SelectTrigger className="w-full md:w-[200px]">
+                <SelectValue placeholder="Select Category" />
+              </SelectTrigger>
+              <SelectContent className="max-h-[300px]">
+                {categories.map((category) => (
+                  <SelectItem key={category.link} value={category.link}>
+                    {category.title}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+
+            <Select value={selectedLocation} onValueChange={setSelectedLocation}>
+              <SelectTrigger className="w-full md:w-[200px]">
+                <SelectValue placeholder="Select Location" />
+              </SelectTrigger>
+              <SelectContent className="max-h-[300px]">
+                {locations.map((location) => (
+                  <SelectItem key={location.slug} value={location.slug}>
+                    {location.name}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+
             <input
               type="text"
-              placeholder="Search for venues, services, or locations..."
-              className="flex-1 p-3 outline-none text-lg"
+              placeholder="Search for services..."
+              className="flex-1 p-3 outline-none text-lg border-0"
             />
             <button className="bg-primary text-white px-6 py-3 rounded-md hover:bg-primary/90 transition-colors">
               <Search size={24} />
