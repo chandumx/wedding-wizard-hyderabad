@@ -3,6 +3,7 @@ import { LucideIcon } from "lucide-react";
 import { useEffect, useState } from "react";
 import { getRandomImage } from "../services/imageService";
 import { Skeleton } from "./ui/skeleton";
+import { toast } from "sonner";
 
 interface CategoryCardProps {
   title: string;
@@ -23,6 +24,8 @@ export const CategoryCard = ({ title, icon: Icon, description, link }: CategoryC
         setBackgroundImage(image);
       } catch (error) {
         console.error('Error loading image:', error);
+        setBackgroundImage('https://images.unsplash.com/photo-1649972904349-6e44c42644a7');
+        toast.error('Using fallback image due to API limits');
       } finally {
         setIsLoading(false);
       }

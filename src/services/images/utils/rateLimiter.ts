@@ -1,7 +1,7 @@
 export class RateLimiter {
   private timestamps: number[] = [];
   private readonly limit: number;
-  private readonly interval: number; // in milliseconds
+  private readonly interval: number;
 
   constructor(limit: number, intervalInSeconds: number) {
     this.limit = limit;

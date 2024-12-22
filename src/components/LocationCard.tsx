@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getRandomImage } from "../services/imageService";
 import { Skeleton } from "./ui/skeleton";
+import { toast } from "sonner";
 
 interface LocationCardProps {
   name: string;
@@ -25,8 +26,10 @@ export const LocationCard = ({ name, image, vendorCount, link }: LocationCardPro
           setError(false);
         } catch (err) {
           console.error('Error loading image:', err);
-          setImageUrl('/placeholder.svg');
+          // Use a specific fallback image for locations
+          setImageUrl('https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7');
           setError(true);
+          toast.error('Using fallback image due to API limits');
         } finally {
           setIsLoading(false);
         }
@@ -50,7 +53,7 @@ export const LocationCard = ({ name, image, vendorCount, link }: LocationCardPro
           alt={name} 
           className={`w-full h-48 object-cover ${error ? 'opacity-80' : ''}`}
           onError={() => {
-            setImageUrl('/placeholder.svg');
+            setImageUrl('https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7');
             setError(true);
           }}
         />
