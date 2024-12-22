@@ -18,7 +18,7 @@ export const categoryDescriptions: Record<string, CategoryDescription> = {
   "open-venues": {
     title: "Open Lawns & Gardens",
     description: "Beautiful outdoor venues for ceremonies",
-    content: "Host your wedding in beautiful outdoor settings. Our collection of open lawns and gardens provides the perfect backdrop for memorable celebrations.",
+    content: "Host your dream wedding in our stunning open-air venues. Our collection of open lawns and gardens provides the perfect natural backdrop for your special day. Each venue offers spacious layouts, lush greenery, and flexible arrangements to accommodate both intimate gatherings and grand celebrations. With professional landscaping and modern amenities, our open venues combine the beauty of nature with the convenience of modern facilities.",
   },
   "hotels-resorts": {
     title: "Hotels & Resorts",
