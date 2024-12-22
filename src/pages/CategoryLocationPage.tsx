@@ -50,7 +50,7 @@ const CategoryLocationPage = () => {
     "@type": "LocalBusiness",
     name: `${categoryInfo.title} in ${area.name}`,
     description: pageDescription,
-    image: "/og-image.png",
+    image: "https://getmarriedinhyderabad.in/og-image.png",
     address: {
       "@type": "PostalAddress",
       streetAddress: area.name,
@@ -80,7 +80,7 @@ const CategoryLocationPage = () => {
         description={pageDescription}
         keywords={keywords}
         canonicalUrl={`https://getmarriedinhyderabad.in/location/${location}/${subLocation}/${category}`}
-        ogImage="/og-image.png"
+        ogImage="https://getmarriedinhyderabad.in/og-image.png"
         ogType="business.business"
         schema={localBusinessSchema}
       />
