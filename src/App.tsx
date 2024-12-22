@@ -19,6 +19,7 @@ function App() {
       <Route path="/location/:location/:subLocation/:category" element={<CategoryLocationPage />} />
       <Route path="/category/:category" element={<CategoryPage />} />
       <Route path="/category/:category/:location/:subLocation" element={<CategoryLocationPage />} />
+      <Route path="*" element={<Index />} /> {/* Add catch-all route */}
     </Routes>
   );
 }
