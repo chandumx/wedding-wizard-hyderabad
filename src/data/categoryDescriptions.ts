@@ -34,5 +34,10 @@ export const categoryDescriptions: Record<string, CategoryDescription> = {
     title: "Convention Centers",
     description: "Large convention centers for grand events",
     content: "Plan your grand wedding at our spacious convention centers. Ideal for large gatherings with state-of-the-art facilities and professional management.",
-  }
+  },
+  "traditional-cuisine": {
+    title: "Traditional Indian Cuisine",
+    description: "Authentic Indian wedding cuisine and catering services",
+    content: "Experience the rich flavors and cultural heritage of traditional Indian cuisine for your wedding celebrations. Our curated selection of traditional cuisine vendors specialize in authentic regional dishes, customized menus, and professional catering services. From elaborate wedding feasts to intimate family gatherings, our vendors ensure that every meal is a memorable celebration of Indian culinary traditions. We offer specialized services including live cooking stations, traditional sweets preparation, and customized menu planning to match your specific preferences and dietary requirements.",
+  },
 };
