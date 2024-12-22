@@ -17,6 +17,12 @@ export const Hero = () => {
   const [selectedLocation, setSelectedLocation] = useState("");
   const navigate = useNavigate();
 
+  // Flatten all locations into a single array
+  const allLocations = locations.flatMap(location => ({
+    name: location.name,
+    slug: location.slug
+  }));
+
   const handleSearch = () => {
     if (!selectedCategory || !selectedLocation) {
       toast.error("Please select both a category and location");
@@ -70,7 +76,7 @@ export const Hero = () => {
                 <SelectValue placeholder="Select Location" />
               </SelectTrigger>
               <SelectContent className="max-h-[300px]">
-                {locations.map((location) => (
+                {allLocations.map((location) => (
                   <SelectItem key={location.slug} value={location.slug}>
                     {location.name}
                   </SelectItem>
