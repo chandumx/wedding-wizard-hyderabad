@@ -18,7 +18,7 @@ const Locations = () => {
           "wedding services hyderabad areas",
           "hyderabad wedding locations"
         ]}
-        canonicalUrl="https://yourwebsite.com/locations"
+        canonicalUrl="https://getmarriedinhyderabad.in/locations"
       />
       
       <Navbar />
@@ -53,7 +53,7 @@ const Locations = () => {
                     >
                       <span className="text-gray-700 group-hover:text-primary">{area.name}</span>
                       <div className="flex items-center text-gray-400 group-hover:text-primary">
-                        <span className="text-sm">{area.vendorCount || 0} vendors</span>
+                        <span className="text-sm">{area.vendorCount} vendors</span>
                         <ChevronRight size={16} className="ml-2" />
                       </div>
                     </Link>

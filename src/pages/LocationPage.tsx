@@ -1,62 +1,87 @@
 import { useParams } from "react-router-dom";
 import { SEOHead } from "../components/SEOHead";
 import { Navbar } from "../components/Navbar";
-
-const locationContent = {
-  "jubilee-hills": {
-    title: "Wedding Halls in Jubilee Hills, Hyderabad",
-    description: "Discover premium wedding venues and banquet halls in Jubilee Hills, Hyderabad. Compare prices, check availability, and book the perfect venue for your wedding celebration.",
-    content: `
-      Looking for the perfect wedding venue in Jubilee Hills? This upscale neighborhood in Hyderabad 
-      offers some of the city's most prestigious and elegant wedding halls. From intimate gathering 
-      spaces to grand banquet halls, Jubilee Hills provides venues for every wedding size and style.
-
-      Our curated list includes air-conditioned marriage halls, outdoor venues with beautiful gardens, 
-      and modern banquet facilities equipped with the latest amenities. Many venues offer comprehensive 
-      wedding packages including catering, decoration, and event planning services.
-
-      Popular wedding halls in Jubilee Hills feature:
-      - Spacious parking facilities
-      - Professional event management teams
-      - State-of-the-art sound systems
-      - Customizable wedding packages
-      - Premium catering services
-      - Elegant decor options
-    `,
-    keywords: [
-      "wedding halls jubilee hills",
-      "marriage halls jubilee hills",
-      "banquet halls jubilee hills",
-      "wedding venues jubilee hills hyderabad"
-    ],
-  },
-  // Add more locations as needed
-};
+import { locations } from "../data/locations";
+import { LocationCard } from "../components/LocationCard";
+import { CategoryCard } from "../components/CategoryCard";
+import { ScrollArea } from "../components/ui/scroll-area";
+import { ChevronRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const LocationPage = () => {
   const { location } = useParams();
-  const content = locationContent[location as keyof typeof locationContent];
+  const locationData = locations.find(loc => loc.slug === location);
 
-  if (!content) {
-    return <div>Location not found</div>;
+  if (!locationData) {
+    return (
+      <>
+        <Navbar />
+        <div className="container mx-auto px-4 py-16 text-center">
+          <h1 className="text-4xl font-display font-bold mb-6">Location Not Found</h1>
+          <p className="text-gray-600 mb-8">The location you're looking for doesn't exist.</p>
+          <Link to="/locations" className="text-primary hover:underline">
+            View all locations
+          </Link>
+        </div>
+      </>
+    );
   }
 
   return (
     <>
       <SEOHead
-        title={content.title}
-        description={content.description}
-        keywords={content.keywords}
-        canonicalUrl={`https://yourwebsite.com/location/${location}`}
+        title={`Wedding Venues & Services in ${locationData.name}, Hyderabad`}
+        description={locationData.description}
+        keywords={[
+          `wedding venues ${locationData.name.toLowerCase()}`,
+          `marriage halls ${locationData.name.toLowerCase()}`,
+          `wedding services ${locationData.name.toLowerCase()} hyderabad`,
+          `${locationData.name.toLowerCase()} wedding locations`
+        ]}
+        canonicalUrl={`https://getmarriedinhyderabad.in/location/${location}`}
       />
       
       <Navbar />
       
       <main className="container mx-auto px-4 py-16">
-        <h1 className="text-4xl font-display font-bold mb-6">{content.title}</h1>
-        <div className="prose max-w-none">
-          <p className="text-lg text-gray-600 mb-8">{content.description}</p>
-          <div className="whitespace-pre-line">{content.content}</div>
+        <h1 className="text-4xl font-display font-bold mb-6">
+          Wedding Venues & Services in {locationData.name}
+        </h1>
+        
+        <div className="prose max-w-none mb-12">
+          <p className="text-lg text-gray-600">{locationData.description}</p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="bg-white rounded-lg shadow-md overflow-hidden">
+            <LocationCard
+              name={locationData.name}
+              image={locationData.image}
+              vendorCount={locationData.vendorCount}
+              link={`/location/${locationData.slug}`}
+            />
+          </div>
+
+          <div className="bg-white rounded-lg shadow-md overflow-hidden">
+            <ScrollArea className="h-[400px] p-4">
+              <h3 className="text-lg font-display font-semibold mb-4">Areas in {locationData.name}</h3>
+              <div className="space-y-2">
+                {locationData.areas.map((area) => (
+                  <Link
+                    key={area.slug}
+                    to={`/location/${locationData.slug}/${area.slug}`}
+                    className="flex items-center justify-between p-2 hover:bg-gray-50 rounded-md group"
+                  >
+                    <span className="text-gray-700 group-hover:text-primary">{area.name}</span>
+                    <div className="flex items-center text-gray-400 group-hover:text-primary">
+                      <span className="text-sm">{area.vendorCount} vendors</span>
+                      <ChevronRight size={16} className="ml-2" />
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </ScrollArea>
+          </div>
         </div>
       </main>
     </>
