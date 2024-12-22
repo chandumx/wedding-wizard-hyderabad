@@ -8,7 +8,7 @@ export const Navbar = () => {
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center">
             <img 
-              src="get-married-logo.png" 
+              src="/get-married-logo.png" 
               alt="Get Married in Hyderabad" 
               className="h-12 w-auto"
             />
