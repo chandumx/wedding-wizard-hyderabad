@@ -11,7 +11,7 @@ export const CategoryContent = ({ title, description, content }: CategoryContent
   const benefits = [
     {
       icon: CheckCircle,
-      text: "Carefully vetted and trusted vendors"
+      text: "Premium quality services"
     },
     {
       icon: DollarSign,
@@ -19,7 +19,7 @@ export const CategoryContent = ({ title, description, content }: CategoryContent
     },
     {
       icon: MapPin,
-      text: "Local expertise and knowledge"
+      text: "Convenient locations"
     },
     {
       icon: Calendar,
