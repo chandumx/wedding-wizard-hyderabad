@@ -24,8 +24,8 @@ const SubCategoryPage = () => {
   return (
     <>
       <SEOHead
-        title={`${categoryInfo.title} Venues & Services in Hyderabad | Find Local Vendors`}
-        description={`Discover ${categoryInfo.title.toLowerCase()} across different areas of Hyderabad. Compare prices and book trusted vendors for your celebration.`}
+        title={`${categoryInfo.title} Venues & Services in Hyderabad | Find Local Services`}
+        description={`Discover ${categoryInfo.title.toLowerCase()} across different areas of Hyderabad. Compare prices and book trusted services for your celebration.`}
         keywords={[
           `${category} hyderabad`,
           `wedding ${category} hyderabad locations`,
@@ -58,7 +58,6 @@ const SubCategoryPage = () => {
                     key={area.slug}
                     name={area.name}
                     image="/placeholder.svg"
-                    vendorCount={area.vendorCount}
                     link={`/location/${location.slug}/${area.slug}/${category}`}
                   />
                 ))}

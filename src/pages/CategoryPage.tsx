@@ -28,7 +28,7 @@ const CategoryPage = () => {
   return (
     <>
       <SEOHead
-        title={`${categoryInfo.title} Services in Hyderabad | Find Local Vendors`}
+        title={`${categoryInfo.title} Services in Hyderabad | Wedding Wizard`}
         description={categoryInfo.description}
         keywords={[
           `${category} hyderabad`,
@@ -60,7 +60,6 @@ const CategoryPage = () => {
                   key={`${location.slug}-${area.slug}`}
                   name={`${area.name}, ${location.name}`}
                   image={location.image || "/placeholder.svg"}
-                  vendorCount={area.vendorCount}
                   link={`/category/${cleanCategory}/${location.slug}/${area.slug}`}
                 />
               ))

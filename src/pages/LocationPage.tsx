@@ -3,7 +3,6 @@ import { SEOHead } from "../components/SEOHead";
 import { Navbar } from "../components/Navbar";
 import { locations } from "../data/locations";
 import { LocationCard } from "../components/LocationCard";
-import { CategoryCard } from "../components/CategoryCard";
 import { ScrollArea } from "../components/ui/scroll-area";
 import { ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -57,7 +56,6 @@ const LocationPage = () => {
             <LocationCard
               name={locationData.name}
               image={locationData.image}
-              vendorCount={locationData.vendorCount}
               link={`/location/${locationData.slug}`}
             />
           </div>
@@ -73,10 +71,7 @@ const LocationPage = () => {
                     className="flex items-center justify-between p-2 hover:bg-gray-50 rounded-md group"
                   >
                     <span className="text-gray-700 group-hover:text-primary">{area.name}</span>
-                    <div className="flex items-center text-gray-400 group-hover:text-primary">
-                      <span className="text-sm">{area.vendorCount} vendors</span>
-                      <ChevronRight size={16} className="ml-2" />
-                    </div>
+                    <ChevronRight size={16} className="ml-2 text-gray-400 group-hover:text-primary" />
                   </Link>
                 ))}
               </div>

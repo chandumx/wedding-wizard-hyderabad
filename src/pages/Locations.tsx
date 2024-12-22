@@ -38,7 +38,6 @@ const Locations = () => {
               <LocationCard
                 name={location.name}
                 image={location.image}
-                vendorCount={location.vendorCount}
                 link={`/location/${location.slug}`}
               />
               
@@ -52,10 +51,7 @@ const Locations = () => {
                       className="flex items-center justify-between p-2 hover:bg-gray-50 rounded-md group"
                     >
                       <span className="text-gray-700 group-hover:text-primary">{area.name}</span>
-                      <div className="flex items-center text-gray-400 group-hover:text-primary">
-                        <span className="text-sm">{area.vendorCount} vendors</span>
-                        <ChevronRight size={16} className="ml-2" />
-                      </div>
+                      <ChevronRight size={16} className="ml-2 text-gray-400 group-hover:text-primary" />
                     </Link>
                   ))}
                 </div>
