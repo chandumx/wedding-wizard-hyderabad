@@ -65,12 +65,7 @@ export const Hero = () => {
               </SelectContent>
             </Select>
 
-            <input
-              type="text"
-              placeholder="Search for services..."
-              className="flex-1 p-3 outline-none text-lg border-0"
-            />
-            <button className="bg-primary text-white px-6 py-3 rounded-md hover:bg-primary/90 transition-colors">
+            <button className="w-full md:w-auto bg-primary text-white px-6 py-3 rounded-md hover:bg-primary/90 transition-colors">
               <Search size={24} />
             </button>
           </div>
