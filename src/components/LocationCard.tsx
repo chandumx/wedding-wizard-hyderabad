@@ -25,10 +25,8 @@ export const LocationCard = ({ name, image, link }: LocationCardProps) => {
           setError(false);
         } catch (err) {
           console.error('Error loading image:', err);
-          // Use a specific fallback image for locations
           setImageUrl('https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7');
           setError(true);
-          toast.error('Using fallback image due to API limits');
         } finally {
           setIsLoading(false);
         }

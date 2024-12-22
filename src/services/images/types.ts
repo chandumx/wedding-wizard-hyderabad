@@ -13,10 +13,10 @@ export interface ImageCache {
 }
 
 export interface ImageProvider {
-  search: (query: string) => Promise<ImageResult[]>;
   name: string;
+  search: (query: string) => Promise<ImageResult[]>;
 }
 
-export interface FallbackImages {
+export interface LocationImageMapping {
   [key: string]: string;
 }

@@ -1,5 +1,6 @@
-import { ImageCache, ImageResult, CacheEntry } from './types';
-import { CACHE_DURATION } from './config';
+import { ImageResult, ImageCache } from './types';
+
+const CACHE_DURATION = 1000 * 60 * 60; // 1 hour
 
 class ImageCacheService {
   private cache: ImageCache = {};
