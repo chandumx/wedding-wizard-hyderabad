@@ -5,6 +5,7 @@ import SubLocationPage from "./pages/SubLocationPage";
 import Categories from "./pages/Categories";
 import Locations from "./pages/Locations";
 import CategoryLocationPage from "./pages/CategoryLocationPage";
+import CategoryPage from "./pages/CategoryPage";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Route path="/location/:location" element={<LocationPage />} />
       <Route path="/location/:location/:subLocation" element={<SubLocationPage />} />
       <Route path="/location/:location/:subLocation/:category" element={<CategoryLocationPage />} />
+      <Route path="/category/:category" element={<CategoryPage />} />
       <Route path="/category/:category/:location/:subLocation" element={<CategoryLocationPage />} />
     </Routes>
   );
