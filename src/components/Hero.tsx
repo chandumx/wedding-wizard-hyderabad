@@ -17,11 +17,18 @@ export const Hero = () => {
   const [selectedLocation, setSelectedLocation] = useState("");
   const navigate = useNavigate();
 
-  // Flatten all locations into a single array
-  const allLocations = locations.flatMap(location => ({
-    name: location.name,
-    slug: location.slug
-  }));
+  // Flatten all locations and their areas into a single array
+  const allLocations = locations.flatMap(location => 
+    [
+      // Include the main location
+      { name: location.name, slug: location.slug },
+      // Include all areas within the location
+      ...location.areas.map(area => ({
+        name: `${area.name} (${location.name})`,
+        slug: `${location.slug}/${area.slug}`
+      }))
+    ]
+  );
 
   const handleSearch = () => {
     if (!selectedCategory || !selectedLocation) {
