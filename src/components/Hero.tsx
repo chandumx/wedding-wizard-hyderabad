@@ -57,7 +57,7 @@ export const Hero = () => {
             </SelectTrigger>
             <SelectContent>
               {categories.map((category) => (
-                <SelectItem key={category.slug} value={category.slug}>
+                <SelectItem key={category.link} value={category.link}>
                   {category.title}
                 </SelectItem>
               ))}
