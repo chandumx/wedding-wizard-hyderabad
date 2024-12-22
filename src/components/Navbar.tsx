@@ -31,9 +31,6 @@ export const Navbar = () => {
             <Link to="/locations" className="text-gray-600 hover:text-primary">
               Locations
             </Link>
-            <Link to="/vendors" className="text-gray-600 hover:text-primary">
-              Vendors
-            </Link>
           </div>
 
           <button className="p-2 text-gray-600 hover:text-primary">
