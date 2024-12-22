@@ -26,7 +26,8 @@ const CategoryLocationPage = () => {
   }
 
   const pageTitle = `Best ${categoryInfo.title} in ${area.name}, ${mainLocation.name} | Book Top Wedding Services`;
-  const pageDescription = `Find and compare the best ${categoryInfo.description.toLowerCase()} in ${area.name}, ${mainLocation.name}. Get quotes, check availability, and book trusted vendors for your wedding celebration.`;
+  const pageDescription = `Discover premium ${categoryInfo.title.toLowerCase()} services in ${area.name}, ${mainLocation.name}. Located in the bustling commercial hub of Hyderabad, ${area.name} offers a perfect blend of traditional and modern wedding venues and services. Compare prices, check availability, and book trusted vendors for your special day.`;
+  
   const keywords = [
     `${category} ${area.name}`,
     `wedding ${category} ${area.name}`,
@@ -35,7 +36,7 @@ const CategoryLocationPage = () => {
     `affordable ${category} ${area.name}`,
     `top rated ${category} ${mainLocation.name}`,
     `professional ${categoryInfo.title.toLowerCase()} services`,
-    `wedding services hyderabad`,
+    `wedding services ${area.name}`,
     `${category} near me`
   ];
 
@@ -63,7 +64,7 @@ const CategoryLocationPage = () => {
       latitude: areaLocation.lat,
       longitude: areaLocation.lng
     },
-    url: window.location.href,
+    url: `https://getmarriedinhyderabad.in/location/${location}/${subLocation}/${category}`,
     telephone: "+91-1234567890",
     aggregateRating: {
       "@type": "AggregateRating",
@@ -78,7 +79,7 @@ const CategoryLocationPage = () => {
         title={pageTitle}
         description={pageDescription}
         keywords={keywords}
-        canonicalUrl={`https://yourwebsite.com/location/${location}/${subLocation}/${category}`}
+        canonicalUrl={`https://getmarriedinhyderabad.in/location/${location}/${subLocation}/${category}`}
         ogImage="/og-image.png"
         ogType="business.business"
         schema={localBusinessSchema}
@@ -109,11 +110,12 @@ const CategoryLocationPage = () => {
           
           <div className="prose max-w-none mb-8">
             <h2 className="text-2xl font-display font-semibold mb-4">
-              Why Choose Our {categoryInfo.title} Services?
+              Why Choose {categoryInfo.title} Services in {area.name}?
             </h2>
             <p>
-              Discover the perfect {categoryInfo.title.toLowerCase()} for your wedding in {area.name}, {mainLocation.name}. 
-              Our carefully selected vendors offer professional services, competitive prices, and exceptional quality.
+              {area.name}, situated in the heart of {mainLocation.name}, is renowned for its exceptional wedding services and venues. 
+              With its rich cultural heritage and modern amenities, this area offers the perfect setting for your wedding celebrations. 
+              Our carefully selected vendors combine traditional expertise with contemporary style to create unforgettable wedding experiences.
             </p>
           </div>
         </div>
@@ -130,16 +132,16 @@ const CategoryLocationPage = () => {
 
         <div className="mt-12 bg-secondary/50 rounded-lg p-8">
           <h2 className="text-2xl font-display font-semibold mb-4">
-            Frequently Asked Questions
+            Frequently Asked Questions About {categoryInfo.title} in {area.name}
           </h2>
           <div className="space-y-4">
             <div>
-              <h3 className="font-semibold mb-2">How do I choose the right {categoryInfo.title.toLowerCase()}?</h3>
-              <p className="text-gray-600">Consider factors like budget, experience, portfolio, and reviews. Our platform helps you compare different options easily.</p>
+              <h3 className="font-semibold mb-2">What makes {area.name} an ideal location for weddings?</h3>
+              <p className="text-gray-600">{area.name} is known for its excellent connectivity, diverse venue options, and rich cultural atmosphere, making it a perfect choice for wedding celebrations in {mainLocation.name}.</p>
             </div>
             <div>
               <h3 className="font-semibold mb-2">What's the typical price range for {categoryInfo.title.toLowerCase()} in {area.name}?</h3>
-              <p className="text-gray-600">Prices vary based on requirements and package selection. Contact vendors directly for detailed quotes.</p>
+              <p className="text-gray-600">Prices vary based on your specific requirements and package selection. Contact our verified vendors directly for detailed quotes tailored to your needs.</p>
             </div>
           </div>
         </div>
