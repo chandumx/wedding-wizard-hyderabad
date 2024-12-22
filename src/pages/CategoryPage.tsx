@@ -9,7 +9,10 @@ import { locations } from "../data/locations";
 const CategoryPage = () => {
   const { category } = useParams();
   
-  const categoryInfo = categoryDescriptions[category || ''];
+  // Remove the leading "categories/" if present in the URL
+  const cleanCategory = category?.replace('categories/', '') || '';
+  
+  const categoryInfo = categoryDescriptions[cleanCategory];
 
   if (!categoryInfo) {
     return (
@@ -56,9 +59,9 @@ const CategoryPage = () => {
                 <LocationCard
                   key={`${location.slug}-${area.slug}`}
                   name={`${area.name}, ${location.name}`}
-                  image={location.image}
+                  image={location.image || "/placeholder.svg"}
                   vendorCount={area.vendorCount}
-                  link={`/category/${category}/${location.slug}/${area.slug}`}
+                  link={`/category/${cleanCategory}/${location.slug}/${area.slug}`}
                 />
               ))
             ))}

@@ -12,6 +12,7 @@ function App() {
     <Routes>
       <Route path="/" element={<Index />} />
       <Route path="/categories" element={<Categories />} />
+      <Route path="/categories/:category" element={<CategoryPage />} />
       <Route path="/locations" element={<Locations />} />
       <Route path="/location/:location" element={<LocationPage />} />
       <Route path="/location/:location/:subLocation" element={<SubLocationPage />} />
