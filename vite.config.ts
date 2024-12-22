@@ -12,7 +12,7 @@ export default defineConfig(({ mode }) => ({
     react(),
     mode === 'development' && componentTagger(),
   ].filter(Boolean),
-  base: '/',
+  base: '/wedding-wizard-hyderabad/',
   build: {
     outDir: 'dist',
     sourcemap: true,
