@@ -7,7 +7,7 @@ import { Toaster } from 'sonner'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <HashRouter basename="/">
+    <HashRouter>
       <App />
       <Toaster position="top-center" />
     </HashRouter>
