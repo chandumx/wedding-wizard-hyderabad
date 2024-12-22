@@ -12,46 +12,46 @@ export const ConventionCenterContent = ({ title, description }: ConventionCenter
     {
       icon: Building2,
       title: "Spacious Venues",
-      text: "Our convention centers offer expansive spaces that can accommodate large gatherings of 500 to 2000+ guests, perfect for grand wedding celebrations."
+      text: "Our convention centers in Abids offer expansive spaces that can accommodate gatherings from 300 to 1500+ guests, perfect for grand wedding celebrations."
     },
     {
       icon: DollarSign,
       title: "Competitive Pricing",
-      text: "Transparent pricing with customizable packages to suit different budgets. Special rates for off-season bookings."
+      text: "Transparent pricing with customizable packages to suit different budgets. Special rates available for weekday events."
     },
     {
       icon: MapPin,
       title: "Prime Location",
-      text: "Easily accessible venues in Vattepally with ample parking space and proximity to major transportation hubs."
+      text: "Centrally located venues in Abids with excellent connectivity, ample parking space, and proximity to major hotels and shopping areas."
     },
     {
       icon: Calendar,
       title: "Flexible Booking",
-      text: "Easy scheduling with multiple date options and professional event coordination support."
+      text: "Easy scheduling with multiple date options and professional event coordination support available year-round."
     },
     {
       icon: Users,
       title: "Full-Service Support",
-      text: "Dedicated event managers and staff to handle everything from setup to cleanup."
+      text: "Dedicated event managers and staff to handle everything from setup to cleanup, ensuring a seamless experience."
     },
     {
       icon: PartyPopper,
       title: "Modern Amenities",
-      text: "State-of-the-art sound systems, climate control, backup power, and modern facilities."
+      text: "State-of-the-art sound systems, climate control, backup power, and contemporary facilities for a comfortable experience."
     }
   ];
 
   const features = [
     "Professional event planning assistance",
     "Customizable stage and mandap setups",
-    "Modern audio-visual equipment",
-    "Dedicated parking facilities",
-    "Multiple dining areas",
-    "Separate preparation rooms",
-    "Advanced security systems",
-    "Backup power supply",
-    "Climate-controlled environments",
-    "Wheelchair accessibility"
+    "High-end audio-visual equipment",
+    "Multi-level parking facilities",
+    "Spacious dining areas",
+    "Bridal preparation rooms",
+    "24/7 security systems",
+    "Uninterrupted power supply",
+    "Central air conditioning",
+    "Easy accessibility for all guests"
   ];
 
   return (
@@ -73,10 +73,10 @@ export const ConventionCenterContent = ({ title, description }: ConventionCenter
           </h2>
           <div className="space-y-4 text-gray-600">
             <p className="leading-relaxed">
-              In the heart of Old City, Vattepally's convention centers blend traditional charm with modern amenities. Our venues are designed to accommodate grand celebrations while maintaining the cultural essence of Hyderabad. Each center is equipped with state-of-the-art facilities and supported by experienced staff to ensure your event runs smoothly.
+              Located in the bustling commercial district of Abids, our convention centers combine contemporary elegance with modern amenities. Our venues are designed to provide a sophisticated setting for grand celebrations while offering the convenience of Central Hyderabad's most prestigious location. Each center features state-of-the-art facilities and is supported by experienced staff to ensure your event is executed flawlessly.
             </p>
             <p className="leading-relaxed">
-              Whether you're planning an intimate gathering or a grand celebration, our convention centers offer flexible spaces that can be customized to your needs. From traditional wedding ceremonies to modern reception parties, we provide the perfect setting for every occasion.
+              Whether you're planning an intimate gathering or a lavish celebration, our convention centers in Abids offer versatile spaces that can be tailored to your vision. From traditional wedding ceremonies to modern reception parties, we provide the perfect backdrop in one of Hyderabad's most sought-after locations.
             </p>
           </div>
         </div>
@@ -123,10 +123,10 @@ export const ConventionCenterContent = ({ title, description }: ConventionCenter
           </h2>
           <div className="space-y-4 text-gray-600 max-w-3xl mx-auto">
             <p className="leading-relaxed">
-              Planning a wedding celebration in Vattepally? Our convention centers offer the perfect blend of space, style, and service. With experienced event coordinators, state-of-the-art facilities, and customizable packages, we ensure your special day is memorable and stress-free.
+              Planning a wedding celebration in Abids? Our convention centers offer the perfect combination of location, style, and service. With experienced event coordinators, modern facilities, and customizable packages, we ensure your special day is everything you've dreamed of.
             </p>
             <p className="leading-relaxed">
-              Contact us today to schedule a venue tour or discuss your requirements with our expert team. We're here to help you create the wedding celebration of your dreams in one of Vattepally's finest convention centers.
+              Contact us today to schedule a venue tour or discuss your requirements with our expert team. We're here to help you create the wedding celebration of your dreams in one of Abids' finest convention centers.
             </p>
           </div>
         </div>
