@@ -2,6 +2,7 @@ import { Search } from "lucide-react";
 import { useState } from "react";
 import { categories } from "@/data/categories";
 import { locations } from "@/data/locations";
+import { useNavigate } from "react-router-dom";
 import {
   Select,
   SelectContent,
@@ -9,10 +10,22 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { toast } from "sonner";
 
 export const Hero = () => {
   const [selectedCategory, setSelectedCategory] = useState("");
   const [selectedLocation, setSelectedLocation] = useState("");
+  const navigate = useNavigate();
+
+  const handleSearch = () => {
+    if (!selectedCategory || !selectedLocation) {
+      toast.error("Please select both a category and location");
+      return;
+    }
+
+    // Navigate to the category-location page
+    navigate(`/category/${selectedCategory}/${selectedLocation}`);
+  };
 
   return (
     <div className="relative min-h-[600px] bg-gradient-to-r from-primary/10 via-accent/5 to-primary/10 overflow-hidden">
@@ -65,7 +78,10 @@ export const Hero = () => {
               </SelectContent>
             </Select>
 
-            <button className="w-full md:w-auto bg-primary text-white px-6 py-3 rounded-md hover:bg-primary/90 transition-colors">
+            <button 
+              onClick={handleSearch}
+              className="w-full md:w-auto bg-primary text-white px-6 py-3 rounded-md hover:bg-primary/90 transition-colors"
+            >
               <Search size={24} />
             </button>
           </div>
