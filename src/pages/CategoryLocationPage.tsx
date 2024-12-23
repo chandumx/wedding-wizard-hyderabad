@@ -190,7 +190,7 @@ const CategoryLocationPage = () => {
 
         <div className="mt-8">
           <h2 className="text-2xl font-display font-semibold mb-6">
-            Available {isCharminarWeddingHalls ? 'Wedding Halls' : categoryInfo.title} in {locationString}
+            Available Venues in {locationString}
           </h2>
           <PlacesList 
             query={`${categoryInfo.title} in ${locationString}`}
