@@ -3,7 +3,7 @@ import { SEOHead } from "../components/SEOHead";
 import { Navbar } from "../components/Navbar";
 import { CategoryContent } from "../components/categories/CategoryContent";
 import { categoryDescriptions } from "../data/categoryDescriptions";
-import { LocationCard } from "../components/LocationCard";
+import { Link } from "react-router-dom";
 import { locations } from "../data/locations";
 
 const CategoryPage = () => {
@@ -95,12 +95,19 @@ const CategoryPage = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {locations.map((location) => (
               location.areas.map((area) => (
-                <LocationCard
+                <div 
                   key={`${location.slug}-${area.slug}`}
-                  name={`${categoryInfo.title} in ${area.name}, ${location.name}`}
-                  image={location.image || "/placeholder.svg"}
-                  link={`/category/${cleanCategory}/${location.slug}/${area.slug}`}
-                />
+                  className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow"
+                >
+                  <Link
+                    to={`/category/${cleanCategory}/${location.slug}/${area.slug}`}
+                    className="block"
+                  >
+                    <h3 className="text-xl font-display font-semibold mb-2 text-primary hover:text-primary/80 transition-colors">
+                      {categoryInfo.title} in {area.name}, {location.name}
+                    </h3>
+                  </Link>
+                </div>
               ))
             ))}
           </div>
