@@ -12,7 +12,26 @@ const CategoryPage = () => {
   // Remove the leading "categories/" if present in the URL
   const cleanCategory = category?.replace('categories/', '') || '';
   
-  const categoryInfo = categoryDescriptions[cleanCategory];
+  // Handle main categories and their subcategories
+  const getCategoryInfo = (categorySlug: string) => {
+    // Direct match
+    if (categoryDescriptions[categorySlug]) {
+      return categoryDescriptions[categorySlug];
+    }
+
+    // For main categories like "catering", find the first matching subcategory
+    if (categorySlug === "catering") {
+      return {
+        title: "Wedding Catering Services",
+        description: "Professional wedding catering services in Hyderabad offering traditional, multi-cuisine, and specialized food services",
+        content: "Discover premium wedding catering services in Hyderabad that cater to all your culinary needs. From traditional Indian cuisine to international flavors, our professional catering services ensure a memorable dining experience for your wedding celebration. We offer customized menus, experienced staff, and impeccable service quality."
+      };
+    }
+
+    return null;
+  };
+
+  const categoryInfo = getCategoryInfo(cleanCategory);
 
   if (!categoryInfo) {
     return (
@@ -29,7 +48,7 @@ const CategoryPage = () => {
   const schema = {
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": `${categoryInfo.title} Services in Hyderabad`,
+    "name": `${categoryInfo.title} in Hyderabad`,
     "description": categoryInfo.description,
     "areaServed": {
       "@type": "City",
@@ -45,15 +64,15 @@ const CategoryPage = () => {
   return (
     <>
       <SEOHead
-        title={`Best ${categoryInfo.title} Services in Hyderabad | Wedding Catering Services`}
-        description={`Find the best ${categoryInfo.title.toLowerCase()} services in Hyderabad. Professional wedding catering services, customized menus, and experienced caterers for your special day.`}
+        title={`Best ${categoryInfo.title} in Hyderabad | Professional Wedding Services`}
+        description={`Find the best ${categoryInfo.title.toLowerCase()} in Hyderabad. Professional wedding services, customized solutions, and experienced service providers for your special day.`}
         keywords={[
           `${cleanCategory} hyderabad`,
           `wedding ${cleanCategory} services`,
           `best ${cleanCategory} hyderabad`,
           'wedding services hyderabad',
-          'wedding catering services',
-          'professional caterers hyderabad'
+          'professional wedding services',
+          'wedding vendors hyderabad'
         ]}
         canonicalUrl={`https://yourwebsite.com/categories/${category}`}
         schema={schema}
@@ -63,14 +82,14 @@ const CategoryPage = () => {
       
       <main className="container mx-auto px-4 py-16">
         <CategoryContent 
-          title={`${categoryInfo.title} Services in Hyderabad`}
-          description={`Discover the finest ${categoryInfo.title.toLowerCase()} services in Hyderabad. We offer professional wedding catering solutions with customized menus and experienced service staff to make your celebration memorable.`}
+          title={`${categoryInfo.title} in Hyderabad`}
+          description={categoryInfo.description}
           content={categoryInfo.content}
         />
         
         <div className="mt-16 space-y-12">
           <h2 className="text-2xl font-display font-semibold">
-            Available Locations for {categoryInfo.title} Services
+            Available Locations for {categoryInfo.title}
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -78,7 +97,7 @@ const CategoryPage = () => {
               location.areas.map((area) => (
                 <LocationCard
                   key={`${location.slug}-${area.slug}`}
-                  name={`${categoryInfo.title} Services in ${area.name}, ${location.name}`}
+                  name={`${categoryInfo.title} in ${area.name}, ${location.name}`}
                   image={location.image || "/placeholder.svg"}
                   link={`/category/${cleanCategory}/${location.slug}/${area.slug}`}
                 />
