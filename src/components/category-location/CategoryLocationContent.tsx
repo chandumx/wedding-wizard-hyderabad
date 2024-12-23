@@ -21,6 +21,7 @@ export const CategoryLocationContent = ({
   isCharminarWeddingHalls
 }: CategoryLocationContentProps) => {
   const getLocationSpecificContent = (location: string) => {
+    // Old City Locations
     if (location.includes('Chatrinaka')) {
       return `Discover our premium wedding halls in Chatrinaka, a vibrant neighborhood in Old City, Hyderabad. Our carefully selected venues in Chatrinaka offer state-of-the-art facilities, elegant decor, and professional services to make your wedding celebration truly memorable. Located in the heart of Old City, Chatrinaka's wedding halls combine traditional charm with modern amenities, perfect for both intimate gatherings and grand celebrations. Each venue in Chatrinaka provides excellent accessibility, ample parking, and customizable spaces to create your dream wedding setting.`;
     }
@@ -36,6 +37,50 @@ export const CategoryLocationContent = ({
     if (location.includes('Hussaini Alam')) {
       return `Explore our premium wedding halls in Hussaini Alam, a distinguished area of Old City, Hyderabad. Our venues in Hussaini Alam offer elegant settings with state-of-the-art facilities for your wedding celebration. From traditional nikah ceremonies to grand receptions, these halls provide versatile spaces with modern amenities while maintaining the cultural essence of the area. Each venue ensures excellent accessibility and professional service.`;
     }
+    if (location.includes('Khilwat')) {
+      return `Welcome to our selection of wedding halls in Khilwat, a historic neighborhood in Old City, Hyderabad. Our Khilwat venues perfectly blend traditional architecture with modern conveniences. Each wedding hall offers comprehensive facilities, professional management, and customizable spaces for celebrations of any size. The prime location in Khilwat provides easy access and a perfect setting for your special day.`;
+    }
+    
+    // Central Hyderabad Locations
+    if (location.includes('Nampally')) {
+      return `Discover premium wedding venues in Nampally, a central location in Hyderabad. Our Nampally wedding halls offer modern amenities, elegant decor, and professional services. With excellent connectivity and spacious settings, these venues are perfect for both intimate gatherings and grand celebrations.`;
+    }
+    if (location.includes('Abids')) {
+      return `Experience luxury wedding celebrations at our venues in Abids, Hyderabad. Our wedding halls in Abids combine contemporary elegance with traditional charm. Featuring state-of-the-art facilities and professional services, these venues offer the perfect setting for your special day.`;
+    }
+
+    // West Hyderabad Locations
+    if (location.includes('Jubilee Hills')) {
+      return `Explore exclusive wedding venues in Jubilee Hills, Hyderabad's premier locality. Our wedding halls in Jubilee Hills offer luxurious settings, modern amenities, and professional services. Perfect for upscale weddings and celebrations, these venues provide sophisticated spaces with excellent accessibility.`;
+    }
+    if (location.includes('Banjara Hills')) {
+      return `Discover elegant wedding halls in Banjara Hills, one of Hyderabad's most prestigious areas. Our venues combine luxury with convenience, offering state-of-the-art facilities and professional services. Each location provides a perfect blend of sophistication and functionality for your wedding celebration.`;
+    }
+
+    // North Hyderabad Locations
+    if (location.includes('Secunderabad')) {
+      return `Welcome to our collection of wedding venues in Secunderabad, offering a perfect mix of tradition and modernity. Our wedding halls feature comprehensive facilities, professional management, and customizable spaces. The convenient location provides excellent accessibility for all your guests.`;
+    }
+    if (location.includes('Kompally')) {
+      return `Experience magnificent wedding celebrations at our venues in Kompally. Our wedding halls offer spacious settings, modern amenities, and professional services. With excellent infrastructure and dedicated staff, these venues ensure a memorable wedding experience.`;
+    }
+
+    // East Hyderabad Locations
+    if (location.includes('Uppal')) {
+      return `Discover premium wedding halls in Uppal, offering modern amenities and professional services. Our venues provide spacious settings, excellent accessibility, and comprehensive facilities for both intimate gatherings and grand celebrations.`;
+    }
+    if (location.includes('LB Nagar')) {
+      return `Explore our wedding venues in LB Nagar, featuring contemporary facilities and professional services. Our halls offer customizable spaces, modern amenities, and excellent connectivity, perfect for creating your dream wedding celebration.`;
+    }
+
+    // South Hyderabad Locations
+    if (location.includes('Mehdipatnam')) {
+      return `Welcome to our wedding halls in Mehdipatnam, offering elegant spaces for your special day. Our venues combine modern amenities with traditional charm, providing professional services and excellent accessibility for all your wedding celebrations.`;
+    }
+    if (location.includes('Attapur')) {
+      return `Experience wonderful wedding celebrations at our venues in Attapur. Our wedding halls feature modern facilities, professional management, and customizable spaces. With excellent connectivity and dedicated staff, these venues ensure a perfect wedding day.`;
+    }
+
     return content;
   };
 
@@ -44,7 +89,7 @@ export const CategoryLocationContent = ({
     return [
       {
         question: `What makes ${locationName} area special for wedding venues?`,
-        answer: `The ${locationName} area offers a perfect blend of traditional charm and modern amenities. Wedding venues here provide excellent accessibility, spacious halls, and are known for their cultural significance in Old City Hyderabad.`
+        answer: `The ${locationName} area offers a perfect blend of traditional charm and modern amenities. Wedding venues here provide excellent accessibility, spacious halls, and are known for their cultural significance in Hyderabad.`
       },
       {
         question: `What types of wedding venues are available in ${locationName}?`,
