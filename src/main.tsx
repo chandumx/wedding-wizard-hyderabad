@@ -7,7 +7,7 @@ import { Toaster } from 'sonner'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <BrowserRouter basename={import.meta.env.PROD ? '/wedding-wizard-hyderabad' : '/'}>
+    <BrowserRouter>
       <App />
       <Toaster position="top-center" />
     </BrowserRouter>
