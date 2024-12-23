@@ -1,10 +1,9 @@
 import { SEOHead } from "../components/SEOHead";
 import { Navbar } from "../components/Navbar";
-import { LocationCard } from "../components/LocationCard";
-import { locations } from "../data/locations";
 import { ScrollArea } from "../components/ui/scroll-area";
 import { ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import { locations } from "../data/locations";
 
 const Locations = () => {
   return (
@@ -34,14 +33,15 @@ const Locations = () => {
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {locations.map((location) => (
-            <div key={location.slug} className="bg-white rounded-lg shadow-md overflow-hidden">
-              <LocationCard
-                name={location.name}
-                image={location.image}
-                link={`/location/${location.slug}`}
-              />
+            <div key={location.slug} className="bg-white rounded-lg shadow-md overflow-hidden p-6">
+              <Link 
+                to={`/location/${location.slug}`}
+                className="text-xl font-display font-semibold hover:text-primary transition-colors mb-4 block"
+              >
+                {location.name}
+              </Link>
               
-              <ScrollArea className="h-64 p-4">
+              <ScrollArea className="h-64">
                 <h3 className="text-lg font-display font-semibold mb-4">Areas in {location.name}</h3>
                 <div className="space-y-2">
                   {location.areas.map((area) => (
