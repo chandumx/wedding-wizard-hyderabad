@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Old City - Charminar -->
+  <url>
+    <loc>https://getmarriedinhyderabad.in/category/banquet-halls/old-city/charminar</loc>
+    <lastmod>2024-02-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://getmarriedinhyderabad.in/category/traditional-cuisine/old-city/charminar</loc>
+    <lastmod>2024-02-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://getmarriedinhyderabad.in/category/multi-cuisine/old-city/charminar</loc>
+    <lastmod>2024-02-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- Add all other categories from categories.ts -->
+  <url>
+    <loc>https://getmarriedinhyderabad.in/category/floral-decor/old-city/charminar</loc>
+    <lastmod>2024-02-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- Old City - Pathergatti -->
+  <url>
+    <loc>https://getmarriedinhyderabad.in/category/banquet-halls/old-city/pathergatti</loc>
+    <lastmod>2024-02-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- Add all categories for Pathergatti -->
+  <!-- Continue for other Old City areas -->
+</urlset>
