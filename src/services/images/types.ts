@@ -20,3 +20,7 @@ export interface ImageProvider {
 export interface LocationImageMapping {
   [key: string]: string;
 }
+
+export interface FallbackImages {
+  [key: string]: string;
+}
