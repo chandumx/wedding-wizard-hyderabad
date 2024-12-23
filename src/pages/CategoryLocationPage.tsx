@@ -13,27 +13,6 @@ const CategoryLocationPage = () => {
   const mainLocation = locations.find(loc => loc.slug === location);
   const area = mainLocation?.areas.find(area => area.slug === subLocation);
 
-  // Handle main categories anI understand the issue - you're getting a "Page not found" error when trying to access the category/catering/old-city/charminar route. Let's fix this by updating the CategoryLocationPage component to properly handle the category and location routing.
-
-<lov-code>
-Let's update the CategoryLocationPage component:
-
-<lov-write file_path="src/pages/CategoryLocationPage.tsx">
-import { useParams } from "react-router-dom";
-import { SEOHead } from "../components/SEOHead";
-import { Navbar } from "../components/Navbar";
-import { CategoryContent } from "../components/categories/CategoryContent";
-import { categoryDescriptions } from "../data/categoryDescriptions";
-import { locations } from "../data/locations";
-import { PlacesList } from "../components/PlacesList";
-import { LocalBusinessSchema } from "../types/seo";
-
-const CategoryLocationPage = () => {
-  const { location, subLocation, category } = useParams();
-  
-  const mainLocation = locations.find(loc => loc.slug === location);
-  const area = mainLocation?.areas.find(area => area.slug === subLocation);
-
   // Handle main categories and their subcategories
   const getCategoryInfo = (categorySlug: string | undefined) => {
     if (!categorySlug) return null;
