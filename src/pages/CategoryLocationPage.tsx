@@ -183,14 +183,14 @@ const CategoryLocationPage = () => {
         />
 
         <CategoryContent 
-          title={categoryInfo.title}
+          title={isCharminarWeddingHalls ? 'Wedding Halls in Charminar' : categoryInfo.title}
           description={categoryInfo.description}
           content={getCustomContent()}
         />
 
         <div className="mt-8">
           <h2 className="text-2xl font-display font-semibold mb-6">
-            Available {categoryInfo.title} in {locationString}
+            Available {isCharminarWeddingHalls ? 'Wedding Halls' : categoryInfo.title} in {locationString}
           </h2>
           <PlacesList 
             query={`${categoryInfo.title} in ${locationString}`}
