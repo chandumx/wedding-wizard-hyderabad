@@ -183,7 +183,7 @@ const CategoryLocationPage = () => {
         />
 
         <CategoryContent 
-          title={isCharminarWeddingHalls ? 'Wedding Halls in Charminar' : categoryInfo.title}
+          title={isCharminarWeddingHalls ? '' : categoryInfo.title}
           description={categoryInfo.description}
           content={getCustomContent()}
         />
