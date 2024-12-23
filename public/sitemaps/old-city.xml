@@ -19,13 +19,14 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
-  <!-- Add all other categories from categories.ts -->
   <url>
     <loc>https://getmarriedinhyderabad.in/category/floral-decor/old-city/charminar</loc>
     <lastmod>2024-02-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
+  <!-- Add all other categories for Charminar -->
+  
   <!-- Old City - Pathergatti -->
   <url>
     <loc>https://getmarriedinhyderabad.in/category/banquet-halls/old-city/pathergatti</loc>
@@ -34,5 +35,13 @@
     <priority>0.8</priority>
   </url>
   <!-- Add all categories for Pathergatti -->
-  <!-- Continue for other Old City areas -->
+  
+  <!-- Old City - Akbarbagh -->
+  <url>
+    <loc>https://getmarriedinhyderabad.in/category/traditional-cuisine/old-city/akbarbagh</loc>
+    <lastmod>2024-02-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- Add all categories for Akbarbagh -->
 </urlset>

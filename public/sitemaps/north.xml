@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <!-- Central - Nampally -->
+  <!-- North - Secunderabad -->
   <url>
-    <loc>https://getmarriedinhyderabad.in/category/banquet-halls/central-hyderabad/nampally</loc>
+    <loc>https://getmarriedinhyderabad.in/category/banquet-halls/north-hyderabad/secunderabad</loc>
     <lastmod>2024-02-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://getmarriedinhyderabad.in/category/traditional-cuisine/central-hyderabad/nampally</loc>
+    <loc>https://getmarriedinhyderabad.in/category/open-venues/north-hyderabad/secunderabad</loc>
     <lastmod>2024-02-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://getmarriedinhyderabad.in/category/multi-cuisine/central-hyderabad/nampally</loc>
+    <loc>https://getmarriedinhyderabad.in/category/hotels-resorts/north-hyderabad/secunderabad</loc>
     <lastmod>2024-02-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
-  <!-- Add all categories for Nampally -->
+  <!-- Continue for all categories -->
   
-  <!-- Central - Abids -->
+  <!-- North - Kompally -->
   <url>
-    <loc>https://getmarriedinhyderabad.in/category/banquet-halls/central-hyderabad/abids</loc>
+    <loc>https://getmarriedinhyderabad.in/category/banquet-halls/north-hyderabad/kompally</loc>
     <lastmod>2024-02-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
-  <!-- Add all categories for Abids -->
+  <!-- Add all categories for Kompally -->
 </urlset>
