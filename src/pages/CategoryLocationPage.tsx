@@ -6,6 +6,7 @@ import { categoryDescriptions } from "../data/categoryDescriptions";
 import { locations } from "../data/locations";
 import { PlacesList } from "../components/PlacesList";
 import { LocalBusinessSchema } from "../types/seo";
+import { categories } from "../data/categories";
 
 const CategoryLocationPage = () => {
   const { location, subLocation, category } = useParams();
@@ -22,12 +23,13 @@ const CategoryLocationPage = () => {
       return categoryDescriptions[categorySlug];
     }
 
-    // For main categories like "photography"
-    if (categorySlug === "photography") {
+    // Find category in categories array
+    const categoryData = categories.find(cat => cat.link === categorySlug);
+    if (categoryData) {
       return {
-        title: "Wedding Photography Services",
-        description: "Professional wedding photography services in Hyderabad",
-        content: "Discover premium wedding photography services that capture your special moments. From traditional photography to candid shots, our professional photographers ensure every precious moment of your wedding celebration is beautifully preserved. We offer customized packages, experienced photographers, and high-quality service."
+        title: categoryData.title,
+        description: categoryData.description,
+        content: `Find the best ${categoryData.title.toLowerCase()} services for your wedding celebration. Our professional vendors provide high-quality services tailored to your needs. With years of experience and dedication to excellence, we ensure your special day is perfectly captured and memorable.`
       };
     }
 
