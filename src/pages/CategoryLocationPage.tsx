@@ -14,7 +14,6 @@ const CategoryLocationPage = () => {
   const mainLocation = locations.find(loc => loc.slug === location);
   const area = mainLocation?.areas.find(area => area.slug === subLocation);
 
-  // Handle main categories and their subcategories
   const getCategoryInfo = (categorySlug: string | undefined) => {
     if (!categorySlug) return null;
     
@@ -24,10 +23,17 @@ const CategoryLocationPage = () => {
     }
 
     // Find category in categories array
-    const categoryData = categories.find(cat => cat.link === categorySlug || 
-      // Check if it's a subcategory
-      (categorySlug === "decoration" && ["floral-decor", "lighting", "theme-decor", "stage-design"].includes(cat.link))
-    );
+    const categoryData = categories.find(cat => {
+      // Direct match
+      if (cat.link === categorySlug) return true;
+      
+      // Check if it's a decoration subcategory
+      if (categorySlug === "decoration") {
+        return ["floral-decor", "lighting", "theme-decor", "stage-design"].includes(cat.link);
+      }
+      
+      return false;
+    });
 
     if (categoryData) {
       return {
@@ -37,7 +43,7 @@ const CategoryLocationPage = () => {
       };
     }
 
-    // Handle main category specifically
+    // Handle decoration category specifically
     if (categorySlug === "decoration") {
       return {
         title: "Wedding Decoration Services",
@@ -134,26 +140,11 @@ const CategoryLocationPage = () => {
           </ol>
         </nav>
 
-        <div className="max-w-4xl mx-auto">
-          <h1 className="text-4xl font-display font-bold mb-6">
-            {categoryInfo.title} in {locationString}
-          </h1>
-          
-          <div className="prose max-w-none">
-            <p className="text-lg text-gray-600 mb-8">
-              Looking for the best {categoryInfo.title.toLowerCase()} in {locationString}? We offer premium wedding services with experienced professionals, customized packages, and top-quality service. Located in {area.name}, our services are designed to make your wedding celebration truly memorable.
-            </p>
-            
-            <div className="bg-white rounded-lg shadow-sm p-6 mb-8">
-              <h2 className="text-2xl font-display font-semibold mb-4">
-                About {categoryInfo.title} in {area.name}
-              </h2>
-              <p className="text-gray-600">
-                {categoryInfo.content} Our services in {locationString} are specially curated to provide you with the best experience for your wedding celebration. Whether you're planning an intimate gathering or a grand celebration, we have the perfect solutions to accommodate your needs.
-              </p>
-            </div>
-          </div>
-        </div>
+        <CategoryContent 
+          title={categoryInfo.title}
+          description={categoryInfo.description}
+          content={categoryInfo.content}
+        />
 
         <div className="mt-8">
           <h2 className="text-2xl font-display font-semibold mb-6">
