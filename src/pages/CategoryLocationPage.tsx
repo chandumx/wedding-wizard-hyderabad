@@ -25,20 +25,9 @@ const CategoryLocationPage = () => {
     );
   }
 
-  const pageTitle = `Best ${categoryInfo.title} in ${area.name}, ${mainLocation.name} | Book Top Wedding Services`;
-  const pageDescription = `Discover premium ${categoryInfo.title.toLowerCase()} services in ${area.name}, ${mainLocation.name}. Located in the bustling commercial hub of Hyderabad, ${area.name} offers a perfect blend of traditional and modern wedding venues and services. Compare prices, check availability, and book trusted vendors for your special day.`;
-  
-  const keywords = [
-    `${category} ${area.name}`,
-    `wedding ${category} ${area.name}`,
-    `${mainLocation.name} wedding ${category}`,
-    `best wedding ${category} ${area.name}`,
-    `affordable ${category} ${area.name}`,
-    `top rated ${category} ${mainLocation.name}`,
-    `professional ${categoryInfo.title.toLowerCase()} services`,
-    `wedding services ${area.name}`,
-    `${category} near me`
-  ];
+  const locationString = `${area.name}, ${mainLocation.name}`;
+  const pageTitle = `Best ${categoryInfo.title} in ${locationString} | Wedding Wizard`;
+  const pageDescription = `Discover the finest ${categoryInfo.title.toLowerCase()} in ${locationString}. We offer premium venues and services for weddings and celebrations, featuring state-of-the-art facilities, elegant decor, and professional services. Compare prices, check availability, and book trusted vendors for your special day in ${area.name}.`;
 
   // Default coordinates for Hyderabad if location is not specified
   const defaultLocation = { lat: 17.3850, lng: 78.4867 };
@@ -48,7 +37,7 @@ const CategoryLocationPage = () => {
   const localBusinessSchema: LocalBusinessSchema = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    name: `${categoryInfo.title} in ${area.name}`,
+    name: `${categoryInfo.title} in ${locationString}`,
     description: pageDescription,
     image: "/og-image.png",
     address: {
@@ -78,10 +67,18 @@ const CategoryLocationPage = () => {
       <SEOHead
         title={pageTitle}
         description={pageDescription}
-        keywords={keywords}
+        keywords={[
+          `${categoryInfo.title.toLowerCase()} ${area.name}`,
+          `wedding ${categoryInfo.title.toLowerCase()} ${area.name}`,
+          `${mainLocation.name} wedding ${categoryInfo.title.toLowerCase()}`,
+          `best wedding ${categoryInfo.title.toLowerCase()} ${area.name}`,
+          `affordable ${categoryInfo.title.toLowerCase()} ${area.name}`,
+          `top rated ${categoryInfo.title.toLowerCase()} ${mainLocation.name}`,
+          `professional wedding services ${area.name}`,
+          `wedding services ${locationString}`,
+          `${category} near me`
+        ]}
         canonicalUrl={`https://getmarriedinhyderabad.in/location/${location}/${subLocation}/${category}`}
-        ogImage="/og-image.png"
-        ogType="business.business"
         schema={localBusinessSchema}
       />
       
@@ -100,18 +97,33 @@ const CategoryLocationPage = () => {
           </ol>
         </nav>
 
-        <CategoryContent 
-          title={categoryInfo.title}
-          description={categoryInfo.description}
-          content={categoryInfo.content}
-        />
+        <div className="max-w-4xl mx-auto">
+          <h1 className="text-4xl font-display font-bold mb-6">
+            {categoryInfo.title} in {locationString}
+          </h1>
+          
+          <div className="prose max-w-none">
+            <p className="text-lg text-gray-600 mb-8">
+              Looking for the perfect {categoryInfo.title.toLowerCase()} in {locationString}? Discover our premium selection of venues and services designed to make your wedding celebration truly memorable. We offer state-of-the-art facilities, elegant decor, and professional services to ensure your special day is exactly as you've dreamed. Located in the heart of {area.name}, our venues combine traditional charm with modern amenities to create the perfect setting for your wedding.
+            </p>
+            
+            <div className="bg-white rounded-lg shadow-sm p-6 mb-8">
+              <h2 className="text-2xl font-display font-semibold mb-4">
+                About {categoryInfo.title} in {area.name}
+              </h2>
+              <p className="text-gray-600">
+                {categoryInfo.content} Our venues in {locationString} are specially curated to provide you with the best facilities and services for your wedding celebration. Whether you're planning an intimate gathering or a grand celebration, we have the perfect space to accommodate your needs.
+              </p>
+            </div>
+          </div>
+        </div>
 
         <div className="mt-8">
           <h2 className="text-2xl font-display font-semibold mb-6">
-            Available {categoryInfo.title} in {area.name}
+            Available {categoryInfo.title} in {locationString}
           </h2>
           <PlacesList 
-            query={`${categoryInfo.title} in ${area.name}, ${mainLocation.name}`}
+            query={`${categoryInfo.title} in ${locationString}`}
             location={areaLocation}
           />
         </div>
