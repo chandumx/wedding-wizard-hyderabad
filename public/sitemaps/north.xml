@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <!-- North - Secunderabad -->
+  <!-- Secunderabad -->
   <url>
     <loc>https://getmarriedinhyderabad.in/category/banquet-halls/north-hyderabad/secunderabad</loc>
     <lastmod>2024-02-20</lastmod>
@@ -19,14 +19,11 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
-  <!-- Continue for all categories -->
-  
-  <!-- North - Kompally -->
+  <!-- Kompally -->
   <url>
     <loc>https://getmarriedinhyderabad.in/category/banquet-halls/north-hyderabad/kompally</loc>
     <lastmod>2024-02-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
-  <!-- Add all categories for Kompally -->
 </urlset>

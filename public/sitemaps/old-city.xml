@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <!-- Old City - Charminar -->
+  <!-- Charminar -->
   <url>
     <loc>https://getmarriedinhyderabad.in/category/banquet-halls/old-city/charminar</loc>
     <lastmod>2024-02-20</lastmod>
@@ -25,23 +25,18 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
-  <!-- Add all other categories for Charminar -->
-  
-  <!-- Old City - Pathergatti -->
+  <!-- Pathergatti -->
   <url>
     <loc>https://getmarriedinhyderabad.in/category/banquet-halls/old-city/pathergatti</loc>
     <lastmod>2024-02-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
-  <!-- Add all categories for Pathergatti -->
-  
-  <!-- Old City - Akbarbagh -->
+  <!-- Akbarbagh -->
   <url>
     <loc>https://getmarriedinhyderabad.in/category/traditional-cuisine/old-city/akbarbagh</loc>
     <lastmod>2024-02-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
-  <!-- Add all categories for Akbarbagh -->
 </urlset>

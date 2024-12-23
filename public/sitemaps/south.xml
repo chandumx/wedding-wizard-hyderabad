@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <!-- South - Mehdipatnam -->
+  <!-- Mehdipatnam -->
   <url>
     <loc>https://getmarriedinhyderabad.in/category/banquet-halls/south-hyderabad/mehdipatnam</loc>
     <lastmod>2024-02-20</lastmod>
@@ -13,14 +13,11 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
-  <!-- Add all categories for Mehdipatnam -->
-  
-  <!-- South - Attapur -->
+  <!-- Attapur -->
   <url>
     <loc>https://getmarriedinhyderabad.in/category/banquet-halls/south-hyderabad/attapur</loc>
     <lastmod>2024-02-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
-  <!-- Add all categories for Attapur -->
 </urlset>
