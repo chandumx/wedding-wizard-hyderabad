@@ -35,26 +35,28 @@ export const categoryDescriptions: Record<string, CategoryDescription> = {
     description: "Large convention centers for grand events",
     content: "Plan your grand wedding at our spacious convention centers. Ideal for large gatherings with state-of-the-art facilities and professional management.",
   },
+
   "traditional-cuisine": {
-    title: "Traditional Indian Cuisine",
-    description: "Authentic Indian wedding cuisine and catering services",
-    content: "Experience the rich flavors and cultural heritage of traditional Indian cuisine for your wedding celebrations. Our curated selection of traditional cuisine vendors specialize in authentic regional dishes, customized menus, and professional catering services.",
+    title: "Traditional Indian Wedding Catering",
+    description: "Expert traditional Indian wedding catering services in Hyderabad with authentic flavors and professional service",
+    content: "Experience the rich flavors of authentic Indian wedding cuisine with our professional catering services in Hyderabad. Our expert chefs specialize in traditional wedding dishes, regional specialties, and customized menus that cater to your preferences. We ensure high-quality ingredients, impeccable service, and memorable dining experiences for your wedding celebration.",
   },
   "multi-cuisine": {
-    title: "Multi-Cuisine Catering",
-    description: "Diverse menu options for all tastes",
-    content: "Explore our multi-cuisine catering services that cater to diverse palates. Our vendors offer a wide range of international and fusion cuisines, ensuring every guest finds something to savor.",
+    title: "Multi-Cuisine Wedding Catering",
+    description: "Professional multi-cuisine wedding catering services in Hyderabad offering diverse menu options",
+    content: "Discover our extensive multi-cuisine catering services that bring together the best of global flavors for your wedding celebration. Our experienced chefs craft diverse menus featuring international cuisines, fusion dishes, and customized options to satisfy every palate. We pride ourselves on quality ingredients, professional presentation, and exceptional service.",
   },
   "sweets-desserts": {
-    title: "Sweets & Desserts",
-    description: "Wedding sweets and dessert specialists",
-    content: "Delight your guests with our premium selection of traditional sweets and modern desserts. Our specialized vendors create memorable sweet experiences for your wedding celebrations.",
+    title: "Wedding Sweets & Desserts",
+    description: "Premium wedding sweets and dessert catering services in Hyderabad for all celebrations",
+    content: "Indulge in our exquisite collection of wedding sweets and desserts, crafted by expert confectioners. We offer traditional Indian sweets, modern desserts, and customized sweet arrangements for weddings and related celebrations. Our focus on quality ingredients and artistic presentation ensures your wedding desserts are both delicious and memorable.",
   },
   "live-counters": {
-    title: "Live Food Counters",
-    description: "Interactive food stations and counters",
-    content: "Add excitement to your wedding with live cooking stations. Our vendors offer interactive food experiences with skilled chefs preparing dishes right in front of your guests.",
+    title: "Live Food Counter Services",
+    description: "Interactive live food counter services for weddings in Hyderabad with professional chefs",
+    content: "Enhance your wedding celebration with our engaging live food counters. Our professional chefs create interactive culinary experiences with live cooking stations featuring various cuisines and specialties. From traditional chaats to international grills, our live counters add excitement and flavor to your wedding catering.",
   },
+
   "floral-decor": {
     title: "Floral Decor",
     description: "Elegant floral arrangements and designs",
