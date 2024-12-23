@@ -22,13 +22,22 @@ const CategoryLocationPage = () => {
       return categoryDescriptions[categorySlug];
     }
 
-    // Handle decoration category
-    if (categorySlug === "decoration") {
-      return {
+    // Handle special categories
+    const specialCategories: Record<string, any> = {
+      "decoration": {
         title: "Wedding Decoration Services",
         description: "Professional wedding decoration services in Hyderabad",
         content: "Transform your wedding venue with our professional decoration services. From elegant floral arrangements to stunning lighting and themed setups, our expert decorators create magical atmospheres for your special day. We offer comprehensive decoration solutions including stage design, mandap decoration, and customized themes."
-      };
+      },
+      "kids-entertainment": {
+        title: "Kids Entertainment Services",
+        description: "Professional kids entertainment services for weddings in Hyderabad",
+        content: "Make your wedding celebration fun for all ages with our professional kids entertainment services. We offer a variety of entertainment options including games, activities, face painting, balloon art, and dedicated child care professionals to keep young guests engaged and happy throughout your event."
+      }
+    };
+
+    if (specialCategories[categorySlug]) {
+      return specialCategories[categorySlug];
     }
 
     // Handle decoration subcategories
@@ -44,13 +53,13 @@ const CategoryLocationPage = () => {
       }
     }
 
-    // Find category in categories array
+    // Find category in categories array as fallback
     const categoryData = categories.find(cat => cat.link === categorySlug);
     if (categoryData) {
       return {
         title: categoryData.title,
         description: categoryData.description,
-        content: `Find the best ${categoryData.title.toLowerCase()} services for your wedding celebration. Our professional vendors provide high-quality services tailored to your needs.`
+        content: `Discover the best ${categoryData.title.toLowerCase()} services for your wedding celebration in Hyderabad. Our professional vendors provide high-quality services tailored to your specific needs and preferences.`
       };
     }
 
