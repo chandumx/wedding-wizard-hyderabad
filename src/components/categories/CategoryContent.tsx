@@ -33,9 +33,11 @@ export const CategoryContent = ({ title, description, content }: CategoryContent
 
   return (
     <div className="max-w-4xl mx-auto">
-      <h1 className="text-4xl font-display font-bold mb-6">
-        {title}
-      </h1>
+      {title && (
+        <h1 className="text-4xl font-display font-bold mb-6">
+          {title}
+        </h1>
+      )}
       
       <div className="prose max-w-none">
         <p className="text-lg text-gray-600 mb-8">
@@ -44,7 +46,7 @@ export const CategoryContent = ({ title, description, content }: CategoryContent
         
         <div className="bg-white rounded-lg shadow-sm p-6 mb-8">
           <h2 className="text-2xl font-display font-semibold mb-4">
-            About {title}
+            About {title || "Our Services"}
           </h2>
           <p className="text-gray-600">
             {content}
