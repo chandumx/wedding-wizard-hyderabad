@@ -80,8 +80,13 @@ const CategoryLocationPage = () => {
   }
 
   const locationString = `${area.name}, ${mainLocation.name}`;
-  const pageTitle = `Best ${categoryInfo.title} in ${locationString}`;
-  const pageDescription = `Find the finest ${categoryInfo.title.toLowerCase()} in ${locationString}. We offer premium services with experienced professionals, customized packages, and top-quality service for your wedding celebration.`;
+  const pageTitle = area.slug === "charminar" && category === "wedding-halls" 
+    ? "Wedding Venues Near Charminar | Historic Wedding Halls in Old City Hyderabad"
+    : `Best ${categoryInfo.title} in ${locationString}`;
+    
+  const pageDescription = area.slug === "charminar" && category === "wedding-halls"
+    ? "Discover magnificent wedding venues near Charminar in Old City, Hyderabad. Our handpicked wedding halls blend historic charm with modern amenities, perfect for traditional Hyderabadi weddings near the iconic Charminar."
+    : `Find the finest ${categoryInfo.title.toLowerCase()} in ${locationString}. We offer premium services with experienced professionals, customized packages, and top-quality service for your wedding celebration.`;
 
   // Default coordinates for Hyderabad if location is not specified
   const defaultLocation = { lat: 17.3850, lng: 78.4867 };
@@ -116,21 +121,29 @@ const CategoryLocationPage = () => {
     }
   };
 
+  const getCustomContent = () => {
+    if (area.slug === "charminar" && category === "wedding-halls") {
+      return "Discover the perfect wedding venue near the iconic Charminar in Old City, Hyderabad. Our curated selection of wedding halls combines the rich heritage of the Charminar area with modern amenities. These venues offer a unique blend of traditional Hyderabadi architecture and contemporary facilities, making them ideal for couples seeking a wedding celebration with historic charm. Located in the heart of Old City, these wedding halls provide excellent accessibility and a picturesque backdrop of Charminar for your special day. From intimate nikah ceremonies to grand wedding receptions, our venues can accommodate celebrations of various sizes while maintaining the cultural essence of Old City Hyderabad.";
+    }
+    return categoryInfo.content;
+  };
+
   return (
     <>
       <SEOHead
         title={pageTitle}
         description={pageDescription}
         keywords={[
-          `${categoryInfo.title.toLowerCase()} ${area.name}`,
-          `wedding ${categoryInfo.title.toLowerCase()} ${area.name}`,
-          `${mainLocation.name} wedding ${categoryInfo.title.toLowerCase()}`,
-          `best wedding ${categoryInfo.title.toLowerCase()} ${area.name}`,
-          `affordable ${categoryInfo.title.toLowerCase()} ${area.name}`,
-          `top rated ${categoryInfo.title.toLowerCase()} ${mainLocation.name}`,
-          `professional wedding services ${area.name}`,
-          `wedding services ${locationString}`,
-          `${category} near me`
+          `wedding halls near charminar`,
+          `wedding venues charminar`,
+          `marriage halls old city hyderabad`,
+          `wedding venues near charminar hyderabad`,
+          `traditional wedding halls charminar`,
+          `best wedding venues old city`,
+          `nikah halls near charminar`,
+          `wedding reception venues charminar`,
+          `affordable wedding halls old city`,
+          `luxury wedding venues near charminar`
         ]}
         canonicalUrl={`https://getmarriedinhyderabad.in/category/${category}/${location}/${subLocation}`}
         schema={localBusinessSchema}
@@ -154,7 +167,7 @@ const CategoryLocationPage = () => {
         <CategoryContent 
           title={categoryInfo.title}
           description={categoryInfo.description}
-          content={categoryInfo.content}
+          content={getCustomContent()}
         />
 
         <div className="mt-8">
@@ -169,16 +182,16 @@ const CategoryLocationPage = () => {
 
         <div className="mt-12 bg-secondary/50 rounded-lg p-8">
           <h2 className="text-2xl font-display font-semibold mb-4">
-            Frequently Asked Questions About {categoryInfo.title} in {area.name}
+            Frequently Asked Questions About Wedding Venues Near Charminar
           </h2>
           <div className="space-y-4">
             <div>
-              <h3 className="font-semibold mb-2">What makes {area.name} an ideal location for weddings?</h3>
-              <p className="text-gray-600">{area.name} is known for its excellent connectivity, diverse venue options, and rich cultural atmosphere, making it a perfect choice for wedding celebrations in {mainLocation.name}.</p>
+              <h3 className="font-semibold mb-2">What makes Charminar area special for wedding venues?</h3>
+              <p className="text-gray-600">The Charminar area offers a unique blend of historical charm and cultural significance. Wedding venues here provide a traditional Hyderabadi atmosphere with the iconic Charminar as a backdrop, making your celebration truly memorable.</p>
             </div>
             <div>
-              <h3 className="font-semibold mb-2">What's the typical price range for {categoryInfo.title.toLowerCase()} in {area.name}?</h3>
-              <p className="text-gray-600">Prices vary based on your specific requirements and package selection. Contact our verified vendors directly for detailed quotes tailored to your needs.</p>
+              <h3 className="font-semibold mb-2">What types of wedding venues are available near Charminar?</h3>
+              <p className="text-gray-600">Near Charminar, you'll find various wedding venues including traditional marriage halls, heritage properties, and modern banquet halls. These venues can accommodate both intimate nikah ceremonies and grand wedding receptions.</p>
             </div>
           </div>
         </div>
