@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <sitemap>
-    <loc>https://getmarriedinhyderabad.in/sitemaps/main-pages.xml</loc>
+    <loc>https://getmarriedinhyderabad.in/main-pages.xml</loc>
     <lastmod>2024-02-20</lastmod>
   </sitemap>
   <sitemap>
-    <loc>https://getmarriedinhyderabad.in/sitemaps/old-city.xml</loc>
+    <loc>https://getmarriedinhyderabad.in/old-city.xml</loc>
     <lastmod>2024-02-20</lastmod>
   </sitemap>
   <sitemap>
-    <loc>https://getmarriedinhyderabad.in/sitemaps/central.xml</loc>
+    <loc>https://getmarriedinhyderabad.in/central.xml</loc>
     <lastmod>2024-02-20</lastmod>
   </sitemap>
   <sitemap>
-    <loc>https://getmarriedinhyderabad.in/sitemaps/north.xml</loc>
+    <loc>https://getmarriedinhyderabad.in/north.xml</loc>
     <lastmod>2024-02-20</lastmod>
   </sitemap>
   <sitemap>
-    <loc>https://getmarriedinhyderabad.in/sitemaps/south.xml</loc>
+    <loc>https://getmarriedinhyderabad.in/south.xml</loc>
     <lastmod>2024-02-20</lastmod>
   </sitemap>
   <sitemap>
-    <loc>https://getmarriedinhyderabad.in/sitemaps/east.xml</loc>
+    <loc>https://getmarriedinhyderabad.in/east.xml</loc>
     <lastmod>2024-02-20</lastmod>
   </sitemap>
   <sitemap>
-    <loc>https://getmarriedinhyderabad.in/sitemaps/west.xml</loc>
+    <loc>https://getmarriedinhyderabad.in/west.xml</loc>
     <lastmod>2024-02-20</lastmod>
   </sitemap>
 </sitemapindex>
