@@ -22,12 +22,12 @@ const CategoryLocationPage = () => {
       return categoryDescriptions[categorySlug];
     }
 
-    // For main categories like "catering"
-    if (categorySlug === "catering") {
+    // For main categories like "photography"
+    if (categorySlug === "photography") {
       return {
-        title: "Wedding Catering Services",
-        description: "Professional wedding catering services offering traditional, multi-cuisine, and specialized food services",
-        content: "Discover premium wedding catering services that cater to all your culinary needs. From traditional Indian cuisine to international flavors, our professional catering services ensure a memorable dining experience for your wedding celebration. We offer customized menus, experienced staff, and impeccable service quality."
+        title: "Wedding Photography Services",
+        description: "Professional wedding photography services in Hyderabad",
+        content: "Discover premium wedding photography services that capture your special moments. From traditional photography to candid shots, our professional photographers ensure every precious moment of your wedding celebration is beautifully preserved. We offer customized packages, experienced photographers, and high-quality service."
       };
     }
 
