@@ -26,16 +26,20 @@ const LocationPage = () => {
     );
   }
 
+  const pageTitle = `Wedding Venues & Services in ${locationData.name}, Hyderabad`;
+  const pageDescription = `Discover the best wedding venues and services in ${locationData.name}, Hyderabad. We offer premium wedding halls, function venues, and complete wedding services with state-of-the-art facilities. Find and book trusted venues in ${locationData.name} for your perfect wedding celebration.`;
+
   return (
     <>
       <SEOHead
-        title={`Wedding Venues & Services in ${locationData.name}, Hyderabad`}
-        description={locationData.description}
+        title={pageTitle}
+        description={pageDescription}
         keywords={[
           `wedding venues ${locationData.name.toLowerCase()}`,
           `marriage halls ${locationData.name.toLowerCase()}`,
           `wedding services ${locationData.name.toLowerCase()} hyderabad`,
-          `${locationData.name.toLowerCase()} wedding locations`
+          `${locationData.name.toLowerCase()} wedding locations`,
+          `best wedding venues in ${locationData.name.toLowerCase()}`
         ]}
         canonicalUrl={`https://getmarriedinhyderabad.in/location/${location}`}
       />
@@ -48,7 +52,12 @@ const LocationPage = () => {
         </h1>
         
         <div className="prose max-w-none mb-12">
-          <p className="text-lg text-gray-600">{locationData.description}</p>
+          <p className="text-lg text-gray-600">
+            Planning a wedding in {locationData.name}? Explore our curated selection of premium wedding venues and comprehensive wedding services. From traditional marriage halls to modern banquet facilities, we offer the perfect venues for your special day in {locationData.name}. Each venue is equipped with modern amenities and supported by professional services to ensure a memorable celebration.
+          </p>
+          <p className="text-lg text-gray-600 mt-4">
+            {locationData.description}
+          </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
