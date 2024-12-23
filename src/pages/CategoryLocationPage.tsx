@@ -22,28 +22,26 @@ const CategoryLocationPage = () => {
       return categoryDescriptions[categorySlug];
     }
 
-    // Handle decoration category and its subcategories
-    const decorationSubcategories = ["floral-decor", "lighting", "theme-decor", "stage-design"];
-    
-    if (categorySlug === "decoration" || decorationSubcategories.includes(categorySlug)) {
-      // If it's a subcategory, find its specific data
-      if (decorationSubcategories.includes(categorySlug)) {
-        const subcategoryData = categories.find(cat => cat.link === categorySlug);
-        if (subcategoryData) {
-          return {
-            title: subcategoryData.title,
-            description: subcategoryData.description,
-            content: `Find professional ${subcategoryData.title.toLowerCase()} services for your wedding celebration. Our experienced decorators provide high-quality services tailored to your needs.`
-          };
-        }
-      }
-      
-      // Return main decoration category data
+    // Handle decoration category
+    if (categorySlug === "decoration") {
       return {
         title: "Wedding Decoration Services",
         description: "Professional wedding decoration services in Hyderabad",
         content: "Transform your wedding venue with our professional decoration services. From elegant floral arrangements to stunning lighting and themed setups, our expert decorators create magical atmospheres for your special day. We offer comprehensive decoration solutions including stage design, mandap decoration, and customized themes."
       };
+    }
+
+    // Handle decoration subcategories
+    const decorationSubcategories = ["floral-decor", "lighting", "theme-decor", "stage-design"];
+    if (decorationSubcategories.includes(categorySlug)) {
+      const subcategoryData = categories.find(cat => cat.link === categorySlug);
+      if (subcategoryData) {
+        return {
+          title: subcategoryData.title,
+          description: subcategoryData.description,
+          content: `Find professional ${subcategoryData.title.toLowerCase()} services for your wedding celebration. Our experienced decorators provide high-quality services tailored to your needs.`
+        };
+      }
     }
 
     // Find category in categories array
