@@ -20,14 +20,21 @@ export const CategoryLocationContent = ({
   areaLocation,
   isCharminarWeddingHalls
 }: CategoryLocationContentProps) => {
+  const getLocationSpecificContent = (location: string) => {
+    if (location.includes('Chatrinaka')) {
+      return `Discover our premium wedding halls in Chatrinaka, a vibrant neighborhood in Old City, Hyderabad. Our carefully selected venues in Chatrinaka offer state-of-the-art facilities, elegant decor, and professional services to make your wedding celebration truly memorable. Located in the heart of Old City, Chatrinaka's wedding halls combine traditional charm with modern amenities, perfect for both intimate gatherings and grand celebrations. Each venue in Chatrinaka provides excellent accessibility, ample parking, and customizable spaces to create your dream wedding setting.`;
+    }
+    return content;
+  };
+
   const faqQuestions = [
     {
-      question: "What makes Charminar area special for wedding venues?",
-      answer: "The Charminar area offers a unique blend of historical charm and cultural significance. Wedding venues here provide a traditional Hyderabadi atmosphere with the iconic Charminar as a backdrop, making your celebration truly memorable."
+      question: "What makes Chatrinaka area special for wedding venues?",
+      answer: "The Chatrinaka area offers a perfect blend of traditional charm and modern amenities. Wedding venues here provide excellent accessibility, spacious halls, and are known for their cultural significance in Old City Hyderabad."
     },
     {
-      question: "What types of wedding venues are available near Charminar?",
-      answer: "Near Charminar, you'll find various wedding venues including traditional marriage halls, heritage properties, and modern banquet halls. These venues can accommodate both intimate nikah ceremonies and grand wedding receptions."
+      question: "What types of wedding venues are available in Chatrinaka?",
+      answer: "In Chatrinaka, you'll find various wedding venues including traditional marriage halls, modern banquet facilities, and customizable event spaces that can accommodate both intimate ceremonies and grand wedding celebrations."
     }
   ];
 
@@ -37,7 +44,7 @@ export const CategoryLocationContent = ({
         <CategoryContent 
           title=""
           description={description}
-          content={content}
+          content={getLocationSpecificContent(locationString)}
         />
       )}
 
@@ -52,7 +59,7 @@ export const CategoryLocationContent = ({
       </div>
 
       <FAQSection 
-        title="Frequently Asked Questions About Wedding Venues Near Charminar"
+        title={`Frequently Asked Questions About Wedding Venues in ${locationString}`}
         questions={faqQuestions}
       />
     </>
