@@ -178,7 +178,7 @@ const CategoryLocationPage = () => {
         <Breadcrumbs items={breadcrumbItems} />
 
         <PageHeader 
-          title={`${categoryInfo.title} in ${locationString}`}
+          title={isCharminarWeddingHalls ? '' : `${categoryInfo.title} in ${locationString}`}
           isCharminarWeddingHalls={isCharminarWeddingHalls}
         />
 
