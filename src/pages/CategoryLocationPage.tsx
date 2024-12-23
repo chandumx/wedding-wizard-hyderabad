@@ -7,6 +7,8 @@ import { locations } from "../data/locations";
 import { PlacesList } from "../components/PlacesList";
 import { LocalBusinessSchema } from "../types/seo";
 import { categories } from "../data/categories";
+import { Breadcrumbs } from "../components/Breadcrumbs";
+import { FAQSection } from "../components/FAQSection";
 
 const CategoryLocationPage = () => {
   const { location, subLocation, category } = useParams();
@@ -128,6 +130,24 @@ const CategoryLocationPage = () => {
     return categoryInfo.content;
   };
 
+  const breadcrumbItems = [
+    { label: "Home", link: "/" },
+    { label: categoryInfo.title, link: `/category/${category}` },
+    { label: mainLocation.name, link: `/location/${location}` },
+    { label: area.name },
+  ];
+
+  const faqQuestions = [
+    {
+      question: "What makes Charminar area special for wedding venues?",
+      answer: "The Charminar area offers a unique blend of historical charm and cultural significance. Wedding venues here provide a traditional Hyderabadi atmosphere with the iconic Charminar as a backdrop, making your celebration truly memorable."
+    },
+    {
+      question: "What types of wedding venues are available near Charminar?",
+      answer: "Near Charminar, you'll find various wedding venues including traditional marriage halls, heritage properties, and modern banquet halls. These venues can accommodate both intimate nikah ceremonies and grand wedding receptions."
+    }
+  ];
+
   return (
     <>
       <SEOHead
@@ -152,17 +172,17 @@ const CategoryLocationPage = () => {
       <Navbar />
       
       <main className="container mx-auto px-4 py-16">
-        <nav className="text-sm breadcrumbs mb-6">
-          <ol className="flex items-center space-x-2">
-            <li><a href="/" className="text-primary hover:underline">Home</a></li>
-            <li className="text-gray-400">/</li>
-            <li><a href={`/category/${category}`} className="text-primary hover:underline">{categoryInfo.title}</a></li>
-            <li className="text-gray-400">/</li>
-            <li><a href={`/location/${location}`} className="text-primary hover:underline">{mainLocation.name}</a></li>
-            <li className="text-gray-400">/</li>
-            <li className="text-gray-600">{area.name}</li>
-          </ol>
-        </nav>
+        <Breadcrumbs items={breadcrumbItems} />
+
+        {area.slug === "charminar" && category === "wedding-halls" ? (
+          <h1 className="text-4xl font-display font-bold mb-6 text-center">
+            Wedding Halls in Charminar
+          </h1>
+        ) : (
+          <h1 className="text-4xl font-display font-bold mb-6 text-center">
+            {categoryInfo.title} in {locationString}
+          </h1>
+        )}
 
         <CategoryContent 
           title={categoryInfo.title}
@@ -176,25 +196,14 @@ const CategoryLocationPage = () => {
           </h2>
           <PlacesList 
             query={`${categoryInfo.title} in ${locationString}`}
-            location={areaLocation}
+            location={area.location || { lat: 17.3850, lng: 78.4867 }}
           />
         </div>
 
-        <div className="mt-12 bg-secondary/50 rounded-lg p-8">
-          <h2 className="text-2xl font-display font-semibold mb-4">
-            Frequently Asked Questions About Wedding Venues Near Charminar
-          </h2>
-          <div className="space-y-4">
-            <div>
-              <h3 className="font-semibold mb-2">What makes Charminar area special for wedding venues?</h3>
-              <p className="text-gray-600">The Charminar area offers a unique blend of historical charm and cultural significance. Wedding venues here provide a traditional Hyderabadi atmosphere with the iconic Charminar as a backdrop, making your celebration truly memorable.</p>
-            </div>
-            <div>
-              <h3 className="font-semibold mb-2">What types of wedding venues are available near Charminar?</h3>
-              <p className="text-gray-600">Near Charminar, you'll find various wedding venues including traditional marriage halls, heritage properties, and modern banquet halls. These venues can accommodate both intimate nikah ceremonies and grand wedding receptions.</p>
-            </div>
-          </div>
-        </div>
+        <FAQSection 
+          title="Frequently Asked Questions About Wedding Venues Near Charminar"
+          questions={faqQuestions}
+        />
       </main>
     </>
   );
