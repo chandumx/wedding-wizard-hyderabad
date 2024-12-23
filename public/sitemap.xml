@@ -39,34 +39,140 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
+
+  <!-- East Hyderabad -->
   <url>
-    <loc>https://getmarriedinhyderabad.in/category/farmhouses</loc>
+    <loc>https://getmarriedinhyderabad.in/category/banquet-halls/east-hyderabad/uppal</loc>
     <lastmod>2024-02-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://getmarriedinhyderabad.in/category/convention-centers</loc>
+    <loc>https://getmarriedinhyderabad.in/category/traditional-cuisine/east-hyderabad/uppal</loc>
+    <lastmod>2024-02-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://getmarriedinhyderabad.in/category/banquet-halls/east-hyderabad/lb-nagar</loc>
+    <lastmod>2024-02-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://getmarriedinhyderabad.in/category/traditional-cuisine/east-hyderabad/lb-nagar</loc>
     <lastmod>2024-02-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
-  <!-- Old City - Charminar Area -->
+  <!-- North Hyderabad -->
+  <url>
+    <loc>https://getmarriedinhyderabad.in/category/banquet-halls/north-hyderabad/secunderabad</loc>
+    <lastmod>2024-02-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://getmarriedinhyderabad.in/category/traditional-cuisine/north-hyderabad/secunderabad</loc>
+    <lastmod>2024-02-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://getmarriedinhyderabad.in/category/banquet-halls/north-hyderabad/kompally</loc>
+    <lastmod>2024-02-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://getmarriedinhyderabad.in/category/traditional-cuisine/north-hyderabad/kompally</loc>
+    <lastmod>2024-02-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Central Hyderabad -->
+  <url>
+    <loc>https://getmarriedinhyderabad.in/category/banquet-halls/central-hyderabad/nampally</loc>
+    <lastmod>2024-02-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://getmarriedinhyderabad.in/category/traditional-cuisine/central-hyderabad/nampally</loc>
+    <lastmod>2024-02-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://getmarriedinhyderabad.in/category/banquet-halls/central-hyderabad/abids</loc>
+    <lastmod>2024-02-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://getmarriedinhyderabad.in/category/traditional-cuisine/central-hyderabad/abids</loc>
+    <lastmod>2024-02-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- South Hyderabad -->
+  <url>
+    <loc>https://getmarriedinhyderabad.in/category/banquet-halls/south-hyderabad/mehdipatnam</loc>
+    <lastmod>2024-02-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://getmarriedinhyderabad.in/category/traditional-cuisine/south-hyderabad/mehdipatnam</loc>
+    <lastmod>2024-02-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://getmarriedinhyderabad.in/category/banquet-halls/south-hyderabad/attapur</loc>
+    <lastmod>2024-02-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://getmarriedinhyderabad.in/category/traditional-cuisine/south-hyderabad/attapur</loc>
+    <lastmod>2024-02-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- West Hyderabad -->
+  <url>
+    <loc>https://getmarriedinhyderabad.in/category/banquet-halls/west-hyderabad/jubilee-hills</loc>
+    <lastmod>2024-02-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://getmarriedinhyderabad.in/category/traditional-cuisine/west-hyderabad/jubilee-hills</loc>
+    <lastmod>2024-02-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://getmarriedinhyderabad.in/category/banquet-halls/west-hyderabad/banjara-hills</loc>
+    <lastmod>2024-02-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://getmarriedinhyderabad.in/category/traditional-cuisine/west-hyderabad/banjara-hills</loc>
+    <lastmod>2024-02-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Old City -->
   <url>
     <loc>https://getmarriedinhyderabad.in/category/banquet-halls/old-city/charminar</loc>
-    <lastmod>2024-02-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://getmarriedinhyderabad.in/category/open-venues/old-city/charminar</loc>
-    <lastmod>2024-02-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://getmarriedinhyderabad.in/category/hotels-resorts/old-city/charminar</loc>
     <lastmod>2024-02-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -77,20 +183,6 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
-  <url>
-    <loc>https://getmarriedinhyderabad.in/category/multi-cuisine/old-city/charminar</loc>
-    <lastmod>2024-02-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://getmarriedinhyderabad.in/category/sweets-desserts/old-city/charminar</loc>
-    <lastmod>2024-02-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- Old City - Pathergatti Area -->
   <url>
     <loc>https://getmarriedinhyderabad.in/category/banquet-halls/old-city/pathergatti</loc>
     <lastmod>2024-02-20</lastmod>
@@ -103,54 +195,8 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
-  <url>
-    <loc>https://getmarriedinhyderabad.in/category/multi-cuisine/old-city/pathergatti</loc>
-    <lastmod>2024-02-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
 
-  <!-- Old City - Shalibanda Area -->
-  <url>
-    <loc>https://getmarriedinhyderabad.in/category/banquet-halls/old-city/shalibanda</loc>
-    <lastmod>2024-02-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://getmarriedinhyderabad.in/category/traditional-cuisine/old-city/shalibanda</loc>
-    <lastmod>2024-02-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://getmarriedinhyderabad.in/category/multi-cuisine/old-city/shalibanda</loc>
-    <lastmod>2024-02-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- Old City - Akbarbagh Area -->
-  <url>
-    <loc>https://getmarriedinhyderabad.in/category/banquet-halls/old-city/akbarbagh</loc>
-    <lastmod>2024-02-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://getmarriedinhyderabad.in/category/traditional-cuisine/old-city/akbarbagh</loc>
-    <lastmod>2024-02-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://getmarriedinhyderabad.in/category/multi-cuisine/old-city/akbarbagh</loc>
-    <lastmod>2024-02-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- Additional Category Pages -->
+  <!-- Additional Categories -->
   <url>
     <loc>https://getmarriedinhyderabad.in/category/floral-decor</loc>
     <lastmod>2024-02-20</lastmod>
