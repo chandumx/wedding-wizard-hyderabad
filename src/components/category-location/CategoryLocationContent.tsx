@@ -28,6 +28,12 @@ export const CategoryLocationContent = ({
       }
       return `Discover our premium wedding halls in Chatrinaka, a vibrant neighborhood in Old City, Hyderabad. Our carefully selected venues in Chatrinaka offer state-of-the-art facilities, elegant decor, and professional services to make your wedding celebration truly memorable. Located in the heart of Old City, Chatrinaka's wedding halls combine traditional charm with modern amenities, perfect for both intimate gatherings and grand celebrations. Each venue in Chatrinaka provides excellent accessibility, ample parking, and customizable spaces to create your dream wedding setting.`;
     }
+    if (location.includes('Khilwat')) {
+      if (title.toLowerCase().includes('lighting')) {
+        return `Transform your wedding venue with our premium lighting and ambiance services in Khilwat, Old City. Our expert lighting designers specialize in creating enchanting atmospheres that perfectly complement the historic charm of Khilwat's wedding venues. We offer a comprehensive range of lighting solutions including traditional chandeliers, modern LED installations, architectural lighting, and customized ambient setups. Our services are tailored to enhance both indoor and outdoor spaces, ensuring your wedding celebration in Khilwat is beautifully illuminated. With years of experience in the Old City area, we understand how to blend contemporary lighting technology with traditional aesthetics to create the perfect ambiance for your special day.`;
+      }
+      return `Welcome to our selection of wedding halls in Khilwat, a historic neighborhood in Old City, Hyderabad. Our Khilwat venues perfectly blend traditional architecture with modern conveniences. Each wedding hall offers comprehensive facilities, professional management, and customizable spaces for celebrations of any size. The prime location in Khilwat provides easy access and a perfect setting for your special day.`;
+    }
     if (location.includes('Chatrinaka')) {
       return `Discover our premium wedding halls in Chatrinaka, a vibrant neighborhood in Old City, Hyderabad. Our carefully selected venues in Chatrinaka offer state-of-the-art facilities, elegant decor, and professional services to make your wedding celebration truly memorable. Located in the heart of Old City, Chatrinaka's wedding halls combine traditional charm with modern amenities, perfect for both intimate gatherings and grand celebrations. Each venue in Chatrinaka provides excellent accessibility, ample parking, and customizable spaces to create your dream wedding setting.`;
     }
@@ -43,15 +49,25 @@ export const CategoryLocationContent = ({
     if (location.includes('Hussaini Alam')) {
       return `Explore our premium wedding halls in Hussaini Alam, a distinguished area of Old City, Hyderabad. Our venues in Hussaini Alam offer elegant settings with state-of-the-art facilities for your wedding celebration. From traditional nikah ceremonies to grand receptions, these halls provide versatile spaces with modern amenities while maintaining the cultural essence of the area. Each venue ensures excellent accessibility and professional service.`;
     }
-    if (location.includes('Khilwat')) {
-      return `Welcome to our selection of wedding halls in Khilwat, a historic neighborhood in Old City, Hyderabad. Our Khilwat venues perfectly blend traditional architecture with modern conveniences. Each wedding hall offers comprehensive facilities, professional management, and customizable spaces for celebrations of any size. The prime location in Khilwat provides easy access and a perfect setting for your special day.`;
-    }
 
     return content;
   };
 
   const getLocationSpecificFAQs = (location: string) => {
     const locationName = location.split(',')[0];
+    
+    if (locationName === 'Khilwat' && title.toLowerCase().includes('lighting')) {
+      return [
+        {
+          question: "What types of lighting services do you offer in Khilwat?",
+          answer: "We offer a comprehensive range of lighting services in Khilwat including traditional chandelier installations, modern LED lighting systems, architectural lighting for heritage venues, ambient mood lighting, and specialized wedding ceremony lighting setups tailored to complement Old City's unique architecture."
+        },
+        {
+          question: "How do you adapt lighting designs for venues in Khilwat?",
+          answer: "Our lighting designs in Khilwat are carefully crafted to enhance the historic architecture while meeting modern event requirements. We consider the venue's unique characteristics, your specific preferences, and blend traditional and contemporary lighting elements to create the perfect ambiance."
+        }
+      ];
+    }
     
     if (locationName === 'Charminar Area' && title.toLowerCase().includes('lighting')) {
       return [
