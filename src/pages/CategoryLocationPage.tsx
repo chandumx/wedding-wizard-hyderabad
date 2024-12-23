@@ -24,12 +24,25 @@ const CategoryLocationPage = () => {
     }
 
     // Find category in categories array
-    const categoryData = categories.find(cat => cat.link === categorySlug);
+    const categoryData = categories.find(cat => cat.link === categorySlug || 
+      // Check if it's a subcategory
+      (categorySlug === "decoration" && ["floral-decor", "lighting", "theme-decor", "stage-design"].includes(cat.link))
+    );
+
     if (categoryData) {
       return {
         title: categoryData.title,
         description: categoryData.description,
-        content: `Find the best ${categoryData.title.toLowerCase()} services for your wedding celebration. Our professional vendors provide high-quality services tailored to your needs. With years of experience and dedication to excellence, we ensure your special day is perfectly captured and memorable.`
+        content: `Find the best ${categoryData.title.toLowerCase()} services for your wedding celebration in Hyderabad. Our professional vendors provide high-quality services tailored to your needs. With years of experience and dedication to excellence, we ensure your special day is perfectly decorated and memorable.`
+      };
+    }
+
+    // Handle main category specifically
+    if (categorySlug === "decoration") {
+      return {
+        title: "Wedding Decoration Services",
+        description: "Professional wedding decoration services in Hyderabad",
+        content: "Transform your wedding venue with our professional decoration services. From elegant floral arrangements to stunning lighting and themed setups, our expert decorators create magical atmospheres for your special day. We offer comprehensive decoration solutions including stage design, mandap decoration, and customized themes."
       };
     }
 
