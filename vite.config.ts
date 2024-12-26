@@ -18,6 +18,7 @@ export default defineConfig(({ mode }) => ({
         manualChunks: {
           vendor: ['react', 'react-dom', 'react-router-dom'],
           ui: ['@radix-ui/react-icons', '@radix-ui/react-slot'],
+          radix: ['@radix-ui/react-icons'],
         },
       },
     },
@@ -33,11 +34,11 @@ export default defineConfig(({ mode }) => ({
       '@': path.resolve(__dirname, './src'),
     },
   },
+  optimizeDeps: {
+    include: ['react', 'react-dom', 'react-router-dom', '@radix-ui/react-icons'],
+  },
   server: {
     host: true,
     port: 8080,
-  },
-  optimizeDeps: {
-    include: ['react', 'react-dom', 'react-router-dom'],
   },
 }));
