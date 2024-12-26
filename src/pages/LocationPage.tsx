@@ -1,11 +1,9 @@
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { SEOHead } from "../components/SEOHead";
 import { Navbar } from "../components/Navbar";
-import { locations } from "../data/locations";
 import { LocationCard } from "../components/LocationCard";
-import { ScrollArea } from "../components/ui/scroll-area";
-import { ChevronRight } from "lucide-react";
-import { Link } from "react-router-dom";
+import { locations } from "../data/locations";
+import { categories } from "../data/categories";
 
 const LocationPage = () => {
   const { location } = useParams();
@@ -15,12 +13,8 @@ const LocationPage = () => {
     return (
       <>
         <Navbar />
-        <div className="container mx-auto px-4 py-16 text-center">
-          <h1 className="text-4xl font-display font-bold mb-6">Location Not Found</h1>
-          <p className="text-gray-600 mb-8">The location you're looking for doesn't exist.</p>
-          <Link to="/locations" className="text-primary hover:underline">
-            View all locations
-          </Link>
+        <div className="container mx-auto px-4 py-8">
+          <h1>Location not found</h1>
         </div>
       </>
     );
@@ -29,54 +23,60 @@ const LocationPage = () => {
   return (
     <>
       <SEOHead
-        title={`Wedding Venues & Services in ${locationData.name}, Hyderabad`}
-        description={locationData.description}
+        title={`Wedding Services in ${locationData.name} | Get Married in Hyderabad`}
+        description={`Find the best wedding services and vendors in ${locationData.name}. Browse venues, caterers, photographers, and more.`}
         keywords={[
-          `wedding venues ${locationData.name.toLowerCase()}`,
-          `marriage halls ${locationData.name.toLowerCase()}`,
-          `wedding services ${locationData.name.toLowerCase()} hyderabad`,
-          `${locationData.name.toLowerCase()} wedding locations`
+          `wedding venues ${locationData.name}`,
+          `wedding services ${locationData.name}`,
+          `marriage halls ${locationData.name}`,
+          "wedding vendors hyderabad"
         ]}
         canonicalUrl={`https://getmarriedinhyderabad.in/location/${location}`}
       />
       
       <Navbar />
       
-      <main className="container mx-auto px-4 py-16">
-        <h1 className="text-4xl font-display font-bold mb-6">
-          Wedding Venues & Services in {locationData.name}
+      <main className="container mx-auto px-4 py-8">
+        <h1 className="text-4xl font-display font-bold text-center mb-8">
+          Wedding Services in {locationData.name}
         </h1>
         
-        <div className="prose max-w-none mb-12">
-          <p className="text-lg text-gray-600">{locationData.description}</p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="bg-white rounded-lg shadow-md overflow-hidden">
-            <LocationCard
-              name={locationData.name}
-              link={`/location/${locationData.slug}`}
-            />
-          </div>
-
-          <div className="bg-white rounded-lg shadow-md overflow-hidden">
-            <ScrollArea className="h-[400px] p-4">
-              <h3 className="text-lg font-display font-semibold mb-4">Areas in {locationData.name}</h3>
-              <div className="space-y-2">
-                {locationData.areas.map((area) => (
-                  <Link
-                    key={area.slug}
-                    to={`/location/${locationData.slug}/${area.slug}`}
-                    className="flex items-center justify-between p-2 hover:bg-gray-50 rounded-md group"
-                  >
-                    <span className="text-gray-700 group-hover:text-primary">{area.name}</span>
-                    <ChevronRight size={16} className="ml-2 text-gray-400 group-hover:text-primary" />
-                  </Link>
-                ))}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {categories.map(category => (
+            <Link 
+              key={category.link}
+              to={`/${category.link}-in-${locationData.slug}`}
+              className="block"
+            >
+              <div className="p-6 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 animate-fade-up bg-gradient-to-br from-secondary to-white">
+                <div className="flex flex-col items-center space-y-4">
+                  <category.icon size={32} className="text-primary animate-bounce" />
+                  <h3 className="text-xl font-display font-semibold text-gray-900 hover:text-primary transition-colors">
+                    {category.title}
+                  </h3>
+                  <p className="text-gray-600 text-sm text-center leading-relaxed">
+                    {category.description}
+                  </p>
+                </div>
               </div>
-            </ScrollArea>
-          </div>
+            </Link>
+          ))}
         </div>
+
+        <section className="mt-16">
+          <h2 className="text-3xl font-display font-bold text-center mb-8">
+            Areas in {locationData.name}
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {locationData.areas.map(area => (
+              <LocationCard
+                key={area.slug}
+                name={area.name}
+                link={`/location/${location}/${area.slug}`}
+              />
+            ))}
+          </div>
+        </section>
       </main>
     </>
   );

@@ -31,11 +31,8 @@ export const Hero = () => {
     }
 
     const [locationSlug, areaSlug] = selectedLocation.split('/');
-    if (areaSlug) {
-      navigate(`/location/${locationSlug}/${areaSlug}/${selectedCategory}`);
-    } else {
-      navigate(`/location/${locationSlug}/${selectedCategory}`);
-    }
+    const locationToUse = areaSlug || locationSlug;
+    navigate(`/${selectedCategory}-in-${locationToUse}`);
   };
 
   return (
