@@ -1,4 +1,4 @@
-import { useParams, useNavigate, useLocation } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
 import { SEOHead } from "../components/SEOHead";
 import { Navbar } from "../components/Navbar";
 import { CategoryContent } from "../components/categories/CategoryContent";
@@ -9,36 +9,21 @@ import { LocalBusinessSchema } from "../types/seo";
 import { useEffect } from "react";
 
 const CategoryLocationPage = () => {
-  const { location, subLocation, category } = useParams();
-  const navigate = useNavigate();
-  const currentLocation = useLocation();
+  const { categoryLocation } = useParams();
   
-  // Handle URL format conversion
-  useEffect(() => {
-    if (currentLocation.pathname.includes('/category/')) {
-      const categorySlug = category?.replace('wedding-halls', 'wedding-venues');
-      navigate(`/${categorySlug}-in-${location}`, { replace: true });
-    }
-  }, [currentLocation, category, location, navigate]);
-
-  // Extract category and location from hyphenated URL
-  const urlParts = currentLocation.pathname.split('-in-');
-  const categoryFromUrl = urlParts[0]?.replace('/', '');
-  const locationFromUrl = urlParts[1];
-
+  // Parse the URL to extract category and location
+  const [category, location] = (categoryLocation || '').split('-in-');
+  
+  // Clean up category name (replace hyphens with spaces)
+  const cleanCategory = category?.replace(/-/g, ' ');
+  
+  // Find location data
   const mainLocation = locations.find(loc => 
     loc.slug === location || 
-    loc.areas.some(area => area.slug === locationFromUrl)
+    loc.areas.some(area => area.slug === location)
   );
   
-  const area = mainLocation?.areas.find(area => 
-    area.slug === subLocation || 
-    area.slug === locationFromUrl
-  );
-
-  const cleanCategory = (categoryFromUrl || category || '')
-    .replace('wedding-venues', 'wedding-halls')
-    .replace(/-/g, ' ');
+  const area = mainLocation?.areas.find(area => area.slug === location);
 
   const categoryInfo = categoryDescriptions[cleanCategory as keyof typeof categoryDescriptions];
 
@@ -92,7 +77,7 @@ const CategoryLocationPage = () => {
       latitude: areaLocation.lat,
       longitude: areaLocation.lng
     },
-    url: `https://getmarriedinhyderabad.in/location/${location}/${subLocation}/${category}`,
+    url: `https://getmarriedinhyderabad.in/${category}-in-${location}`,
     telephone: "+91-1234567890",
     aggregateRating: {
       "@type": "AggregateRating",
@@ -107,7 +92,7 @@ const CategoryLocationPage = () => {
         title={pageTitle}
         description={pageDescription}
         keywords={keywords}
-        canonicalUrl={`https://getmarriedinhyderabad.in/${categoryInfo.title.toLowerCase().replace(' ', '-')}-in-${area.slug}`}
+        canonicalUrl={`https://getmarriedinhyderabad.in/${category}-in-${location}`}
         ogImage="/og-image.png"
         ogType="business.business"
         schema={localBusinessSchema}
@@ -127,7 +112,7 @@ const CategoryLocationPage = () => {
         </nav>
 
         <CategoryContent 
-          title={categoryInfo.title}
+          title={`${categoryInfo.title} in ${area.name}`}
           description={categoryInfo.description}
           content={categoryInfo.content}
         />
@@ -140,22 +125,6 @@ const CategoryLocationPage = () => {
             query={`${categoryInfo.title} in ${area.name}, ${mainLocation.name}`}
             location={areaLocation}
           />
-        </div>
-
-        <div className="mt-12 bg-secondary/50 rounded-lg p-8">
-          <h2 className="text-2xl font-display font-semibold mb-4">
-            Frequently Asked Questions About {categoryInfo.title} in {area.name}
-          </h2>
-          <div className="space-y-4">
-            <div>
-              <h3 className="font-semibold mb-2">What makes {area.name} an ideal location for weddings?</h3>
-              <p className="text-gray-600">{area.name} is known for its excellent connectivity, diverse venue options, and rich cultural atmosphere, making it a perfect choice for wedding celebrations in {mainLocation.name}.</p>
-            </div>
-            <div>
-              <h3 className="font-semibold mb-2">What's the typical price range for {categoryInfo.title.toLowerCase()} in {area.name}?</h3>
-              <p className="text-gray-600">Prices vary based on your specific requirements and package selection. Contact our verified vendors directly for detailed quotes tailored to your needs.</p>
-            </div>
-          </div>
         </div>
       </main>
     </>
