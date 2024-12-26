@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { getRandomImage } from "../services/imageService";
 import { Skeleton } from "./ui/skeleton";
 import { toast } from "sonner";
 
@@ -20,13 +19,21 @@ export const LocationCard = ({ name, image, link }: LocationCardProps) => {
       if (image === '/placeholder.svg') {
         try {
           setIsLoading(true);
-          const newImage = await getRandomImage(`${name} location hyderabad india`);
-          setImageUrl(newImage);
+          const optimizedImages = {
+            'Jubilee Hills': '/images/jubilee-hills.jpg',
+            'Banjara Hills': '/images/banjara-hills.jpg',
+            'Hitech City': '/images/hitech-city.jpg',
+            'Old City': '/images/old-city.jpg',
+            'default': '/images/default-location.jpg'
+          };
+          
+          setImageUrl(optimizedImages[name] || optimizedImages.default);
           setError(false);
         } catch (err) {
           console.error('Error loading image:', err);
-          setImageUrl('https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7');
+          setImageUrl('/images/default-location.jpg');
           setError(true);
+          toast.error('Error loading location image');
         } finally {
           setIsLoading(false);
         }
@@ -50,7 +57,7 @@ export const LocationCard = ({ name, image, link }: LocationCardProps) => {
           alt={name} 
           className={`w-full h-48 object-cover ${error ? 'opacity-80' : ''}`}
           onError={() => {
-            setImageUrl('https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7');
+            setImageUrl('/images/default-location.jpg');
             setError(true);
           }}
         />

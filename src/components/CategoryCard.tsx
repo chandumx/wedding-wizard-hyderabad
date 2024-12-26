@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { LucideIcon } from "lucide-react";
 import { useEffect, useState } from "react";
-import { getRandomImage } from "../services/imageService";
 import { Skeleton } from "./ui/skeleton";
 import { toast } from "sonner";
 
@@ -20,18 +19,23 @@ export const CategoryCard = ({ title, icon: Icon, description, link }: CategoryC
     const loadImage = async () => {
       try {
         setIsLoading(true);
-        // Use optimized placeholder images from Unsplash
-        const optimizedFallbacks = {
-          'Wedding Venues': 'https://images.unsplash.com/photo-1649972904349-6e44c42644a7',
-          'default': 'https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7'
+        const optimizedImages = {
+          'Wedding Venues': '/images/wedding-venues.jpg',
+          'Catering': '/images/catering.jpg',
+          'Photography': '/images/photography.jpg',
+          'Decoration': '/images/decoration.jpg',
+          'Mehendi Artists': '/images/mehendi.jpg',
+          'Entertainment': '/images/entertainment.jpg',
+          'Wedding Gifts': '/images/gifts.jpg',
+          'Event Planning': '/images/planning.jpg',
+          'default': '/images/default-category.jpg'
         };
         
-        const image = await getRandomImage(`${title} wedding service`);
-        setBackgroundImage(image);
+        setBackgroundImage(optimizedImages[title] || optimizedImages.default);
       } catch (error) {
         console.error('Error loading image:', error);
-        setBackgroundImage(optimizedFallbacks[title] || optimizedFallbacks.default);
-        toast.error('Using optimized fallback image');
+        setBackgroundImage('/images/default-category.jpg');
+        toast.error('Error loading image');
       } finally {
         setIsLoading(false);
       }
