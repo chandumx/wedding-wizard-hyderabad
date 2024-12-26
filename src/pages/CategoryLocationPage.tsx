@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate, useLocation } from "react-router-dom";
 import { SEOHead } from "../components/SEOHead";
 import { Navbar } from "../components/Navbar";
 import { CategoryContent } from "../components/categories/CategoryContent";
@@ -6,13 +6,41 @@ import { categoryDescriptions } from "../data/categoryDescriptions";
 import { locations } from "../data/locations";
 import { PlacesList } from "../components/PlacesList";
 import { LocalBusinessSchema } from "../types/seo";
+import { useEffect } from "react";
 
 const CategoryLocationPage = () => {
   const { location, subLocation, category } = useParams();
+  const navigate = useNavigate();
+  const currentLocation = useLocation();
   
-  const mainLocation = locations.find(loc => loc.slug === location);
-  const area = mainLocation?.areas.find(area => area.slug === subLocation);
-  const categoryInfo = categoryDescriptions[category as keyof typeof categoryDescriptions];
+  // Handle URL format conversion
+  useEffect(() => {
+    if (currentLocation.pathname.includes('/category/')) {
+      const categorySlug = category?.replace('wedding-halls', 'wedding-venues');
+      navigate(`/${categorySlug}-in-${location}`, { replace: true });
+    }
+  }, [currentLocation, category, location, navigate]);
+
+  // Extract category and location from hyphenated URL
+  const urlParts = currentLocation.pathname.split('-in-');
+  const categoryFromUrl = urlParts[0]?.replace('/', '');
+  const locationFromUrl = urlParts[1];
+
+  const mainLocation = locations.find(loc => 
+    loc.slug === location || 
+    loc.areas.some(area => area.slug === locationFromUrl)
+  );
+  
+  const area = mainLocation?.areas.find(area => 
+    area.slug === subLocation || 
+    area.slug === locationFromUrl
+  );
+
+  const cleanCategory = (categoryFromUrl || category || '')
+    .replace('wedding-venues', 'wedding-halls')
+    .replace(/-/g, ' ');
+
+  const categoryInfo = categoryDescriptions[cleanCategory as keyof typeof categoryDescriptions];
 
   if (!mainLocation || !area || !categoryInfo) {
     return (
@@ -79,7 +107,7 @@ const CategoryLocationPage = () => {
         title={pageTitle}
         description={pageDescription}
         keywords={keywords}
-        canonicalUrl={`https://getmarriedinhyderabad.in/location/${location}/${subLocation}/${category}`}
+        canonicalUrl={`https://getmarriedinhyderabad.in/${categoryInfo.title.toLowerCase().replace(' ', '-')}-in-${area.slug}`}
         ogImage="/og-image.png"
         ogType="business.business"
         schema={localBusinessSchema}
@@ -92,11 +120,9 @@ const CategoryLocationPage = () => {
           <ol className="flex items-center space-x-2">
             <li><a href="/" className="text-primary hover:underline">Home</a></li>
             <li className="text-gray-400">/</li>
-            <li><a href={`/location/${location}`} className="text-primary hover:underline">{mainLocation.name}</a></li>
+            <li><a href={`/location/${mainLocation.slug}`} className="text-primary hover:underline">{mainLocation.name}</a></li>
             <li className="text-gray-400">/</li>
-            <li><a href={`/location/${location}/${subLocation}`} className="text-primary hover:underline">{area.name}</a></li>
-            <li className="text-gray-400">/</li>
-            <li className="text-gray-600">{categoryInfo.title}</li>
+            <li className="text-gray-600">{categoryInfo.title} in {area.name}</li>
           </ol>
         </nav>
 

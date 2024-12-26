@@ -16,10 +16,10 @@ function App() {
       <Route path="/locations" element={<Locations />} />
       <Route path="/location/:location" element={<LocationPage />} />
       <Route path="/location/:location/:subLocation" element={<SubLocationPage />} />
-      <Route path="/location/:location/:subLocation/:category" element={<CategoryLocationPage />} />
+      <Route path="/:category-in-:location" element={<CategoryLocationPage />} />
       <Route path="/category/:category" element={<CategoryPage />} />
       <Route path="/category/:category/:location/:subLocation" element={<CategoryLocationPage />} />
-      <Route path="*" element={<Index />} /> {/* Add catch-all route */}
+      <Route path="*" element={<Index />} />
     </Routes>
   );
 }
