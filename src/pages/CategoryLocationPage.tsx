@@ -1,4 +1,4 @@
-import { useParams, useLocation } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { SEOHead } from "../components/SEOHead";
 import { Navbar } from "../components/Navbar";
 import { CategoryContent } from "../components/categories/CategoryContent";
@@ -6,13 +6,9 @@ import { categoryDescriptions } from "../data/categoryDescriptions";
 import { locations } from "../data/locations";
 import { PlacesList } from "../components/PlacesList";
 import { LocalBusinessSchema } from "../types/seo";
-import { useEffect } from "react";
 
 const CategoryLocationPage = () => {
-  const { categoryLocation } = useParams();
-  
-  // Parse the URL to extract category and location
-  const [category, location] = (categoryLocation || '').split('-in-');
+  const { category, location } = useParams();
   
   // Clean up category name (replace hyphens with spaces)
   const cleanCategory = category?.replace(/-/g, ' ');
