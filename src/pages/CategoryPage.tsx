@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { SEOHead } from "../components/SEOHead";
 import { Navbar } from "../components/Navbar";
 import { CategoryContent } from "../components/categories/CategoryContent";
@@ -8,11 +8,16 @@ import { locations } from "../data/locations";
 
 const CategoryPage = () => {
   const { category } = useParams();
+  const navigate = useNavigate();
   
   // Remove the leading "categories/" if present in the URL
   const cleanCategory = category?.replace('categories/', '') || '';
   
   const categoryInfo = categoryDescriptions[cleanCategory];
+
+  const handleLocationClick = (locationSlug: string) => {
+    navigate(`/${cleanCategory}-in-${locationSlug}`);
+  };
 
   if (!categoryInfo) {
     return (
@@ -59,7 +64,7 @@ const CategoryPage = () => {
                 <LocationCard
                   key={`${location.slug}-${area.slug}`}
                   name={`${area.name}, ${location.name}`}
-                  link={`/category/${cleanCategory}/${location.slug}/${area.slug}`}
+                  link={`/${cleanCategory}-in-${area.slug}`}
                 />
               ))
             ))}
