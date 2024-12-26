@@ -12,7 +12,7 @@ export default defineConfig(({ mode }) => ({
   build: {
     outDir: 'dist',
     sourcemap: true,
-    minify: 'terser',
+    minify: mode === 'production' ? 'terser' : false,
     rollupOptions: {
       output: {
         manualChunks: {
@@ -21,12 +21,12 @@ export default defineConfig(({ mode }) => ({
         },
       },
     },
-    terserOptions: {
+    terserOptions: mode === 'production' ? {
       compress: {
         drop_console: true,
         drop_debugger: true,
       },
-    },
+    } : undefined,
   },
   resolve: {
     alias: {

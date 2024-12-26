@@ -57,7 +57,6 @@ const SubCategoryPage = () => {
                   <LocationCard
                     key={area.slug}
                     name={area.name}
-                    image="/placeholder.svg"
                     link={`/location/${location.slug}/${area.slug}/${category}`}
                   />
                 ))}
