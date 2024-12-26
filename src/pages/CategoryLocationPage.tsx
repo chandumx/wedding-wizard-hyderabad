@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import { SEOHead } from "../components/SEOHead";
 import { Navbar } from "../components/Navbar";
 import { CategoryContent } from "../components/categories/CategoryContent";
-import { categoryDescriptions } from "../data/categoryDescriptions";
+import { categories } from "../data/categories";
 import { locations } from "../data/locations";
 import { PlacesList } from "../components/PlacesList";
 import { LocalBusinessSchema } from "../types/seo";
@@ -10,8 +10,8 @@ import { LocalBusinessSchema } from "../types/seo";
 const CategoryLocationPage = () => {
   const { category, location } = useParams();
   
-  // Clean up category name (replace hyphens with spaces)
-  const cleanCategory = category?.replace(/-/g, ' ');
+  // Find the category data
+  const categoryData = categories.find(cat => cat.link === category);
   
   // Find location data by checking both main locations and their areas
   const mainLocation = locations.find(loc => 
@@ -22,10 +22,7 @@ const CategoryLocationPage = () => {
   // Find the specific area if it exists
   const area = mainLocation?.areas.find(area => area.slug === location);
 
-  // Get category info
-  const categoryInfo = categoryDescriptions[cleanCategory as keyof typeof categoryDescriptions];
-
-  if (!mainLocation || !area || !categoryInfo) {
+  if (!categoryData || !mainLocation || !area) {
     return (
       <>
         <Navbar />
@@ -39,19 +36,19 @@ const CategoryLocationPage = () => {
     );
   }
 
-  const pageTitle = `Best ${categoryInfo.title} in ${area.name}, ${mainLocation.name} | Book Top Wedding Services`;
-  const pageDescription = `Discover premium ${categoryInfo.title.toLowerCase()} services in ${area.name}, ${mainLocation.name}. Compare prices, check availability, and book trusted vendors for your special day.`;
+  const pageTitle = `Best ${categoryData.title} in ${area.name}, ${mainLocation.name} | Book Top Wedding Services`;
+  const pageDescription = `Discover premium ${categoryData.title.toLowerCase()} services in ${area.name}, ${mainLocation.name}. Compare prices, check availability, and book trusted vendors for your special day.`;
   
   const keywords = [
-    `${cleanCategory} ${area.name}`,
-    `wedding ${cleanCategory} ${area.name}`,
-    `${mainLocation.name} wedding ${cleanCategory}`,
-    `best wedding ${cleanCategory} ${area.name}`,
-    `affordable ${cleanCategory} ${area.name}`,
-    `top rated ${cleanCategory} ${mainLocation.name}`,
-    `professional ${categoryInfo.title.toLowerCase()} services`,
+    `${categoryData.title} ${area.name}`,
+    `wedding ${categoryData.title} ${area.name}`,
+    `${mainLocation.name} wedding ${categoryData.title}`,
+    `best wedding ${categoryData.title} ${area.name}`,
+    `affordable ${categoryData.title} ${area.name}`,
+    `top rated ${categoryData.title} ${mainLocation.name}`,
+    `professional ${categoryData.title.toLowerCase()} services`,
     `wedding services ${area.name}`,
-    `${cleanCategory} near me`
+    `${categoryData.title} near me`
   ];
 
   // Default coordinates for Hyderabad if location is not specified
@@ -62,7 +59,7 @@ const CategoryLocationPage = () => {
   const localBusinessSchema: LocalBusinessSchema = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    name: `${categoryInfo.title} in ${area.name}`,
+    name: `${categoryData.title} in ${area.name}`,
     description: pageDescription,
     image: "/og-image.png",
     address: {
@@ -108,22 +105,22 @@ const CategoryLocationPage = () => {
             <li className="text-gray-400">/</li>
             <li><a href={`/location/${mainLocation.slug}`} className="text-primary hover:underline">{mainLocation.name}</a></li>
             <li className="text-gray-400">/</li>
-            <li className="text-gray-600">{categoryInfo.title} in {area.name}</li>
+            <li className="text-gray-600">{categoryData.title} in {area.name}</li>
           </ol>
         </nav>
 
         <CategoryContent 
-          title={`${categoryInfo.title} in ${area.name}`}
-          description={categoryInfo.description}
-          content={categoryInfo.content}
+          title={`${categoryData.title} in ${area.name}`}
+          description={categoryData.description}
+          content={`Find the best ${categoryData.title.toLowerCase()} services in ${area.name}, ${mainLocation.name}.`}
         />
 
         <div className="mt-8">
           <h2 className="text-2xl font-display font-semibold mb-6">
-            Available {categoryInfo.title} in {area.name}
+            Available {categoryData.title} in {area.name}
           </h2>
           <PlacesList 
-            query={`${categoryInfo.title} in ${area.name}, ${mainLocation.name}`}
+            query={`${categoryData.title} in ${area.name}, ${mainLocation.name}`}
             location={areaLocation}
           />
         </div>
