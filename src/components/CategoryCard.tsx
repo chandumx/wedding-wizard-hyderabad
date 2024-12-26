@@ -12,7 +12,7 @@ interface CategoryCardProps {
   link: string;
 }
 
-export const CategoryCard = ({ children, ...props }: CategoryCardProps) => {
+export const CategoryCard = ({ title, icon: Icon, description, link }: CategoryCardProps) => {
   const [backgroundImage, setBackgroundImage] = useState('');
   const [isLoading, setIsLoading] = useState(true);
 
@@ -21,16 +21,16 @@ export const CategoryCard = ({ children, ...props }: CategoryCardProps) => {
       try {
         setIsLoading(true);
         // Use optimized placeholder images from Unsplash
-        const fallbackImages = {
+        const optimizedFallbacks = {
           'Wedding Venues': 'https://images.unsplash.com/photo-1649972904349-6e44c42644a7',
           'default': 'https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7'
         };
         
-        const image = await getRandomImage(`${props.title} wedding service`);
+        const image = await getRandomImage(`${title} wedding service`);
         setBackgroundImage(image);
       } catch (error) {
         console.error('Error loading image:', error);
-        setBackgroundImage(fallbackImages[props.title] || fallbackImages.default);
+        setBackgroundImage(optimizedFallbacks[title] || optimizedFallbacks.default);
         toast.error('Using optimized fallback image');
       } finally {
         setIsLoading(false);
@@ -38,7 +38,7 @@ export const CategoryCard = ({ children, ...props }: CategoryCardProps) => {
     };
 
     loadImage();
-  }, [props.title]);
+  }, [title]);
 
   if (isLoading) {
     return (
@@ -49,7 +49,7 @@ export const CategoryCard = ({ children, ...props }: CategoryCardProps) => {
   }
 
   return (
-    <Link to={props.link} className="block">
+    <Link to={link} className="block">
       <div 
         className="p-6 rounded-lg shadow-sm card-hover relative overflow-hidden transition-all duration-300 hover:shadow-md hover:-translate-y-1"
         style={{
@@ -60,9 +60,9 @@ export const CategoryCard = ({ children, ...props }: CategoryCardProps) => {
           height: 'auto'
         }}
       >
-        <props.icon size={32} className="text-primary mb-4" />
-        <h3 className="text-xl font-display font-semibold mb-2">{props.title}</h3>
-        <p className="text-gray-600 text-sm">{props.description}</p>
+        <Icon size={32} className="text-primary mb-4" />
+        <h3 className="text-xl font-display font-semibold mb-2">{title}</h3>
+        <p className="text-gray-600 text-sm">{description}</p>
       </div>
     </Link>
   );
