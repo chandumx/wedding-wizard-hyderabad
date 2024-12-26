@@ -39,6 +39,10 @@ const CategoryLocationPage = () => {
     );
   }
 
+  // Default coordinates for Hyderabad if location is not specified
+  const defaultLocation = { lat: 17.3850, lng: 78.4867 };
+  const areaLocation = area.location || defaultLocation;
+
   const pageTitle = `Best ${categoryData.title} in ${area.name}, ${mainLocation.name} | Book Top Wedding Services`;
   const pageDescription = `Discover premium ${categoryData.title.toLowerCase()} services in ${area.name}, ${mainLocation.name}. Compare prices, check availability, and book trusted vendors for your special day.`;
   
@@ -53,10 +57,6 @@ const CategoryLocationPage = () => {
     `wedding services ${area.name}`,
     `${categoryData.title} near me`
   ];
-
-  // Default coordinates for Hyderabad if location is not specified
-  const defaultLocation = { lat: 17.3850, lng: 78.4867 };
-  const areaLocation = area.location || defaultLocation;
 
   // Structured Data for Local Business
   const localBusinessSchema: LocalBusinessSchema = {
@@ -118,7 +118,7 @@ const CategoryLocationPage = () => {
           content={`Find the best ${categoryData.title.toLowerCase()} services in ${area.name}, ${mainLocation.name}.`}
         />
 
-        <div className="mt-8">
+        <div className="mt-12">
           <h2 className="text-2xl font-display font-semibold mb-6">
             Available {categoryData.title} in {area.name}
           </h2>
