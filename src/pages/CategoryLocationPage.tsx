@@ -13,14 +13,16 @@ const CategoryLocationPage = () => {
   // Clean up category name (replace hyphens with spaces)
   const cleanCategory = category?.replace(/-/g, ' ');
   
-  // Find location data
+  // Find location data by checking both main locations and their areas
   const mainLocation = locations.find(loc => 
     loc.slug === location || 
     loc.areas.some(area => area.slug === location)
   );
-  
+
+  // Find the specific area if it exists
   const area = mainLocation?.areas.find(area => area.slug === location);
 
+  // Get category info
   const categoryInfo = categoryDescriptions[cleanCategory as keyof typeof categoryDescriptions];
 
   if (!mainLocation || !area || !categoryInfo) {
@@ -29,24 +31,27 @@ const CategoryLocationPage = () => {
         <Navbar />
         <div className="container mx-auto px-4 py-16">
           <h1 className="text-2xl font-semibold text-center">Page not found</h1>
+          <p className="text-center mt-4">
+            The requested category or location could not be found.
+          </p>
         </div>
       </>
     );
   }
 
   const pageTitle = `Best ${categoryInfo.title} in ${area.name}, ${mainLocation.name} | Book Top Wedding Services`;
-  const pageDescription = `Discover premium ${categoryInfo.title.toLowerCase()} services in ${area.name}, ${mainLocation.name}. Located in the bustling commercial hub of Hyderabad, ${area.name} offers a perfect blend of traditional and modern wedding venues and services. Compare prices, check availability, and book trusted vendors for your special day.`;
+  const pageDescription = `Discover premium ${categoryInfo.title.toLowerCase()} services in ${area.name}, ${mainLocation.name}. Compare prices, check availability, and book trusted vendors for your special day.`;
   
   const keywords = [
-    `${category} ${area.name}`,
-    `wedding ${category} ${area.name}`,
-    `${mainLocation.name} wedding ${category}`,
-    `best wedding ${category} ${area.name}`,
-    `affordable ${category} ${area.name}`,
-    `top rated ${category} ${mainLocation.name}`,
+    `${cleanCategory} ${area.name}`,
+    `wedding ${cleanCategory} ${area.name}`,
+    `${mainLocation.name} wedding ${cleanCategory}`,
+    `best wedding ${cleanCategory} ${area.name}`,
+    `affordable ${cleanCategory} ${area.name}`,
+    `top rated ${cleanCategory} ${mainLocation.name}`,
     `professional ${categoryInfo.title.toLowerCase()} services`,
     `wedding services ${area.name}`,
-    `${category} near me`
+    `${cleanCategory} near me`
   ];
 
   // Default coordinates for Hyderabad if location is not specified
