@@ -37,7 +37,6 @@ const Locations = () => {
             <div key={location.slug} className="bg-white rounded-lg shadow-md overflow-hidden">
               <LocationCard
                 name={location.name}
-                image={location.image}
                 link={`/location/${location.slug}`}
               />
               

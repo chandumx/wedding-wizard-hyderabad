@@ -55,7 +55,6 @@ const LocationPage = () => {
           <div className="bg-white rounded-lg shadow-md overflow-hidden">
             <LocationCard
               name={locationData.name}
-              image={locationData.image}
               link={`/location/${locationData.slug}`}
             />
           </div>

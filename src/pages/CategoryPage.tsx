@@ -59,7 +59,6 @@ const CategoryPage = () => {
                 <LocationCard
                   key={`${location.slug}-${area.slug}`}
                   name={`${area.name}, ${location.name}`}
-                  image={location.image || "/placeholder.svg"}
                   link={`/category/${cleanCategory}/${location.slug}/${area.slug}`}
                 />
               ))

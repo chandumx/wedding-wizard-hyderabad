@@ -18,7 +18,6 @@ export default defineConfig(({ mode }) => ({
         manualChunks: {
           vendor: ['react', 'react-dom', 'react-router-dom'],
           ui: ['@radix-ui/react-icons', '@radix-ui/react-slot'],
-          radix: ['@radix-ui/react-icons'],
         },
       },
     },
