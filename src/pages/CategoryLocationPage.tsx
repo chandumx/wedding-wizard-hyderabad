@@ -75,7 +75,7 @@ const CategoryLocationPage = () => {
       latitude: areaLocation.lat,
       longitude: areaLocation.lng
     },
-    url: `https://getmarriedinhyderabad.in/${category}-in-${location}`,
+    url: `https://getmarriedinhyderabad.in/category/${category}/location/${location}`,
     telephone: "+91-1234567890",
     aggregateRating: {
       "@type": "AggregateRating",
@@ -90,7 +90,7 @@ const CategoryLocationPage = () => {
         title={pageTitle}
         description={pageDescription}
         keywords={keywords}
-        canonicalUrl={`https://getmarriedinhyderabad.in/${category}-in-${location}`}
+        canonicalUrl={`https://getmarriedinhyderabad.in/category/${category}/location/${location}`}
         ogImage="/og-image.png"
         ogType="business.business"
         schema={localBusinessSchema}
