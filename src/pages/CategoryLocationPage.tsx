@@ -1,7 +1,6 @@
 import { useParams } from "react-router-dom";
 import { SEOHead } from "../components/SEOHead";
 import { Navbar } from "../components/Navbar";
-import { CategoryContent } from "../components/categories/CategoryContent";
 import { categories } from "../data/categories";
 import { locations } from "../data/locations";
 import { PlacesList } from "../components/PlacesList";
@@ -55,7 +54,6 @@ const CategoryLocationPage = () => {
     `${categoryData.title} near me`
   ];
 
-  // Structured Data for Local Business
   const localBusinessSchema: LocalBusinessSchema = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
@@ -109,16 +107,11 @@ const CategoryLocationPage = () => {
           </ol>
         </nav>
 
-        <CategoryContent 
-          title={`${categoryData.title} in ${area.name}`}
-          description={categoryData.description}
-          content={`Find the best ${categoryData.title.toLowerCase()} services in ${area.name}, ${mainLocation.name}.`}
-        />
+        <h1 className="text-4xl font-display font-bold text-center mb-8">
+          {categoryData.title} in {area.name}, {mainLocation.name}
+        </h1>
 
         <div className="mt-12">
-          <h2 className="text-2xl font-display font-semibold mb-6">
-            Available {categoryData.title} in {area.name}
-          </h2>
           <PlacesList 
             query={`${categoryData.title} in ${area.name}, ${mainLocation.name}`}
             location={areaLocation}
