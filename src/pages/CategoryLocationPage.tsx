@@ -10,11 +10,8 @@ import { LocalBusinessSchema } from "../types/seo";
 const CategoryLocationPage = () => {
   const { category, location } = useParams();
   
-  // Convert URL format (e.g., "farmhouses-in-gowlipura") to match category link
-  const categorySlug = category?.split('-')[0]; // This will get "farmhouses" from "farmhouses-in-gowlipura"
-  
   // Find the category data
-  const categoryData = categories.find(cat => cat.link === categorySlug);
+  const categoryData = categories.find(cat => cat.link === category);
   
   // Find location data by checking both main locations and their areas
   const mainLocation = locations.find(loc => 
