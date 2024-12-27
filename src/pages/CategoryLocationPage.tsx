@@ -7,19 +7,29 @@ import { PlacesList } from "../components/PlacesList";
 import { LocalBusinessSchema } from "../types/seo";
 
 const CategoryLocationPage = () => {
-  const { category, location } = useParams();
+  // Parse the URL path to extract category and location
+  const pathname = window.location.pathname;
+  const matches = pathname.match(/([^/]+)-in-([^/]+)/);
+  
+  let categorySlug = '';
+  let locationSlug = '';
+  
+  if (matches && matches.length === 3) {
+    categorySlug = matches[1];
+    locationSlug = matches[2];
+  }
   
   // Find the category data
-  const categoryData = categories.find(cat => cat.link === category);
+  const categoryData = categories.find(cat => cat.link === categorySlug);
   
   // Find location data by checking both main locations and their areas
   const mainLocation = locations.find(loc => 
-    loc.slug === location || 
-    loc.areas.some(area => area.slug === location)
+    loc.slug === locationSlug || 
+    loc.areas.some(area => area.slug === locationSlug)
   );
 
   // Find the specific area if it exists
-  const area = mainLocation?.areas.find(area => area.slug === location);
+  const area = mainLocation?.areas.find(area => area.slug === locationSlug);
 
   if (!categoryData || !mainLocation || !area) {
     return (
@@ -73,7 +83,7 @@ const CategoryLocationPage = () => {
       latitude: areaLocation.lat,
       longitude: areaLocation.lng
     },
-    url: `https://getmarriedinhyderabad.in/category/${category}/location/${location}`,
+    url: window.location.href,
     telephone: "+91-1234567890",
     aggregateRating: {
       "@type": "AggregateRating",
@@ -88,7 +98,7 @@ const CategoryLocationPage = () => {
         title={pageTitle}
         description={pageDescription}
         keywords={keywords}
-        canonicalUrl={`https://getmarriedinhyderabad.in/category/${category}/location/${location}`}
+        canonicalUrl={window.location.href}
         ogImage="/og-image.png"
         ogType="business.business"
         schema={localBusinessSchema}
