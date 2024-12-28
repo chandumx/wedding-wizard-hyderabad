@@ -14,7 +14,7 @@ export const CategoryCard = ({ title, icon: Icon, description, link, location }:
   // Construct the correct URL format for category-location pages
   const href = location 
     ? `/category/${link}/location/${location}`
-    : `categories/${link}`; // Removed the leading slash to prevent double slashes
+    : `/category/${link}`;
 
   return (
     <Link to={href}>
