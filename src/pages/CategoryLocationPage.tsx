@@ -7,17 +7,11 @@ import { PlacesList } from "../components/PlacesList";
 import { LocalBusinessSchema } from "../types/seo";
 
 const CategoryLocationPage = () => {
-  // Parse the URL path to extract category and location
-  const pathname = window.location.pathname;
-  const matches = pathname.match(/([^/]+)-in-([^/]+)/);
+  const params = useParams();
   
-  let categorySlug = '';
-  let locationSlug = '';
-  
-  if (matches && matches.length === 3) {
-    categorySlug = matches[1];
-    locationSlug = matches[2];
-  }
+  // Get category and location from either URL format
+  const categorySlug = params.category || params["category-in-location"]?.split("-in-")[0];
+  const locationSlug = params.location || params["category-in-location"]?.split("-in-")[1];
   
   // Find the category data
   const categoryData = categories.find(cat => cat.link === categorySlug);
