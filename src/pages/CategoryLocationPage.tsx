@@ -9,9 +9,9 @@ import { LocalBusinessSchema } from "../types/seo";
 const CategoryLocationPage = () => {
   const params = useParams();
   
-  // Get category and location from either URL format
-  const categorySlug = params.category || params["category-in-location"]?.split("-in-")[0];
-  const locationSlug = params.location || params["category-in-location"]?.split("-in-")[1];
+  // Get category and location from URL parameters
+  const categorySlug = params.category;
+  const locationSlug = params.location;
   
   // Find the category data
   const categoryData = categories.find(cat => cat.link === categorySlug);

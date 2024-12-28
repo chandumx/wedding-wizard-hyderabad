@@ -17,7 +17,6 @@ function App() {
       <Route path="/location/:location" element={<LocationPage />} />
       <Route path="/location/:location/:subLocation" element={<SubLocationPage />} />
       <Route path="/category/:category/location/:location" element={<CategoryLocationPage />} />
-      <Route path="/:category-in-:location" element={<CategoryLocationPage />} />
       <Route path="*" element={<Index />} />
     </Routes>
   );
